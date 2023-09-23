@@ -12,6 +12,7 @@
     "dev:carrerlog": "turbo run dev --scope=kosotu-carrerlog",
     "dev:devlog": "turbo run dev --scope=kosotu-devlog",
     "start": "turbo run start",
+    "sb:ui": "cd packages/ui && pnpm run storybook",
     "lint": "turbo run lint",
     "clean": "turbo run clean"
   },
