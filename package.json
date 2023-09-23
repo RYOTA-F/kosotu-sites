@@ -9,8 +9,8 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "dev:app": "turbo run dev --scope=app",
     "dev:carrerlog": "turbo run dev --scope=kosotu-carrerlog",
+    "dev:devlog": "turbo run dev --scope=kosotu-devlog",
     "start": "turbo run start",
     "lint": "turbo run lint",
     "clean": "turbo run clean"

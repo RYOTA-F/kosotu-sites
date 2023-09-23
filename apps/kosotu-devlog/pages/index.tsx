@@ -1,3 +1,3 @@
 export default function Index() {
-  return <h1>kosotu-carrer-log</h1>
+  return <h1>kosotu-devlog</h1>
 }
