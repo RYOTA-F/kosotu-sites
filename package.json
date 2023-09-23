@@ -9,6 +9,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "dev:app": "turbo run dev --scope=app",
     "start": "turbo run start",
     "lint": "turbo run lint",
     "clean": "turbo run clean"
