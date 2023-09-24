@@ -8,7 +8,8 @@
     "lint": "TIMING=1 eslint \"**/*.{ts,tsx,js,jsx}\" --fix",
     "clean": "rm -rf .turbo",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test": "vitest --ui"
   },
   "sideEffects": false,
   "type": "module",
@@ -56,13 +57,24 @@
     "@storybook/react": "^7.4.4",
     "@storybook/react-vite": "^7.4.4",
     "@storybook/testing-library": "^0.2.1",
+    "@testing-library/jest-dom": "^6.1.3",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.5.1",
     "@types/react": "latest",
+    "@vitejs/plugin-react": "^4.0.4",
+    "@vitest/browser": "^0.34.5",
+    "@vitest/ui": "^0.34.5",
     "eslint": "^8.11.0",
     "eslint-plugin-storybook": "^0.6.14",
+    "extend-expect": "link:@testing-library/jest-dom/extend-expect",
+    "happy-dom": "^12.1.6",
+    "jest-extended": "^4.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.4.4",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.5"
   },
   "eslintConfig": {
     "extends": [
