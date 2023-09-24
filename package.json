@@ -14,7 +14,8 @@
     "start": "turbo run start",
     "sb:ui": "cd packages/ui && pnpm run storybook",
     "lint": "turbo run lint",
-    "clean": "turbo run clean"
+    "clean": "turbo run clean",
+    "test:ui": "cd packages/ui && pnpm run test"
   },
   "devDependencies": {
     "eslint": "^8.28.0",
