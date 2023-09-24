@@ -83,7 +83,7 @@ importers:
         specifier: latest
         version: 18.2.22
       autoprefixer:
-        specifier: ^10.4.12
+        specifier: ^10.4.16
         version: 10.4.16(postcss@8.4.30)
       eslint:
         specifier: ^8.11.0
@@ -92,10 +92,10 @@ importers:
         specifier: canary
         version: 13.5.3-canary.3(eslint@8.50.0)(typescript@4.8.4)
       postcss:
-        specifier: ^8.4.18
+        specifier: ^8.4.30
         version: 8.4.30
       tailwindcss:
-        specifier: ^3.2.1
+        specifier: ^3.3.3
         version: 3.3.3
       typescript:
         specifier: 4.8.4
