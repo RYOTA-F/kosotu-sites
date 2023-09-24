@@ -1,6 +1,11 @@
-import { ButtonProps } from './Button.type'
+import { ButtonProps } from './Button.types'
 import { Button as MuiButton } from '@mui/material'
+import { ARIA_LABEL } from '.'
 
 export function Button({ children, onClick }: ButtonProps) {
-  return <MuiButton onClick={onClick}>{children}</MuiButton>
+  return (
+    <MuiButton aria-label={ARIA_LABEL.BUTTON} onClick={onClick}>
+      {children}
+    </MuiButton>
+  )
 }
