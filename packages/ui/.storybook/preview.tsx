@@ -1,6 +1,7 @@
 import React from 'react'
 import type { Preview, StoryFn } from '@storybook/react'
 import { MantineProvider } from '@mantine/core'
+import '@mantine/core/styles.css'
 
 const preview: Preview = {
   parameters: {

@@ -1,8 +1,5 @@
-import '@mantine/core/styles.css'
 import { Button as ManButton } from '@mantine/core'
-
-import { ButtonProps } from './Button.types'
-import { ARIA_LABEL } from '.'
+import { ButtonProps, ARIA_LABEL } from '.'
 
 export function Button({ children, onClick }: ButtonProps) {
   return (
