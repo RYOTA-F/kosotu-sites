@@ -23,6 +23,12 @@ importers:
 
   apps/kosotu-carrerlog:
     dependencies:
+      '@mantine/core':
+        specifier: ^7.0.0
+        version: 7.0.0(@mantine/hooks@7.0.0)(@types/react@18.2.23)(react-dom@18.2.0)(react@18.2.0)
+      '@mantine/hooks':
+        specifier: ^7.0.0
+        version: 7.0.0(react@18.2.0)
       next:
         specifier: canary
         version: 13.5.4-canary.8(react-dom@18.2.0)(react@18.2.0)
@@ -54,6 +60,12 @@ importers:
       postcss:
         specifier: ^8.4.30
         version: 8.4.30
+      postcss-preset-mantine:
+        specifier: ^1.7.0
+        version: 1.7.0(postcss@8.4.30)
+      postcss-simple-vars:
+        specifier: ^7.0.1
+        version: 7.0.1(postcss@8.4.30)
       tailwindcss:
         specifier: ^3.3.3
         version: 3.3.3
