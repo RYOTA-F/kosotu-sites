@@ -1,0 +1,45 @@
+.container {
+  background-color: #5e6c77;
+  padding: 1rem;
+  color: white;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+}
+
+.menuItem {
+  border-right: 1px solid;
+  padding: 0 0.75rem;
+  list-style: none;
+}
+
+.menuItem > a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menuItem:first-of-type {
+  border-left: 1px solid;
+}
+
+.linkText {
+  font-size: 14px;
+}
+
+.copyContainer {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copyMark {
+  margin-right: 0.25rem;
+  font-size: 1rem;
+}
+
+.copyText {
+  font-size: 12px;
+}

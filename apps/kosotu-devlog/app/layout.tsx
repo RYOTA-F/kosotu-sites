@@ -1,7 +1,11 @@
-import { MantineProvider } from '@mantine/core'
-import '@mantine/core/styles.css'
-import 'public/globals.css'
+// const
+import { SITE_NAME } from 'const/global'
+import { SUB_MENU_LIST } from 'const/menu'
 import { METADATA } from 'const/metadata'
+// components
+import { Footer } from 'ui/components/blogs/Footer'
+// styles
+import 'public/globals.css'
 
 export const metadata = {
   title: METADATA.TITLE,
@@ -16,7 +20,8 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
-        <MantineProvider>{children}</MantineProvider>
+        {children}
+        <Footer siteName={SITE_NAME} menuList={SUB_MENU_LIST} />
       </body>
     </html>
   )
