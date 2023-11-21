@@ -19,7 +19,7 @@ export function AccordionMenu({ label, path, menuList }: AccordionMenuProps) {
       <a href={path} className={style.menuLink}>
         {label}
       </a>
-      {isOpen && menuList.length && (
+      {isOpen && !!menuList.length && (
         <ul className={style.subMenu} aria-label={ARIA_LABEL.MENU_CONTAINER}>
           {menuList.map((v) => (
             <li key={v.label} className={style.subMenuItem}>

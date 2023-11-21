@@ -17,3 +17,30 @@ export const SUB_MENU = {
 } as const
 
 export const SUB_MENU_LIST = Object.values(SUB_MENU)
+
+export const dymmyMenu = [
+  {
+    label: 'フロントエンド',
+    url: '/categories/frontend',
+    children: [
+      {
+        label: 'React',
+        url: '/categories/react',
+      },
+      {
+        label: 'Vue.js',
+        url: '/categories/vue',
+      },
+    ],
+  },
+  {
+    label: 'サイトマップ',
+    url: '/sitemap',
+    children: [],
+  },
+  {
+    label: 'プロフィール',
+    url: '/profile',
+    children: [],
+  },
+]

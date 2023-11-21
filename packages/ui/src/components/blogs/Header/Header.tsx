@@ -33,7 +33,7 @@ export function Header({
         <a href="/">
           <h1 className={style.headerTitle}>{siteName}</h1>
         </a>
-        {globalMenu && (
+        {!!globalMenu.length && (
           <ul className={style.menu}>
             {globalMenu.map((v) => (
               <li key={v.label}>

@@ -1,6 +1,6 @@
 // const
 import { SITE_NAME, CHATCH_PHRASE } from 'const/global'
-import { SUB_MENU_LIST } from 'const/menu'
+import { SUB_MENU_LIST, dymmyMenu } from 'const/menu'
 import { METADATA } from 'const/metadata'
 // components
 import { Header } from 'ui/components/blogs/Header'
@@ -20,22 +20,7 @@ export default function RootLayout({
           siteName={SITE_NAME}
           catchPhrase={CHATCH_PHRASE}
           // TODO: fetchに変更
-          globalMenu={[
-            {
-              label: 'フロントエンド',
-              url: '/categories/frontend',
-              children: [
-                {
-                  label: 'React',
-                  url: '/categories/react',
-                },
-                {
-                  label: 'Vue.js',
-                  url: '/categories/vue',
-                },
-              ],
-            },
-          ]}
+          globalMenu={dymmyMenu}
         />
         {children}
         <Footer siteName={SITE_NAME} menuList={SUB_MENU_LIST} />
