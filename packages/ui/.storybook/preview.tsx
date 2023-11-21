@@ -1,4 +1,5 @@
-import type { Preview } from '@storybook/react'
+import React from 'react'
+import type { Preview, StoryFn } from '@storybook/react'
 
 const preview: Preview = {
   parameters: {
@@ -11,5 +12,7 @@ const preview: Preview = {
     },
   },
 }
+
+export const decorators = [(Story: StoryFn) => <Story />]
 
 export default preview
