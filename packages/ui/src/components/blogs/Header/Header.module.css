@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  height: 22px;
+  padding-left: 7%;
+  padding-right: 7%;
+  background-color: #709dd8;
+}
+
+.catchPhrase {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: white;
+  font-size: 12px;
+}
+
+.socialLinks {
+  display: flex;
+}
+
+.socialLinkItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  height: 72px;
+  justify-content: space-between;
+  background-color: #709dd8;
+  padding-left: 7%;
+  padding-right: 7%;
+}
+
+.headerTitle {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  height: 100%;
+  line-height: 72px;
+  color: white;
+}

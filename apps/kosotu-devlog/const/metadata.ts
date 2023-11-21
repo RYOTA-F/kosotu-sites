@@ -1,4 +1,6 @@
+import { SITE_NAME } from './global'
+
 export const METADATA = {
-  TITLE: '高卒Devlog',
+  title: SITE_NAME,
   DESCRIPTION: 'Kosotu Devlog',
 } as const

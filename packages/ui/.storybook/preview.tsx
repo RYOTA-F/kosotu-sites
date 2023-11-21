@@ -1,7 +1,5 @@
 import React from 'react'
 import type { Preview, StoryFn } from '@storybook/react'
-import { MantineProvider } from '@mantine/core'
-import '@mantine/core/styles.css'
 
 const preview: Preview = {
   parameters: {
@@ -15,12 +13,6 @@ const preview: Preview = {
   },
 }
 
-export const decorators = [
-  (Story: StoryFn) => (
-    <MantineProvider>
-      <Story />
-    </MantineProvider>
-  ),
-]
+export const decorators = [(Story: StoryFn) => <Story />]
 
 export default preview
