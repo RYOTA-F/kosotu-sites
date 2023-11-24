@@ -4,15 +4,9 @@ import { articleCardMock } from './__mocks__'
 
 const meta: Meta<typeof ArticleCard> = {
   component: ArticleCard,
-  parameters: {
-    backgrounds: {
-      default: 'dark',
-      values: [{ name: 'dark', value: '#000000' }],
-    },
-  },
   decorators: [
     (Story) => (
-      <div style={{ height: '260px', width: '460px' }}>
+      <div style={{ width: '460px' }}>
         <Story />
       </div>
     ),

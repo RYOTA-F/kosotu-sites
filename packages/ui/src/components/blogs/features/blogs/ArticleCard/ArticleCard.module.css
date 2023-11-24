@@ -1,4 +1,4 @@
-.articleCard {
+.articleCard:hover {
   opacity: 0.7;
 }
 
@@ -9,6 +9,7 @@
 }
 
 .image {
+  display: block;
   width: 100%;
   height: auto;
   object-fit: cover;
