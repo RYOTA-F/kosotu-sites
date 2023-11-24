@@ -4,9 +4,9 @@ import { SITE_NAME, CHATCH_PHRASE, PROFILE_INFO } from 'const/global'
 import { METADATA } from 'const/metadata'
 import { SUB_MENU_LIST, dymmyMenu } from 'const/menu'
 // components
-import { Header } from 'ui/components/blogs/Header'
-import { Footer } from 'ui/components/blogs/Footer'
-import { ProfileInfo } from 'ui/components/blogs/ProfileInfo'
+import { Header } from 'ui/components/blogs/common/Header'
+import { Footer } from 'ui/components/blogs/common/Footer'
+import { ProfileInfo } from 'ui/components/blogs/common/ProfileInfo'
 // styles
 import 'public/globals.css'
 
@@ -43,8 +43,8 @@ export default function RootLayout({
             </aside>
           </div>
         </main>
+        <Footer siteName={SITE_NAME} menuList={SUB_MENU_LIST} />
       </body>
-      <Footer siteName={SITE_NAME} menuList={SUB_MENU_LIST} />
     </html>
   )
 }

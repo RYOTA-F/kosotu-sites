@@ -1,8 +1,8 @@
 import { ProfileInfoProps } from './ProfileInfo.types'
 import { ARIA_LABEL, DECORATION, BUTTON_LABEL } from './ProfileInfo.const'
 import style from './ProfileInfo.module.css'
-import { LinkButton } from '../../elements/LinkButton'
-import { TwitterSvg } from '../../elements/Svg'
+import { LinkButton } from '../../../elements/LinkButton'
+import { TwitterSvg } from '../../../elements/Svg'
 
 export function ProfileInfo({
   profilePath,
