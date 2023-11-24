@@ -1,8 +1,8 @@
-// import LinkButton from '@/components/Elements/LinkButton'
-import { TwitterSvg } from '../../elements/Svg'
 import { ProfileInfoProps } from './ProfileInfo.types'
 import { ARIA_LABEL, DECORATION, BUTTON_LABEL } from './ProfileInfo.const'
 import style from './ProfileInfo.module.css'
+import { LinkButton } from '../../elements/LinkButton'
+import { TwitterSvg } from '../../elements/Svg'
 
 export function ProfileInfo({
   profilePath,
@@ -39,7 +39,7 @@ export function ProfileInfo({
         ))}
       </div>
       <div className={style.buttonContainer}>
-        <a href={profilePath}>{BUTTON_LABEL}</a>
+        <LinkButton href={profilePath}>{BUTTON_LABEL}</LinkButton>
       </div>
       <div className={style.twitterContainer}>
         <a href={twitter.url} target="_blank">
