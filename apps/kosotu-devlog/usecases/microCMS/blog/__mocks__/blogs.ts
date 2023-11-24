@@ -1,4 +1,4 @@
-import { IBlog } from 'app/types/microCMS/blog'
+import { IBlog } from '../../../../types/microCMS/blog'
 import {
   blogBodyMock,
   blogCategoryMock,

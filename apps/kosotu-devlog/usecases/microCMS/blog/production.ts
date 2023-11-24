@@ -1,7 +1,7 @@
 import type { IMicroCmsUsecaseBlog } from '.'
-import type { IBlogsApiResponse } from 'app/types/microCMS/blog'
-import { API, MAX_BLOG_COUNT } from 'app/const/microCms'
-import { getTotalPage } from 'app/utils/getTotalPageCount'
+import type { IBlogsApiResponse } from '../../../types/microCMS/blog'
+import { API, MAX_BLOG_COUNT } from '../../../const/microCms'
+import { getTotalPage } from '../../../utils/getTotalPageCount'
 
 export class MicroCmsUsecaseBlogProd implements IMicroCmsUsecaseBlog {
   getBlogs: IMicroCmsUsecaseBlog['getBlogs'] = async (params) => {

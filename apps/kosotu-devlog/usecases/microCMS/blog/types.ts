@@ -1,9 +1,4 @@
-import type {
-  IBlog,
-  ITableOfContents,
-  IBreadCrumb,
-  ISeo,
-} from 'app/types/index'
+import type { IBlog, ITableOfContents, IBreadCrumb, ISeo } from '../../../types'
 
 export interface IGetBlogsParams {
   limit?: boolean

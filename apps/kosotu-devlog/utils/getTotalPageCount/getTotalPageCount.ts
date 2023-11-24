@@ -1,4 +1,4 @@
-import { MAX_BLOG_COUNT } from 'app/const/microCms'
+import { MAX_BLOG_COUNT } from '../../const/microCms'
 
 /**
  * ページ数の合計を取得

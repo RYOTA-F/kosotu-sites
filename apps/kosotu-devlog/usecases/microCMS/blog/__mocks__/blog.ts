@@ -1,4 +1,4 @@
-import { IBlog } from 'app/types/microCMS/blog'
+import { IBlog } from '../../../../types/microCMS/blog'
 
 export const blogBodyMock: IBlog['body'] = `
   <div style="margin-top: 60px; text-align: center;">
