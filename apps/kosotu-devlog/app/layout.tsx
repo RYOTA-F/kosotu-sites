@@ -1,8 +1,8 @@
 // const
-import { PAGE } from 'const/page'
-import { SITE_NAME, CHATCH_PHRASE, PROFILE_INFO } from 'const/global'
-import { SUB_MENU_LIST, dymmyMenu } from 'const/menu'
-import { METADATA } from 'const/metadata'
+import { PAGE } from 'app/const/page'
+import { SITE_NAME, CHATCH_PHRASE, PROFILE_INFO } from 'app/const/global'
+import { SUB_MENU_LIST, dymmyMenu } from 'app/const/menu'
+import { METADATA } from 'app/const/metadata'
 // components
 import { Header } from 'ui/components/blogs/common/Header'
 import { Footer } from 'ui/components/blogs/common/Footer'
