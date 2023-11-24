@@ -1,0 +1,15 @@
+.linkButton {
+  box-sizing: border-box;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background-color: #709dd8;
+  padding: 0.5rem 1.25rem;
+  color: #ffffff;
+  transition-duration: 300ms;
+}
+
+.linkButton:hover {
+  border-color: #709dd8;
+  background-color: #ffffff;
+  color: #709dd8;
+}
