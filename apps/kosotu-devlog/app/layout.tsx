@@ -1,12 +1,12 @@
 // const
-import { PAGE } from 'const/page'
-import { SITE_NAME, CHATCH_PHRASE, PROFILE_INFO } from 'const/global'
-import { SUB_MENU_LIST, dymmyMenu } from 'const/menu'
-import { METADATA } from 'const/metadata'
+import { PAGE } from '../const/page'
+import { SITE_NAME, CHATCH_PHRASE, PROFILE_INFO } from '../const/global'
+import { SUB_MENU_LIST, HEADER_MENU } from '../const/menu'
+import { METADATA } from '../const/metadata'
 // components
-import { Header } from 'ui/components/blogs/Header'
-import { Footer } from 'ui/components/blogs/Footer'
-import { ProfileInfo } from 'ui/components/blogs/ProfileInfo'
+import { Header } from 'ui/components/blogs/common/Header'
+import { Footer } from 'ui/components/blogs/common/Footer'
+import { ProfileInfo } from 'ui/components/blogs/common/ProfileInfo'
 // styles
 import 'public/globals.css'
 
@@ -21,8 +21,7 @@ export default function RootLayout({
         <Header
           siteName={SITE_NAME}
           catchPhrase={CHATCH_PHRASE}
-          // TODO: fetchに変更
-          globalMenu={dymmyMenu}
+          globalMenu={HEADER_MENU}
         />
         <main className="max-w-full overflow-x-hidden">
           <div className="flex justify-between py-[60px] tb:pt-5 px-[5%] tb:block sp:block">

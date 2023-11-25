@@ -1,5 +1,6 @@
 import React from 'react'
 import type { Preview, StoryFn } from '@storybook/react'
+import './reset.css'
 
 const preview: Preview = {
   parameters: {

@@ -1,0 +1,25 @@
+.article {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -2%;
+}
+
+.listItem {
+  width: 50%;
+  padding: 2%;
+}
+
+.listItemTablet {
+  padding: 1%;
+}
+
+.listItemMobile {
+  width: 95%;
+  padding: 0;
+  margin: auto;
+}
+
+.listItemMobileNotFirst {
+  margin-top: 4%;
+}

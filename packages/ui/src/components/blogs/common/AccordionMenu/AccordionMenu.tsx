@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ChevronRightSvg } from '../../elements/Svg'
+import { ChevronRightSvg } from '../../../elements/Svg'
 import { AccordionMenuProps } from './AccordionMenu.types'
 import { ARIA_LABEL } from './AccordionMenu.const'
 import style from './AccordionMenu.module.css'
