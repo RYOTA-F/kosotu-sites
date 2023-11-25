@@ -2,7 +2,7 @@
 import { PAGE } from 'const/page'
 import { SITE_NAME, CHATCH_PHRASE, PROFILE_INFO } from 'const/global'
 import { METADATA } from 'const/metadata'
-import { SUB_MENU_LIST, dymmyMenu } from 'const/menu'
+import { SUB_MENU_LIST, HEADER_MENU } from 'const/menu'
 // components
 import { Header } from 'ui/components/blogs/common/Header'
 import { Footer } from 'ui/components/blogs/common/Footer'
@@ -26,8 +26,7 @@ export default function RootLayout({
         <Header
           siteName={SITE_NAME}
           catchPhrase={CHATCH_PHRASE}
-          // TODO: fetchに変更
-          globalMenu={dymmyMenu}
+          globalMenu={HEADER_MENU}
         />
         <main className="max-w-full overflow-x-hidden">
           <div className="flex justify-between py-[60px] tb:pt-5 px-[5%] tb:block sp:block">
