@@ -2,7 +2,7 @@ import { ARIA_LABEL, ICON } from './Header.const'
 import { HeaderProps } from './Header.types'
 import style from './Header.module.css'
 import { AccordionMenu } from '../AccordionMenu'
-import { TwitterSvg } from '../../elements/Svg'
+import { TwitterSvg } from '../../../elements/Svg'
 
 export function Header({
   siteName,

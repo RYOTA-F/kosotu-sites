@@ -1,10 +1,10 @@
 import { describe, test, expect, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
-import { AccordionMenu, ARIA_LABEL } from './'
+import { AccordionMenu, ARIA_LABEL } from '.'
 import { accordionMenuMock } from './__mocks__'
 
-describe('Footer', () => {
+describe('AccordionMenu', () => {
   beforeEach(() => {
     render(<AccordionMenu {...accordionMenuMock} />)
   })

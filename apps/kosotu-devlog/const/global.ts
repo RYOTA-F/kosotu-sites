@@ -1,4 +1,4 @@
-import { TWITTER } from 'const/twitter'
+import { TWITTER } from './twitter'
 
 export const SITE_NAME = '高卒Devlog' as const
 

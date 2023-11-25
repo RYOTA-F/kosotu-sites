@@ -3,14 +3,24 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"],
+      "env": [
+        "NEXT_PUBLIC_API_ENDPOINT",
+        "NEXT_PUBLIC_API_KEY",
+        "NEXT_PUBLIC_IS_MOCK_BUILD"
+      ]
     },
     "test": {
       "dependsOn": ["^build"],
       "outputs": []
     },
     "lint": {
-      "outputs": []
+      "outputs": [],
+      "env": [
+        "NEXT_PUBLIC_API_ENDPOINT",
+        "NEXT_PUBLIC_API_KEY",
+        "NEXT_PUBLIC_IS_MOCK_BUILD"
+      ]
     },
     "dev": {
       "cache": false
