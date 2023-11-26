@@ -10,4 +10,5 @@ export const API = {
   },
 } as const
 
-export const MAX_ARTICEL_COUNT = 10
+export const MAX_ARTICEL_COUNT = 10 as const
+export const OFFSET_ZERO = 0 as const
