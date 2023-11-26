@@ -1,0 +1,32 @@
+{
+  "name": "usecase",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": [
+      "./src/*.ts",
+      "./src/*.tsx",
+      "./src/*/index.ts"
+    ],
+    "./tailwind": {
+      "require": "./src/tailwind.cjs"
+    }
+  },
+  "files": [
+    "src"
+  ],
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*",
+        "src/*/index"
+      ]
+    }
+  },
+  "dependencies": {
+    "typescript": "latest",
+    "type": "workspace:*"
+  }
+}
