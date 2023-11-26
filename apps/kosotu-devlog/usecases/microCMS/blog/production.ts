@@ -1,11 +1,9 @@
 import type { IMicroCmsUsecaseBlog } from '.'
-import type { IBlogsApiResponse } from '../../../types/microCMS/blog'
-import { API, MAX_BLOG_COUNT } from '../../../const/microCms'
-import { getTotalPage } from '../../../utils/getTotalPageCount'
+import { API, MAX_ARTICEL_COUNT } from '../../../const/microCms'
 
 export class MicroCmsUsecaseBlogProd implements IMicroCmsUsecaseBlog {
   getBlogs: IMicroCmsUsecaseBlog['getBlogs'] = async (params) => {
-    const limit = params?.limit ? MAX_BLOG_COUNT : 9999
+    const limit = params?.limit ? MAX_ARTICEL_COUNT : 9999
     const offset = params?.offset ? params?.offset : 0
 
     const res = await fetch(
@@ -17,14 +15,12 @@ export class MicroCmsUsecaseBlogProd implements IMicroCmsUsecaseBlog {
         },
       }
     )
-    const blogs: IBlogsApiResponse = await res.json()
 
-    // ページ数の合計を取得
-    const totalPage = getTotalPage(blogs.totalCount)
+    const blogs = await res.json()
 
     return {
       blogs: blogs.contents,
-      totalPage,
+      totalCount: blogs.totalCount,
     }
   }
 

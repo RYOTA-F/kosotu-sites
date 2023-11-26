@@ -3,7 +3,7 @@ import { blogsMock } from './blogs'
 
 export const getBlogsMock: IGetBlogsResponse = {
   blogs: blogsMock,
-  totalPage: 3,
+  totalCount: 3,
 }
 
 export * from './blogs'

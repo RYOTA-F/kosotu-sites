@@ -10,4 +10,4 @@ export const API = {
   },
 } as const
 
-export const MAX_BLOG_COUNT = 10
+export const MAX_ARTICEL_COUNT = 10

@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['ui'],
+  transpilePackages: ['ui', 'logic', 'type'],
 }
 
 module.exports = nextConfig

@@ -1,4 +1,4 @@
-import type { IBlog, ITableOfContents, IBreadCrumb, ISeo } from '../../../types'
+import { IBlog, ITableOfContents, IBreadCrumb, ISeo } from 'type/microCMS'
 
 export interface IGetBlogsParams {
   limit?: boolean
@@ -7,7 +7,7 @@ export interface IGetBlogsParams {
 
 export interface IGetBlogsResponse {
   blogs: IBlog[]
-  totalPage: number
+  totalCount: number
 }
 
 export type TGetBlogByIdParams = string
