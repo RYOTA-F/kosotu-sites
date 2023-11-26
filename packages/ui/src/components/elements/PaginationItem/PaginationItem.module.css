@@ -1,0 +1,27 @@
+.paginationItem {
+  height: 36px;
+  width: 36px;
+  line-height: 36px;
+  text-align: center;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.currentPage {
+  border-radius: 4px;
+  background: #709dd8;
+}
+
+.othersPage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: rgb(222 222 222);
+}
+
+.othersPage:hover {
+  background: #709dd8;
+  transition: all;
+  transition-duration: 250ms;
+}
