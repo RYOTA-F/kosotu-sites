@@ -1,4 +1,4 @@
-import { useArticles } from '../hooks/useArticles'
+import { useArticles } from 'hooks/useArticles'
 import { ArticleCardList } from 'ui/components/blogs/features/blogs/ArticleCardList'
 
 export default async function Index() {

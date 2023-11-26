@@ -23,7 +23,7 @@ export class MicroCmsUsecaseBlog {
       {
         method: 'GET',
         headers: {
-          'X-API-KEY': this.apiKey || '',
+          'X-API-KEY': this.apiKey,
         },
       }
     )
