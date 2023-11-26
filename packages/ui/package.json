@@ -1,8 +1,6 @@
 {
   "name": "ui",
   "version": "0.0.1",
-  "repository": "https://github.com/vercel/examples.git",
-  "license": "MIT",
   "private": true,
   "scripts": {
     "lint": "TIMING=1 eslint \"**/*.{ts,tsx,js,jsx}\" --fix",

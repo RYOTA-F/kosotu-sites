@@ -1,5 +1,5 @@
-import { GOOGLE_FORM } from './contact'
-import { PAGE } from './page'
+import { GOOGLE_FORM } from 'const/contact'
+import { PAGE } from 'const/page'
 
 export const HEADER_MENU = [
   {

@@ -1,4 +1,4 @@
-import { SITE_NAME } from './global'
+import { SITE_NAME } from 'const/global'
 
 export const METADATA = {
   title: SITE_NAME,
