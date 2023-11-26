@@ -3,16 +3,16 @@ import { PagePathsLogicType } from './pagePathsLogic.types'
 
 export class PagePathsLogic {
   constructor(
-    private totalArticleCount: number,
+    private totalPage: number,
     private type: PagePathsLogicType,
     private slug?: string
   ) {}
 
   execute() {
-    if (this.totalArticleCount <= 0) return []
+    if (this.totalPage <= 0) return []
 
-    const pageCount = this.totalArticleCount - 1
-    const pageNumbers = [...new Array(pageCount).keys()].map((_, i) => i + 2)
+    const pageCount = this.totalPage - 1
+    const pageNumbers = Array.from({ length: pageCount }, (_, i) => i + 2)
 
     switch (this.type) {
       case 'home':
