@@ -1,4 +1,6 @@
 import { generateStaticParams } from './generateStaticParams'
+import { useArticles } from 'hooks/useArticles'
+import { ArticleDetailHeader } from 'ui/components/blogs/features/articles/ArticleDetailHeader/ArticleDetailHeader'
 
 interface ArticlePageParams {
   params: {
@@ -9,7 +11,14 @@ interface ArticlePageParams {
 export default async function ArticlePage({
   params: { id },
 }: ArticlePageParams) {
-  return <>ArticlePage</>
+  const { getArticleById } = useArticles()
+  const { article } = await getArticleById(id)
+
+  return (
+    <>
+      <ArticleDetailHeader article={article} />
+    </>
+  )
 }
 
 export { generateStaticParams }

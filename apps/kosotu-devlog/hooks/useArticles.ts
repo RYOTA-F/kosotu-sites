@@ -9,7 +9,7 @@ import { MicroCmsUsecaseBlog } from 'usecase/microCMS/blog'
  */
 export const useArticles = () => {
   /**
-   * ブログ一覧取得
+   * ブログ記事一覧を取得
    */
   const getArticles = async (id?: string) => {
     const offset = new ArticleOffsetCountLogic(id, MAX_ARTICEL_COUNT).execute()
@@ -34,7 +34,21 @@ export const useArticles = () => {
     return { articles, totalPageCount }
   }
 
+  /**
+   * IDを指定してブログ記事を一件取得
+   */
+  const getArticleById = async (id: string) => {
+    const { blog } = await new MicroCmsUsecaseBlog(
+      process.env.NEXT_PUBLIC_API_KEY || '',
+      process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+      API.BLOG.END_POINT
+    ).getBlogById({ id })
+
+    return { article: blog }
+  }
+
   return {
     getArticles,
+    getArticleById,
   }
 }

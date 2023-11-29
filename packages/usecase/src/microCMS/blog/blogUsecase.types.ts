@@ -10,3 +10,11 @@ export interface MicroCmsUsecaseBlogGetBlogsResponse {
   blogs: IBlog[]
   totalCount: number
 }
+
+export interface MicroCmsUsecaseBlogGetBlogByIdParams {
+  id: string
+}
+
+export interface MicroCmsUsecaseBlogGetBlogByIdResponse {
+  blog: IBlog
+}

@@ -40,7 +40,9 @@
   },
   "dependencies": {
     "@swc/helpers": "^0.4.12",
-    "clsx": "^1.1.1"
+    "clsx": "^1.1.1",
+    "type": "workspace:*",
+    "logic": "workspace:*"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.4.4",

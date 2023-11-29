@@ -26,7 +26,8 @@
     }
   },
   "dependencies": {
-    "typescript": "latest",
-    "type": "workspace:*"
+    "dayjs": "^1.11.10",
+    "type": "workspace:*",
+    "typescript": "latest"
   }
 }

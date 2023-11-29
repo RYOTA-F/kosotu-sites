@@ -1,0 +1,60 @@
+.section {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.h1 {
+  color: gray;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.detailContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 1.25rem;
+}
+
+.categoryContainer {
+  margin-right: 1.25rem;
+}
+
+.tagContainer {
+  margin-right: 2rem;
+}
+
+.timeContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.timeItem {
+  margin-left: 0.25rem;
+  color: #718096;
+  font-size: 1rem;
+}
+
+.figure {
+  margin-top: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.div {
+  margin-top: 8px;
+}
+
+.p {
+  margin-top: 3px;
+  white-space: pre-wrap;
+  line-height: 2.2;
+}
