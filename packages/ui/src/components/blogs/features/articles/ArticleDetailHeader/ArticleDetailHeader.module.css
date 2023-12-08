@@ -4,7 +4,7 @@
 }
 
 .h1 {
-  color: gray;
+  color: #5e6c77;
   font-size: 24px;
   font-weight: bold;
 }
@@ -37,7 +37,7 @@
 }
 
 .figure {
-  margin-top: 5px;
+  margin-top: 20px;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);

@@ -2,11 +2,11 @@ import { describe, test, expect, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
 import { CategoryList, ARIA_LABEL } from '.'
-// import { CategoryListMock } from './__mocks__'
+import { categoriesMock } from './__mocks__'
 
 describe('CategoryList', () => {
   beforeEach(() => {
-    render(<CategoryList categories={[]} />)
+    render(<CategoryList categories={categoriesMock} />)
   })
 
   test('描画される', () => {

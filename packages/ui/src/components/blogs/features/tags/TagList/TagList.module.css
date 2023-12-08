@@ -1,17 +1,17 @@
-.container {
+.tagList {
   display: flex;
   align-items: center;
 }
 
-.iconContainer {
+.svgContainer {
   margin-right: 8px;
   margin-bottom: 4px;
 }
 
-.listItem {
+.tagItem {
   margin-left: 2rem;
 }
 
-.listItem:first-of-type {
+.tagItem:first-of-type {
   margin-left: 0;
 }

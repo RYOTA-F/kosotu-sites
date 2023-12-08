@@ -3,6 +3,7 @@ import { ArticleDetailHeaderProps } from './ArticleDetailHeader.types'
 import style from './ArticleDetailHeader.module.css'
 import { TimeSvg } from '../../../../elements/Svg'
 import { CategoryList } from '../../categories/CategoryList'
+import { TagList } from '../../tags/TagList'
 import { DateFormatLogic } from 'logic/blogs/common/date/formatDateLogic'
 
 export function ArticleDetailHeader({
@@ -22,7 +23,7 @@ export function ArticleDetailHeader({
           <CategoryList categories={[article.categories[0]]} />
         </div>
         <div className={style.tagContainer}>
-          {/* <TagList tags={blog.tags} /> */}
+          <TagList tags={article.tags} />
         </div>
         <div className={style.timeContainer}>
           <TimeSvg height={ICON.TIME_ICON_SIZE} width={ICON.TIME_ICON_SIZE} />
