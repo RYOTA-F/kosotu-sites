@@ -119,8 +119,8 @@ importers:
         specifier: ^1.11.10
         version: 1.11.10
       highlight.js:
-        specifier: ^11.9.0
-        version: 11.9.0
+        specifier: 11.7.0
+        version: 11.7.0
       type:
         specifier: workspace:*
         version: link:../type
@@ -131,6 +131,9 @@ importers:
       '@types/cheerio':
         specifier: ^0.22.35
         version: 0.22.35
+      '@types/highlight.js':
+        specifier: ^10.1.0
+        version: 10.1.0
 
   packages/type:
     dependencies:
@@ -147,8 +150,8 @@ importers:
         specifier: ^1.1.1
         version: 1.2.1
       highlight.js:
-        specifier: ^11.9.0
-        version: 11.9.0
+        specifier: 11.7.0
+        version: 11.7.0
       logic:
         specifier: workspace:*
         version: link:../logic
@@ -192,6 +195,9 @@ importers:
       '@testing-library/user-event':
         specifier: ^14.5.1
         version: 14.5.1(@testing-library/dom@9.3.3)
+      '@types/highlight.js':
+        specifier: ^10.1.0
+        version: 10.1.0
       '@types/react':
         specifier: latest
         version: 18.2.42
@@ -3953,6 +3959,13 @@ packages:
       '@types/node': 18.17.18
     dev: true
 
+  /@types/highlight.js@10.1.0:
+    resolution: {integrity: sha512-77hF2dGBsOgnvZll1vymYiNUtqJ8cJfXPD6GG/2M0aLRc29PkvB7Au6sIDjIEFcSICBhCh2+Pyq6WSRS7LUm6A==}
+    deprecated: This is a stub types definition. highlight.js provides its own type definitions, so you do not need this installed.
+    dependencies:
+      highlight.js: 11.7.0
+    dev: true
+
   /@types/http-errors@2.0.2:
     resolution: {integrity: sha512-lPG6KlZs88gef6aD85z3HNkztpj7w2R7HmR3gygjfXCQmsLloWNARFkMuzKiiY8FGdh1XDpgBdrSf4aKDiA7Kg==}
     dev: true
@@ -6689,10 +6702,9 @@ packages:
       function-bind: 1.1.1
     dev: true
 
-  /highlight.js@11.9.0:
-    resolution: {integrity: sha512-fJ7cW7fQGCYAkgv4CPfwFHrfd/cLS4Hau96JuJ+ZTOWhjnhoeN1ub1tFmALm/+lW5z4WCAuAV9bm05AP0mS6Gw==}
+  /highlight.js@11.7.0:
+    resolution: {integrity: sha512-1rRqesRFhMO/PRF+G86evnyJkCgaZFOI+Z6kdj15TA18funfoqJXvgPCLSf0SWq3SRfg1j3HlDs8o4s3EGq1oQ==}
     engines: {node: '>=12.0.0'}
-    dev: false
 
   /hosted-git-info@2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}

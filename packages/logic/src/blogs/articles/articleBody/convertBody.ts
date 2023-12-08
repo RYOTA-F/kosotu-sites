@@ -1,5 +1,5 @@
 import cheerio from 'cheerio'
-import highlightjs from 'highlight.js'
+import hljs from 'highlight.js' // 11.7.0でないと動かない SyntaxError: Invalid regular expression: /(?!-)([!#\$%&*+.\\/<=>?@\\\\^~-]|(?!([(),;\\[\\]\`|{}]|[_:"']))(\\p{S}|\\p{P}))--+|--+(?!-)([!#\$%&*+.\\/<=>?@\\\\^~-]|(?!([(),;\\[\\]\`|{}]|[_:"']))(\\p{S}|\\p{P}))/: Invalid escape
 import { IBlog, IBlogCardData } from 'type/microCMS'
 import { TWITTER, CLASS_NAME, NO_IMAGE_PATH } from './convertBody.const'
 
@@ -18,17 +18,18 @@ export class PerseArticleBodyLogic {
 
     // コードブロックをパース
     $('pre code').each((_, element) => {
-      const result = highlightjs.highlightAuto($(element).text())
+      const result = hljs.highlightAuto($(element).text())
       $(element).html(result.value)
       $(element).addClass('hljs')
     })
 
-    // ブログカード情報を取得
-    const blogCardDatas = await this.getBlogCardDatas()
-    // ブログカードにパース
-    $('a').each((i, element) => {
-      $(element).replaceWith(this.getBlogCardDom(blogCardDatas[i]))
-    })
+    // TODO: CSS適用
+    // // ブログカード情報を取得
+    // const blogCardDatas = await this.getBlogCardDatas()
+    // // ブログカードにパース
+    // $('a').each((i, element) => {
+    //   $(element).replaceWith(this.getBlogCardDom(blogCardDatas[i]))
+    // })
 
     return { body: $.html() }
   }
