@@ -2,7 +2,7 @@ import { API, MAX_ARTICEL_COUNT } from 'const/microCms'
 import { PaginationLogic } from 'logic/blogs/articles/pagination'
 import { ArticleCardListLogic } from 'logic/blogs/articles/cardList'
 import { ArticleOffsetCountLogic } from 'logic/blogs/articles/offsetCount'
-import { PerseArticleBodyLogic } from 'logic/blogs/articles/articleBody/convertBody'
+// import { PerseArticleBodyLogic } from 'logic/blogs/articles/articleBody/convertBody'
 import { TableOfContentsLogic } from 'logic/blogs/articles/tableOfContants/tableOfContentsLogic'
 import { MicroCmsUsecaseBlog } from 'usecase/microCMS/blog'
 
@@ -46,14 +46,14 @@ export const useArticles = () => {
       API.BLOG.END_POINT
     ).getBlogById({ id })
 
-    const { body } = await new PerseArticleBodyLogic(blog.body).execute()
+    // const { body } = await new PerseArticleBodyLogic(blog.body).execute()
 
     const { tableOfContents } = new TableOfContentsLogic(blog.body).execute()
 
     return {
       article: {
         ...blog,
-        body,
+        // body,
       },
       tableOfContents,
     }
