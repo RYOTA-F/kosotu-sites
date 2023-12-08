@@ -13,6 +13,7 @@ export class PerseArticleBodyLogic {
    * パースを実行
    */
   async execute() {
+    // @ts-ignore
     const $ = cheerio.load(this.articleBody, { _useHtmlParser2: true })
 
     // コードブロックをパース
@@ -36,6 +37,7 @@ export class PerseArticleBodyLogic {
    * ブログカード情報を取得
    */
   private async getBlogCardDatas() {
+    // @ts-ignore
     const $ = cheerio.load(this.articleBody, { _useHtmlParser2: true })
 
     const convertLinks = $('a')
