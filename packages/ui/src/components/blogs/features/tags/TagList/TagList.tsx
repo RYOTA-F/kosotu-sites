@@ -6,7 +6,7 @@ import style from './TagList.module.css'
 
 export function TagList({ tags }: TagListProps) {
   return (
-    <ul className={style.tagList}>
+    <ul aria-label={ARIA_LABEL.TAG_LIST} className={style.tagList}>
       <div className={style.svgContainer}>
         <TagSvg height={SVG.SIZE} width={SVG.SIZE} color={SVG.COLOR} />
       </div>
