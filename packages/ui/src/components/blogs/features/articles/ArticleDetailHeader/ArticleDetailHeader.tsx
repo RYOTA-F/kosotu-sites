@@ -51,17 +51,15 @@ export function ArticleDetailHeader({
           className={style.img}
         />
       </figure>
-      <div className={style.div}>
-        {welcomeMessage && <p>{welcomeMessage}</p>}
-        {thanksMessage && <p className={style.p}>{thanksMessage}</p>}
-        <p className={style.p}>{article.description}</p>
+      <div className={style.message}>
+        {welcomeMessage && (
+          <p className={style.welcomeMessage}>{welcomeMessage}</p>
+        )}
+        {thanksMessage && (
+          <p className={style.thanksMessage}>{thanksMessage}</p>
+        )}
+        <p className={style.description}>{article.description}</p>
       </div>
-
-      {/* {tableOfContents.length && (
-        <div className="w-[90%] sp:w-full mt-8 mx-auto">
-          <TableOfContents tableOfContents={tableOfContents} />
-        </div>
-      )} */}
     </section>
   )
 }

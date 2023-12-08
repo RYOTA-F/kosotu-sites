@@ -1,6 +1,7 @@
 .section {
   padding-left: 10px;
   padding-right: 10px;
+  color: rgb(99 112 123);
 }
 
 .h1 {
@@ -49,12 +50,19 @@
   height: auto;
 }
 
-.div {
-  margin-top: 8px;
+.message {
+  padding: 0 5%;
 }
 
-.p {
-  margin-top: 3px;
-  white-space: pre-wrap;
-  line-height: 2.2;
+.welcomeMessage {
+  margin-top: 32px;
+  line-height: 2;
+}
+
+.thanksMessage {
+  line-height: 2;
+}
+
+.description {
+  line-height: 2;
 }

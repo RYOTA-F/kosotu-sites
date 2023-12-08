@@ -1,6 +1,7 @@
 import { generateStaticParams } from './generateStaticParams'
 import { useArticles } from 'hooks/useArticles'
 import { ArticleDetailHeader } from 'ui/components/blogs/features/articles/ArticleDetailHeader/ArticleDetailHeader'
+import { ARTICLE_DETAIL_HEADER } from 'const/article/contents'
 
 interface ArticlePageParams {
   params: {
@@ -16,7 +17,11 @@ export default async function ArticlePage({
 
   return (
     <>
-      <ArticleDetailHeader article={article} />
+      <ArticleDetailHeader
+        article={article}
+        welcomeMessage={ARTICLE_DETAIL_HEADER.WELCOME_MESSAGE}
+        thanksMessage={ARTICLE_DETAIL_HEADER.THANKS_MESSAGE}
+      />
     </>
   )
 }
