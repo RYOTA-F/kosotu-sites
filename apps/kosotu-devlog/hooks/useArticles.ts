@@ -2,6 +2,7 @@ import { API, MAX_ARTICEL_COUNT } from 'const/microCms'
 import { PaginationLogic } from 'logic/blogs/articles/pagination'
 import { ArticleCardListLogic } from 'logic/blogs/articles/cardList'
 import { ArticleOffsetCountLogic } from 'logic/blogs/articles/offsetCount'
+import { TableOfContentsLogic } from 'logic/blogs/articles/tableOfContants/tableOfContentsLogic'
 import { MicroCmsUsecaseBlog } from 'usecase/microCMS/blog'
 
 /**
@@ -44,7 +45,12 @@ export const useArticles = () => {
       API.BLOG.END_POINT
     ).getBlogById({ id })
 
-    return { article: blog }
+    const { tableOfContents } = new TableOfContentsLogic(blog.body).execute()
+
+    return {
+      article: blog,
+      tableOfContents,
+    }
   }
 
   return {
