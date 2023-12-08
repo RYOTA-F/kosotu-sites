@@ -11,10 +11,12 @@ export class TableOfContentsLogic {
    * 目次に変換
    */
   execute() {
+    // @ts-ignore
     const $ = cheerio.load(this.blogBody, { _useHtmlParser2: true })
 
     const tableOfContents: ITableOfContents[] = $('h2, h3')
       .toArray()
+      // @ts-ignore
       .map((element: cheerio.Element) => ({
         // @ts-ignore
         id: element.attribs.id,
