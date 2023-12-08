@@ -1,0 +1,26 @@
+.tagItem {
+  display: inline-block;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: #5e6c77;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: all 400ms;
+  font-size: 14px;
+}
+
+.tagItem:hover {
+  background-color: white;
+  border-color: #5e6c77;
+}
+
+.tagLink {
+  display: block;
+  color: white;
+  padding: 4px 8px;
+}
+
+.tagLink:hover {
+  color: #5e6c77;
+}
