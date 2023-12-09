@@ -87,6 +87,7 @@
 
 /* ul */
 .blogBody > ul {
+  margin: 16px 0;
   padding: 16px;
   color: #333333;
   background-color: #fcf9ee;
