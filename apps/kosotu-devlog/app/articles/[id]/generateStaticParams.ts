@@ -1,4 +1,4 @@
-import { API, MAX_ARTICEL_COUNT, OFFSET_ZERO } from 'const/microCms'
+import { API, FULL_ARTICEL_COUNT, OFFSET_ZERO } from 'const/microCms'
 import { MicroCmsUsecaseBlog } from 'usecase/microCMS/blog'
 import { ArticlePathsLogic } from 'logic/blogs/articles/articlePaths/articlePaths'
 
@@ -8,9 +8,9 @@ export async function generateStaticParams() {
     process.env.NEXT_PUBLIC_API_ENDPOINT || '',
     API.BLOG.END_POINT
   ).getBlogs({
-    limit: true,
+    limit: false,
     offset: OFFSET_ZERO,
-    maxArticleCount: MAX_ARTICEL_COUNT,
+    maxArticleCount: FULL_ARTICEL_COUNT,
   })
 
   return new ArticlePathsLogic(blogs).execute()
