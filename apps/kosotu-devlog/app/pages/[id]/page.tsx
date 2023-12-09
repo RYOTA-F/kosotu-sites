@@ -1,6 +1,6 @@
 import { generateStaticParams } from './generateStaticParams'
 import { useArticles } from 'hooks/useArticles'
-import { ArticleCardList } from 'ui/components/blogs/features/blogs/ArticleCardList'
+import { ArticleCardList } from 'ui/components/blogs/features/articles/ArticleCardList'
 import { Pagination } from 'ui/components/blogs/common/Pagination'
 
 interface PagesPageParams {

@@ -11,12 +11,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "logic": "workspace:*",
     "next": "canary",
     "react": "latest",
     "react-dom": "latest",
-    "ui": "workspace:*",
-    "logic": "workspace:*",
     "type": "workspace:*",
+    "ui": "workspace:*",
     "usecase": "workspace:*"
   },
   "devDependencies": {

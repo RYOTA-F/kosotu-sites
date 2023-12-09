@@ -2,6 +2,8 @@ import { API, MAX_ARTICEL_COUNT } from 'const/microCms'
 import { PaginationLogic } from 'logic/blogs/articles/pagination'
 import { ArticleCardListLogic } from 'logic/blogs/articles/cardList'
 import { ArticleOffsetCountLogic } from 'logic/blogs/articles/offsetCount'
+import { PerseArticleBodyLogic } from 'logic/blogs/articles/articleBody/convertBody'
+import { TableOfContentsLogic } from 'logic/blogs/articles/tableOfContants/tableOfContentsLogic'
 import { MicroCmsUsecaseBlog } from 'usecase/microCMS/blog'
 
 /**
@@ -9,7 +11,7 @@ import { MicroCmsUsecaseBlog } from 'usecase/microCMS/blog'
  */
 export const useArticles = () => {
   /**
-   * ブログ一覧取得
+   * ブログ記事一覧を取得
    */
   const getArticles = async (id?: string) => {
     const offset = new ArticleOffsetCountLogic(id, MAX_ARTICEL_COUNT).execute()
@@ -34,7 +36,31 @@ export const useArticles = () => {
     return { articles, totalPageCount }
   }
 
+  /**
+   * IDを指定してブログ記事を一件取得
+   */
+  const getArticleById = async (id: string) => {
+    const { blog } = await new MicroCmsUsecaseBlog(
+      process.env.NEXT_PUBLIC_API_KEY || '',
+      process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+      API.BLOG.END_POINT
+    ).getBlogById({ id })
+
+    const { body } = await new PerseArticleBodyLogic(blog.body).execute()
+
+    const { tableOfContents } = new TableOfContentsLogic(blog.body).execute()
+
+    return {
+      article: {
+        ...blog,
+        body,
+      },
+      tableOfContents,
+    }
+  }
+
   return {
     getArticles,
+    getArticleById,
   }
 }

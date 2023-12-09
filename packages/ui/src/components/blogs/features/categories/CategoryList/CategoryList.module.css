@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.iconContainer {
+  margin-right: 8px;
+  margin-bottom: 4px;
+}
+
+.listItem {
+  margin-left: 2rem;
+}
+
+.listItem:first-of-type {
+  margin-left: 0;
+}
