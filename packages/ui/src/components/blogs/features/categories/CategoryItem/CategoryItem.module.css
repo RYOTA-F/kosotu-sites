@@ -1,0 +1,27 @@
+.categoryItem {
+  display: inline-block;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: #709dd8;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: all 400ms;
+  font-size: 14px;
+}
+
+.categoryItem:hover {
+  background-color: #fff;
+  border-color: #709dd8;
+}
+
+.categoryLink {
+  display: block;
+  padding: 1px 2px;
+  color: white;
+  padding: 4px 8px;
+}
+
+.categoryLink:hover {
+  color: #709dd8;
+}

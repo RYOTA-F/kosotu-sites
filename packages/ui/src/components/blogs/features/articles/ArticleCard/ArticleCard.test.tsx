@@ -1,7 +1,7 @@
 import { describe, test, expect, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
-import { ArticleCard, ARIA_LABEL } from './'
+import { ArticleCard, ARIA_LABEL } from '.'
 import { articleCardMock } from './__mocks__'
 
 describe('ArticleCard', () => {

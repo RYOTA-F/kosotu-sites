@@ -26,7 +26,14 @@
     }
   },
   "dependencies": {
-    "typescript": "latest",
-    "type": "workspace:*"
+    "cheerio": "1.0.0-rc.12",
+    "dayjs": "^1.11.10",
+    "highlight.js": "11.7.0",
+    "type": "workspace:*",
+    "typescript": "latest"
+  },
+  "devDependencies": {
+    "@types/cheerio": "^0.22.35",
+    "@types/highlight.js": "^10.1.0"
   }
 }

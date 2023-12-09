@@ -1,0 +1,17 @@
+.tagList {
+  display: flex;
+  align-items: center;
+}
+
+.svgContainer {
+  margin-right: 8px;
+  margin-bottom: 4px;
+}
+
+.tagItem {
+  margin-left: 2rem;
+}
+
+.tagItem:first-of-type {
+  margin-left: 0;
+}
