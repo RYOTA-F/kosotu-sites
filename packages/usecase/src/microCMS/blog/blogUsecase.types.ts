@@ -1,4 +1,4 @@
-import { IBlog } from 'type/microCMS'
+import { Blog } from 'type/microCMS'
 
 export interface MicroCmsUsecaseBlogGetBlogsParams {
   limit: boolean
@@ -7,7 +7,7 @@ export interface MicroCmsUsecaseBlogGetBlogsParams {
 }
 
 export interface MicroCmsUsecaseBlogGetBlogsResponse {
-  blogs: IBlog[]
+  blogs: Blog[]
   totalCount: number
 }
 
@@ -16,5 +16,5 @@ export interface MicroCmsUsecaseBlogGetBlogByIdParams {
 }
 
 export interface MicroCmsUsecaseBlogGetBlogByIdResponse {
-  blog: IBlog
+  blog: Blog
 }

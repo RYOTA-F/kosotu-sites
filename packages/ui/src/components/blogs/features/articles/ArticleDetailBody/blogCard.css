@@ -117,8 +117,11 @@
 /* blogCardTwitter */
 
 /* twitter-tweet-rendered */
-.twitter-tweet-rendered {
+.twitter-tweet {
   margin: 0 auto;
+}
+
+.twitter-tweet > .twitter-tweet-rendered {
   cursor: pointer;
 }
 /* twitter-tweet-rendered */
