@@ -17,21 +17,35 @@ export class PerseArticleBodyLogic {
     const $ = cheerio.load(this.articleBody, { _useHtmlParser2: true })
 
     // コードブロックをパース
+    this.parseCodeBlock($)
+
+    // ブログカードにパース
+    await this.parseBlogCard($)
+
+    return { body: $.html() }
+  }
+
+  /**
+   * コードブロックをパース
+   */
+  private parseCodeBlock($: cheerio.Root) {
     $('pre code').each((_, element) => {
       const result = hljs.highlightAuto($(element).text())
       $(element).html(result.value)
       $(element).addClass('hljs')
     })
+  }
 
-    // TODO: CSS適用
-    // // ブログカード情報を取得
-    // const blogCardDatas = await this.getBlogCardDatas()
-    // // ブログカードにパース
-    // $('a').each((i, element) => {
-    //   $(element).replaceWith(this.getBlogCardDom(blogCardDatas[i]))
-    // })
+  /**
+   * ブログカードにパース
+   */
+  private async parseBlogCard($: cheerio.Root) {
+    // ブログカード情報を取得
+    const blogCardDatas = await this.getBlogCardDatas()
 
-    return { body: $.html() }
+    $('a').each((i, element) => {
+      $(element).replaceWith(this.getBlogCardDom(blogCardDatas[i]))
+    })
   }
 
   /**
