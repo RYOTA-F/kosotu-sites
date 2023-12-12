@@ -1,0 +1,18 @@
+.h1 {
+  width: 100%;
+  padding-left: 4px;
+  color: #5e6c77;
+  font-size: 24px;
+  font-weight: bold;
+  position: relative;
+}
+
+.border {
+  position: absolute;
+  content: '';
+  width: 100%;
+  bottom: -10px;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(to right, #709dd8, #fff);
+}
