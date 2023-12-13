@@ -28,7 +28,9 @@ export class PerseArticleBodyLogic {
   /**
    * コードブロックをパース
    */
+  // @ts-ignore
   private parseCodeBlock($: cheerio.Root) {
+    // @ts-ignore
     $('pre code').each((_, element) => {
       const result = hljs.highlightAuto($(element).text())
       $(element).html(result.value)
@@ -39,10 +41,12 @@ export class PerseArticleBodyLogic {
   /**
    * ブログカードにパース
    */
+  // @ts-ignore
   private async parseBlogCard($: cheerio.Root) {
     // ブログカード情報を取得
     const blogCardDatas = await this.getBlogCardDatas()
 
+    // @ts-ignore
     $('a').each((i, element) => {
       $(element).replaceWith(this.getBlogCardDom(blogCardDatas[i]))
     })

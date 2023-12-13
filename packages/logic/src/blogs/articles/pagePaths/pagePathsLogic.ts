@@ -16,9 +16,14 @@ export class PagePathsLogic {
 
     switch (this.type) {
       case 'home':
-        return pageNumbers.map((id) => ({ id: id.toString() }))
+        return pageNumbers.map((id) => ({
+          id: id.toString(),
+        }))
       case 'category':
-        return pageNumbers.map((id) => `${PAGE.CATEGORY}${this.slug}/${id}`)
+        return pageNumbers.map((id) => ({
+          id: this.slug,
+          pageId: id.toString(),
+        }))
       case 'tag':
         return pageNumbers.map((id) => `${PAGE.TAG}${this.slug}/${id}`)
       default:
