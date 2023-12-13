@@ -1,20 +1,21 @@
 import { Blog } from 'type/microCMS'
 
-export interface MicroCmsUsecaseBlogGetBlogsParams {
+export interface MicroCmsBlogUsecaseGetBlogsParams {
   limit: boolean
   offset: number
   maxArticleCount: number
+  categoryId?: string
 }
 
-export interface MicroCmsUsecaseBlogGetBlogsResponse {
+export interface MicroCmsBlogUsecaseGetBlogsResponse {
   blogs: Blog[]
   totalCount: number
 }
 
-export interface MicroCmsUsecaseBlogGetBlogByIdParams {
+export interface MicroCmsBlogUsecaseGetBlogByIdParams {
   id: string
 }
 
-export interface MicroCmsUsecaseBlogGetBlogByIdResponse {
+export interface MicroCmsBlogUsecaseGetBlogByIdResponse {
   blog: Blog
 }

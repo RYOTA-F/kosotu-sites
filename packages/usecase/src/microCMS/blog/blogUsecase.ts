@@ -1,14 +1,14 @@
 import {
-  MicroCmsUsecaseBlogGetBlogsParams,
-  MicroCmsUsecaseBlogGetBlogsResponse,
-  MicroCmsUsecaseBlogGetBlogByIdParams,
-  MicroCmsUsecaseBlogGetBlogByIdResponse,
+  MicroCmsBlogUsecaseGetBlogsParams,
+  MicroCmsBlogUsecaseGetBlogsResponse,
+  MicroCmsBlogUsecaseGetBlogByIdParams,
+  MicroCmsBlogUsecaseGetBlogByIdResponse,
 } from './blogUsecase.types'
 
 /**
  * MicroCMSブログ記事の取得クラス
  */
-export class MicroCmsUsecaseBlog {
+export class MicroCmsBlogUsecase {
   constructor(
     private apiKey: string,
     private baseEndpint: string,
@@ -18,16 +18,21 @@ export class MicroCmsUsecaseBlog {
   /**
    * ブログ記事一覧を取得
    */
-  getBlogs = async ({
+  async getBlogs({
     limit,
     offset,
     maxArticleCount,
-  }: MicroCmsUsecaseBlogGetBlogsParams): Promise<MicroCmsUsecaseBlogGetBlogsResponse> => {
+    categoryId,
+  }: MicroCmsBlogUsecaseGetBlogsParams): Promise<MicroCmsBlogUsecaseGetBlogsResponse> {
     const checkedLimit = limit ? maxArticleCount : 9999
     const checkedOffset = offset ? offset : 0
 
+    const filters = categoryId
+      ? `filters=categories[contains]${categoryId}`
+      : ''
+
     const res = await fetch(
-      `${this.baseEndpint}${this.blogEndpoint}?limit=${checkedLimit}&offset=${checkedOffset}`,
+      `${this.baseEndpint}${this.blogEndpoint}?${filters}&limit=${checkedLimit}&offset=${checkedOffset}`,
       {
         method: 'GET',
         headers: {
@@ -47,9 +52,9 @@ export class MicroCmsUsecaseBlog {
   /**
    * IDを指定してブログ記事を一件取得
    */
-  getBlogById = async ({
+  async getBlogById({
     id,
-  }: MicroCmsUsecaseBlogGetBlogByIdParams): Promise<MicroCmsUsecaseBlogGetBlogByIdResponse> => {
+  }: MicroCmsBlogUsecaseGetBlogByIdParams): Promise<MicroCmsBlogUsecaseGetBlogByIdResponse> {
     const res = await fetch(`${this.baseEndpint}${this.blogEndpoint}/${id}`, {
       method: 'GET',
       headers: {
