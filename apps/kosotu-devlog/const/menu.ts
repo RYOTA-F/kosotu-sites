@@ -54,7 +54,7 @@ export const HEADER_MENU = [
   },
   {
     label: 'AI',
-    url: '/categories/ai',
+    url: '/categories/artificial-intelligence',
     children: [
       {
         label: 'ChatGPT',
