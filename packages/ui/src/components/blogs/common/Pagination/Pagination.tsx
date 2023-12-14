@@ -1,7 +1,11 @@
 import { ARIA_LABEL } from './Pagination.const'
 import { PaginationProps } from './Pagination.types'
 import { PaginationItem } from './PaginationItem'
-import { PAGE_PATTERN, PagePattern } from 'logic/blogs/common/pagination'
+import {
+  PAGE_PATTERN,
+  PagePattern,
+  TOP_PAGE_NUM,
+} from 'logic/blogs/common/pagination'
 import style from './Pagination.module.css'
 
 export function Pagination({
@@ -30,5 +34,5 @@ export function Pagination({
   )
 }
 
-export { PAGE_PATTERN }
+export { PAGE_PATTERN, TOP_PAGE_NUM }
 export type { PagePattern }

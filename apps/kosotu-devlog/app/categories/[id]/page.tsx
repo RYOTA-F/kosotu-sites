@@ -3,7 +3,7 @@ import { useCategories } from 'hooks/useCategories'
 import { generateStaticParams } from './generateStaticParams'
 import { CategoryDetailHeader } from 'ui/components/blogs/features/categories/CategoryDetailHeader/CategoryDetailHeader'
 import { ArticleCardList } from 'ui/components/blogs/features/articles/ArticleCardList'
-import { Pagination } from 'ui/components/blogs/common/Pagination'
+import { Pagination, PAGE_PATTERN, TOP_PAGE_NUM } from 'ui/components/blogs/common/Pagination'
 
 interface CategoryPageParams {
   params: {
@@ -25,7 +25,12 @@ export default async function CategoryPage({
       <div className="mt-5">
         <ArticleCardList articles={articles} />
       </div>
-      <Pagination currentPage={1} totalPage={totalPageCount} />
+      <Pagination
+        totalPage={totalPageCount}
+        currentPageNumber={TOP_PAGE_NUM}
+        currentPagePattern={PAGE_PATTERN.CATEGORIES}
+        cagegoryId={id}
+      />
     </>
   )
 }
