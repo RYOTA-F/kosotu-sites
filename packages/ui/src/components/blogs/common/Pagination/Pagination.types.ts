@@ -1,4 +1,4 @@
-import { PagePattern } from './Pagination.const'
+import { PagePattern } from '.'
 
 export interface PaginationProps {
   totalPage: number
