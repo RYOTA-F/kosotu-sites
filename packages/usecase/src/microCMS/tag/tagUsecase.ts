@@ -1,4 +1,5 @@
 import {
+  MicroCmsTagUsecaseArgs,
   MicroCmsTagUsecaseGetTagsResponse,
   MicroCmsTagUsecaseGetTagByIdParams,
   MicroCmsTagUsecaseGetTagByIdResponse,
@@ -8,11 +9,7 @@ import {
  * MicroCMSタグの取得クラス
  */
 export class MicroCmsTagUsecase {
-  constructor(
-    private apiKey: string,
-    private baseEndpint: string,
-    private TagEndpoint: string
-  ) {}
+  constructor(private readonly args: MicroCmsTagUsecaseArgs) {}
 
   /**
    * タグ一覧を取得
@@ -21,11 +18,11 @@ export class MicroCmsTagUsecase {
     const limit = 9999
 
     const res = await fetch(
-      `${this.baseEndpint}${this.TagEndpoint}?limit=${limit}`,
+      `${this.args.baseEndpint}${this.args.tagEndpoint}?limit=${limit}`,
       {
         method: 'GET',
         headers: {
-          'X-API-KEY': this.apiKey,
+          'X-API-KEY': this.args.apiKey,
         },
       }
     )
@@ -43,12 +40,15 @@ export class MicroCmsTagUsecase {
   async getTagById({
     id,
   }: MicroCmsTagUsecaseGetTagByIdParams): Promise<MicroCmsTagUsecaseGetTagByIdResponse> {
-    const res = await fetch(`${this.baseEndpint}${this.TagEndpoint}/${id}`, {
-      method: 'GET',
-      headers: {
-        'X-API-KEY': this.apiKey,
-      },
-    })
+    const res = await fetch(
+      `${this.args.baseEndpint}${this.args.tagEndpoint}/${id}`,
+      {
+        method: 'GET',
+        headers: {
+          'X-API-KEY': this.args.apiKey,
+        },
+      }
+    )
 
     const tag = await res.json()
 
