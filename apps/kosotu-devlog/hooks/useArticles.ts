@@ -10,17 +10,19 @@ import { MicroCmsBlogUsecase } from 'usecase/microCMS/blog'
  * ブログ記事取得用カスタムフック
  */
 export const useArticles = () => {
+  const microCmsBlogUsecase = new MicroCmsBlogUsecase({
+    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
+    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    blogEndpoint: API.BLOG.END_POINT,
+  })
+
   /**
    * ブログ記事一覧を取得
    */
   const getArticles = async (id?: string) => {
     const offset = new ArticleOffsetCountLogic(id, MAX_ARTICEL_COUNT).execute()
 
-    const { blogs, totalCount } = await new MicroCmsBlogUsecase(
-      process.env.NEXT_PUBLIC_API_KEY || '',
-      process.env.NEXT_PUBLIC_API_ENDPOINT || '',
-      API.BLOG.END_POINT
-    ).getBlogs({
+    const { blogs, totalCount } = await microCmsBlogUsecase.getBlogs({
       limit: true,
       offset,
       maxArticleCount: MAX_ARTICEL_COUNT,
@@ -48,11 +50,7 @@ export const useArticles = () => {
       MAX_ARTICEL_COUNT
     ).execute()
 
-    const { blogs, totalCount } = await new MicroCmsBlogUsecase(
-      process.env.NEXT_PUBLIC_API_KEY || '',
-      process.env.NEXT_PUBLIC_API_ENDPOINT || '',
-      API.BLOG.END_POINT
-    ).getBlogs({
+    const { blogs, totalCount } = await microCmsBlogUsecase.getBlogs({
       limit: true,
       offset,
       maxArticleCount: MAX_ARTICEL_COUNT,
@@ -78,11 +76,7 @@ export const useArticles = () => {
       MAX_ARTICEL_COUNT
     ).execute()
 
-    const { blogs, totalCount } = await new MicroCmsBlogUsecase(
-      process.env.NEXT_PUBLIC_API_KEY || '',
-      process.env.NEXT_PUBLIC_API_ENDPOINT || '',
-      API.BLOG.END_POINT
-    ).getBlogs({
+    const { blogs, totalCount } = await microCmsBlogUsecase.getBlogs({
       limit: true,
       offset,
       maxArticleCount: MAX_ARTICEL_COUNT,
@@ -103,11 +97,7 @@ export const useArticles = () => {
    * IDを指定してブログ記事を一件取得
    */
   const getArticleById = async (id: string) => {
-    const { blog } = await new MicroCmsBlogUsecase(
-      process.env.NEXT_PUBLIC_API_KEY || '',
-      process.env.NEXT_PUBLIC_API_ENDPOINT || '',
-      API.BLOG.END_POINT
-    ).getBlogById({ id })
+    const { blog } = await microCmsBlogUsecase.getBlogById({ id })
 
     const { body } = await new PerseArticleBodyLogic(blog.body).execute()
 

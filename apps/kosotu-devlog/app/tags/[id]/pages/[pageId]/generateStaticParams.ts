@@ -15,11 +15,11 @@ export async function generateStaticParams() {
   const paths = await Promise.all(
     tags.map(async (tag) => {
       // カテゴリ毎の記事総数
-      const { totalCount } = await new MicroCmsBlogUsecase(
-        process.env.NEXT_PUBLIC_API_KEY || '',
-        process.env.NEXT_PUBLIC_API_ENDPOINT || '',
-        API.BLOG.END_POINT
-      ).getBlogs({
+      const { totalCount } = await new MicroCmsBlogUsecase({
+        apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
+        baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+        blogEndpoint: API.BLOG.END_POINT,
+      }).getBlogs({
         limit: false,
         offset: 0,
         maxArticleCount: 9999,
