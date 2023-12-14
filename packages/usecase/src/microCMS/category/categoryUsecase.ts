@@ -1,4 +1,5 @@
 import {
+  MicroCmsCategoryUsecaseArgs,
   MicroCmsCategoryUsecaseGetCategoriesResponse,
   MicroCmsCategoryUsecaseGetCategoryByIdParams,
   MicroCmsCategoryUsecaseGetCategoryByIdResponse,
@@ -8,11 +9,7 @@ import {
  * MicroCMSカテゴリの取得クラス
  */
 export class MicroCmsCategoryUsecase {
-  constructor(
-    private apiKey: string,
-    private baseEndpint: string,
-    private categoryEndpoint: string
-  ) {}
+  constructor(private readonly args: MicroCmsCategoryUsecaseArgs) {}
 
   /**
    * カテゴリ一覧を取得
@@ -21,11 +18,11 @@ export class MicroCmsCategoryUsecase {
     const limit = 9999
 
     const res = await fetch(
-      `${this.baseEndpint}${this.categoryEndpoint}?limit=${limit}`,
+      `${this.args.baseEndpint}${this.args.categoryEndpoint}?limit=${limit}`,
       {
         method: 'GET',
         headers: {
-          'X-API-KEY': this.apiKey,
+          'X-API-KEY': this.args.apiKey,
         },
       }
     )
@@ -44,11 +41,11 @@ export class MicroCmsCategoryUsecase {
     id,
   }: MicroCmsCategoryUsecaseGetCategoryByIdParams): Promise<MicroCmsCategoryUsecaseGetCategoryByIdResponse> {
     const res = await fetch(
-      `${this.baseEndpint}${this.categoryEndpoint}/${id}`,
+      `${this.args.baseEndpint}${this.args.categoryEndpoint}/${id}`,
       {
         method: 'GET',
         headers: {
-          'X-API-KEY': this.apiKey,
+          'X-API-KEY': this.args.apiKey,
         },
       }
     )

@@ -5,11 +5,11 @@ import { PagePathsLogic, PAGE_TYPE } from 'logic/blogs/articles/pagePaths'
 import { PaginationLogic } from 'logic/blogs/articles/pagination'
 
 export async function generateStaticParams() {
-  const { categories } = await new MicroCmsCategoryUsecase(
-    process.env.NEXT_PUBLIC_API_KEY || '',
-    process.env.NEXT_PUBLIC_API_ENDPOINT || '',
-    API.CATEGORY.END_POINT
-  ).getCategories()
+  const { categories } = await new MicroCmsCategoryUsecase({
+    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
+    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    categoryEndpoint: API.CATEGORY.END_POINT,
+  }).getCategories()
 
   // ページパス生成
   const paths = await Promise.all(
