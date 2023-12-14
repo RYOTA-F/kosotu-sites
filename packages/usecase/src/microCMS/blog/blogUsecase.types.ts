@@ -5,6 +5,7 @@ export interface MicroCmsBlogUsecaseGetBlogsParams {
   offset: number
   maxArticleCount: number
   categoryId?: string
+  tagId?: string
 }
 
 export interface MicroCmsBlogUsecaseGetBlogsResponse {
