@@ -13,5 +13,5 @@ export async function generateStaticParams() {
     maxArticleCount: FULL_ARTICEL_COUNT,
   })
 
-  return new ArticlePathsLogic(blogs).execute()
+  return new ArticlePathsLogic({ blogs }).execute()
 }

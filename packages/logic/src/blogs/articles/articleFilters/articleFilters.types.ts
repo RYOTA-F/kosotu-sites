@@ -1,4 +1,4 @@
-export interface ArticleFiltersLogicData {
+export interface ArticleFiltersLogicArgs {
   categoryId?: string
   tagId?: string
 }

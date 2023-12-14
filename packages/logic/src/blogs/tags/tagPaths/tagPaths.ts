@@ -1,7 +1,11 @@
-import { Tag } from 'type/microCMS'
+import { TagPathsLogicArgs } from './tagPaths.types'
 
 export class TagPathsLogic {
-  constructor(private tags: Tag[]) {}
+  private readonly tags: TagPathsLogicArgs['tags']
+
+  constructor(private readonly args: TagPathsLogicArgs) {
+    this.tags = this.args.tags
+  }
 
   execute() {
     return this.tags.map((tag) => ({ id: tag.id }))

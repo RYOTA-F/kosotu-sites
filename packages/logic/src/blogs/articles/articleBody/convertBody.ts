@@ -1,13 +1,18 @@
 import cheerio from 'cheerio'
 import hljs from 'highlight.js' // 11.7.0でないと動かない SyntaxError: Invalid regular expression: /(?!-)([!#\$%&*+.\\/<=>?@\\\\^~-]|(?!([(),;\\[\\]\`|{}]|[_:"']))(\\p{S}|\\p{P}))--+|--+(?!-)([!#\$%&*+.\\/<=>?@\\\\^~-]|(?!([(),;\\[\\]\`|{}]|[_:"']))(\\p{S}|\\p{P}))/: Invalid escape
-import { Blog, BlogCardData } from 'type/microCMS'
+import { BlogCardData } from 'type/microCMS'
 import { TWITTER, CLASS_NAME, NO_IMAGE_PATH } from './convertBody.const'
+import { PerseArticleBodyLogicArgs } from './convertBody.types'
 
 /**
  * 投稿本文をパースするロジック
  */
 export class PerseArticleBodyLogic {
-  constructor(private readonly articleBody: Blog['body']) {}
+  private readonly articleBody: PerseArticleBodyLogicArgs['articleBody']
+
+  constructor(private readonly args: PerseArticleBodyLogicArgs) {
+    this.articleBody = this.args.articleBody
+  }
 
   /**
    * パースを実行

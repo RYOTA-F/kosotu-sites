@@ -9,5 +9,5 @@ export async function generateStaticParams() {
     categoryEndpoint: API.CATEGORY.END_POINT,
   }).getCategories()
 
-  return new CategoryPathsLogic(categories).execute()
+  return new CategoryPathsLogic({ categories }).execute()
 }

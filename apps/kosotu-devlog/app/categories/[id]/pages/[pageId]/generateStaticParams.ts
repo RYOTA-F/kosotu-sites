@@ -27,17 +27,17 @@ export async function generateStaticParams() {
       })
 
       // カテゴリ毎のページ数
-      const totalPageCount = new PaginationLogic(
-        totalCount,
-        MAX_ARTICEL_COUNT
-      ).execute()
+      const totalPageCount = new PaginationLogic({
+        articleCount: totalCount,
+        maxPageCount: MAX_ARTICEL_COUNT,
+      }).execute()
 
       // カテゴリ×ページ数のパス
-      const pagePaths = new PagePathsLogic(
-        totalPageCount,
-        PAGE_TYPE.CATEGORY,
-        category.id
-      ).execute()
+      const pagePaths = new PagePathsLogic({
+        totalPage: totalPageCount,
+        type: PAGE_TYPE.CATEGORY,
+        slug: category.id,
+      }).execute()
 
       return pagePaths
     })

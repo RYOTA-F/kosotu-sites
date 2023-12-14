@@ -8,9 +8,9 @@ import style from './CategoryDetailHeader.module.css'
 import { CategoryRelationLogic } from 'logic/blogs/categories/categoryRelation/categoryRelation'
 
 export function CategoryDetailHeader({ category }: CategoryDetailHeaderProps) {
-  const { isParent, categoryParent } = new CategoryRelationLogic(
-    category.relation
-  ).execute()
+  const { isParent, categoryParent } = new CategoryRelationLogic({
+    relation: category.relation,
+  }).execute()
 
   return (
     <div className={style.h1} aria-label={ARIA_LABEL.CATEGORY_DETAIL_HEADER}>

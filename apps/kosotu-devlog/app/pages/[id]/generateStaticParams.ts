@@ -14,10 +14,13 @@ export async function generateStaticParams() {
     maxArticleCount: MAX_ARTICEL_COUNT,
   })
 
-  const totalPageCount = new PaginationLogic(
-    totalCount,
-    MAX_ARTICEL_COUNT
-  ).execute()
+  const totalPageCount = new PaginationLogic({
+    articleCount: totalCount,
+    maxPageCount: MAX_ARTICEL_COUNT,
+  }).execute()
 
-  return new PagePathsLogic(totalPageCount, PAGE_TYPE.HOME).execute()
+  return new PagePathsLogic({
+    totalPage: totalPageCount,
+    type: PAGE_TYPE.HOME,
+  }).execute()
 }

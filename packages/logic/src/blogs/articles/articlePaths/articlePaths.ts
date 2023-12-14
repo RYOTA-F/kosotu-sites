@@ -1,7 +1,11 @@
-import { Blog } from 'type/microCMS'
+import { ArticlePathsLogicArgs } from './articlePaths.types'
 
 export class ArticlePathsLogic {
-  constructor(private blogs: Blog[]) {}
+  private readonly blogs: ArticlePathsLogicArgs['blogs']
+
+  constructor(private readonly args: ArticlePathsLogicArgs) {
+    this.blogs = this.args.blogs
+  }
 
   execute() {
     return this.blogs.map((blog) => ({ id: blog.id }))

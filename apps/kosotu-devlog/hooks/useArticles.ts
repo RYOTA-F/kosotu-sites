@@ -20,7 +20,10 @@ export const useArticles = () => {
    * ブログ記事一覧を取得
    */
   const getArticles = async (id?: string) => {
-    const offset = new ArticleOffsetCountLogic(id, MAX_ARTICEL_COUNT).execute()
+    const offset = new ArticleOffsetCountLogic({
+      id: id,
+      maxPageCount: MAX_ARTICEL_COUNT,
+    }).execute()
 
     const { blogs, totalCount } = await microCmsBlogUsecase.getBlogs({
       limit: true,
@@ -28,12 +31,12 @@ export const useArticles = () => {
       maxArticleCount: MAX_ARTICEL_COUNT,
     })
 
-    const articles = new ArticleCardListLogic(blogs).execute()
+    const articles = new ArticleCardListLogic({ blogs }).execute()
 
-    const totalPageCount = new PaginationLogic(
-      totalCount,
-      MAX_ARTICEL_COUNT
-    ).execute()
+    const totalPageCount = new PaginationLogic({
+      articleCount: totalCount,
+      maxPageCount: MAX_ARTICEL_COUNT,
+    }).execute()
 
     return { articles, totalPageCount }
   }
@@ -45,10 +48,10 @@ export const useArticles = () => {
     categoryId: string,
     pageId?: string
   ) => {
-    const offset = new ArticleOffsetCountLogic(
-      pageId,
-      MAX_ARTICEL_COUNT
-    ).execute()
+    const offset = new ArticleOffsetCountLogic({
+      id: pageId,
+      maxPageCount: MAX_ARTICEL_COUNT,
+    }).execute()
 
     const { blogs, totalCount } = await microCmsBlogUsecase.getBlogs({
       limit: true,
@@ -57,12 +60,12 @@ export const useArticles = () => {
       categoryId,
     })
 
-    const articles = new ArticleCardListLogic(blogs).execute()
+    const articles = new ArticleCardListLogic({ blogs }).execute()
 
-    const totalPageCount = new PaginationLogic(
-      totalCount,
-      MAX_ARTICEL_COUNT
-    ).execute()
+    const totalPageCount = new PaginationLogic({
+      articleCount: totalCount,
+      maxPageCount: MAX_ARTICEL_COUNT,
+    }).execute()
 
     return { articles, totalPageCount }
   }
@@ -71,10 +74,10 @@ export const useArticles = () => {
    * タグに紐づくブログ記事一覧を取得
    */
   const getArticlesByTagId = async (tagId: string, pageId?: string) => {
-    const offset = new ArticleOffsetCountLogic(
-      pageId,
-      MAX_ARTICEL_COUNT
-    ).execute()
+    const offset = new ArticleOffsetCountLogic({
+      id: pageId,
+      maxPageCount: MAX_ARTICEL_COUNT,
+    }).execute()
 
     const { blogs, totalCount } = await microCmsBlogUsecase.getBlogs({
       limit: true,
@@ -83,12 +86,12 @@ export const useArticles = () => {
       tagId,
     })
 
-    const articles = new ArticleCardListLogic(blogs).execute()
+    const articles = new ArticleCardListLogic({ blogs }).execute()
 
-    const totalPageCount = new PaginationLogic(
-      totalCount,
-      MAX_ARTICEL_COUNT
-    ).execute()
+    const totalPageCount = new PaginationLogic({
+      articleCount: totalCount,
+      maxPageCount: MAX_ARTICEL_COUNT,
+    }).execute()
 
     return { articles, totalPageCount }
   }
@@ -99,9 +102,13 @@ export const useArticles = () => {
   const getArticleById = async (id: string) => {
     const { blog } = await microCmsBlogUsecase.getBlogById({ id })
 
-    const { body } = await new PerseArticleBodyLogic(blog.body).execute()
+    const { body } = await new PerseArticleBodyLogic({
+      articleBody: blog.body,
+    }).execute()
 
-    const { tableOfContents } = new TableOfContentsLogic(blog.body).execute()
+    const { tableOfContents } = new TableOfContentsLogic({
+      blogBody: blog.body,
+    }).execute()
 
     return {
       article: {

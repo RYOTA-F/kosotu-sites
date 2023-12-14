@@ -1,11 +1,16 @@
 import cheerio from 'cheerio'
-import { Blog, TableOfContents } from 'type/microCMS'
+import { TableOfContents } from 'type/microCMS'
+import { TableOfContentsLogicArgs } from './tableOfContentsLogic.types'
 
 /**
  * 目次用ロジック
  */
 export class TableOfContentsLogic {
-  constructor(private blogBody: Blog['body']) {}
+  private readonly blogBody: TableOfContentsLogicArgs['blogBody']
+
+  constructor(private readonly args: TableOfContentsLogicArgs) {
+    this.blogBody = this.args.blogBody
+  }
 
   /**
    * 目次に変換

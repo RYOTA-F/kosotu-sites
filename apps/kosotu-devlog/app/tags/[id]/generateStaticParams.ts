@@ -9,5 +9,5 @@ export async function generateStaticParams() {
     tagEndpoint: API.TAG.END_POINT,
   }).getTags()
 
-  return new TagPathsLogic(tags).execute()
+  return new TagPathsLogic({ tags }).execute()
 }

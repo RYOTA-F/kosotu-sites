@@ -11,7 +11,15 @@ import { ArticleFiltersLogic } from 'logic/blogs/articles/articleFilters'
  * MicroCMSブログ記事の取得クラス
  */
 export class MicroCmsBlogUsecase {
-  constructor(private readonly args: MicroCmsBlogUsecaseArgs) {}
+  private apiKey: MicroCmsBlogUsecaseArgs['apiKey']
+  private baseEndpint: MicroCmsBlogUsecaseArgs['baseEndpint']
+  private blogEndpoint: MicroCmsBlogUsecaseArgs['blogEndpoint']
+
+  constructor(private readonly args: MicroCmsBlogUsecaseArgs) {
+    this.apiKey = this.args.apiKey
+    this.baseEndpint = this.args.baseEndpint
+    this.blogEndpoint = this.args.blogEndpoint
+  }
 
   /**
    * ブログ記事一覧を取得
@@ -32,11 +40,11 @@ export class MicroCmsBlogUsecase {
     }).execute()
 
     const res = await fetch(
-      `${this.args.baseEndpint}${this.args.blogEndpoint}?${filters}&limit=${checkedLimit}&offset=${checkedOffset}`,
+      `${this.args.baseEndpint}${this.blogEndpoint}?${filters}&limit=${checkedLimit}&offset=${checkedOffset}`,
       {
         method: 'GET',
         headers: {
-          'X-API-KEY': this.args.apiKey,
+          'X-API-KEY': this.apiKey,
         },
       }
     )
@@ -55,15 +63,12 @@ export class MicroCmsBlogUsecase {
   async getBlogById({
     id,
   }: MicroCmsBlogUsecaseGetBlogByIdParams): Promise<MicroCmsBlogUsecaseGetBlogByIdResponse> {
-    const res = await fetch(
-      `${this.args.baseEndpint}${this.args.blogEndpoint}/${id}`,
-      {
-        method: 'GET',
-        headers: {
-          'X-API-KEY': this.args.apiKey,
-        },
-      }
-    )
+    const res = await fetch(`${this.baseEndpint}${this.blogEndpoint}/${id}`, {
+      method: 'GET',
+      headers: {
+        'X-API-KEY': this.apiKey,
+      },
+    })
 
     const blog = await res.json()
 
