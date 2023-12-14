@@ -9,7 +9,7 @@ export class ArticleOffsetCountLogic {
     this.maxPageCount = this.args.maxPageCount
   }
 
-  execute() {
+  execute(): number {
     if (!this.id) return 0
     return parseInt(this.id) * this.maxPageCount - this.maxPageCount
   }

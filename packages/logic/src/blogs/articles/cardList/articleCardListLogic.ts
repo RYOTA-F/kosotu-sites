@@ -1,4 +1,7 @@
-import { ArticleCardListLogicArgs } from './articleCardListLogic.types'
+import {
+  ArticleCardListLogicArgs,
+  ArticleCardListLogicResponse,
+} from './articleCardListLogic.types'
 
 /**
  * 記事一覧リスト生成ロジック
@@ -13,7 +16,7 @@ export class ArticleCardListLogic {
   /**
    * 加工された記事一覧を取得
    */
-  execute() {
+  execute(): ArticleCardListLogicResponse {
     return this.blogs.map((blog) => ({
       id: blog.id,
       title: blog.title,

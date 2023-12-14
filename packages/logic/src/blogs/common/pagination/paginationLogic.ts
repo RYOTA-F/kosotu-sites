@@ -1,5 +1,8 @@
 import { PAGE_PATTERN, TOP_PAGE_NUM } from './paginationLogic.const'
-import { PaginationLogicArgs } from './paginationLogic.types'
+import {
+  PaginationLogicArgs,
+  PaginationLogicResponse,
+} from './paginationLogic.types'
 
 export class PaginationLogic {
   private readonly pageNumber: PaginationLogicArgs['pageNumber']
@@ -14,13 +17,13 @@ export class PaginationLogic {
     this.tagId = this.args.tagId
   }
 
-  execute() {
+  execute(): PaginationLogicResponse {
     return {
       linkUrl: this.getPaginationLink(),
     }
   }
 
-  private getPaginationLink() {
+  private getPaginationLink(): string {
     switch (this.currentPagePattern) {
       // トップページ
       case PAGE_PATTERN.ROOT:

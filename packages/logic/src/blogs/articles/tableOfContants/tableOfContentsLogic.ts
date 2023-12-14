@@ -1,6 +1,9 @@
 import cheerio from 'cheerio'
 import { TableOfContents } from 'type/microCMS'
-import { TableOfContentsLogicArgs } from './tableOfContentsLogic.types'
+import {
+  TableOfContentsLogicArgs,
+  TableOfContentsLogicResponse,
+} from './tableOfContentsLogic.types'
 
 /**
  * 目次用ロジック
@@ -15,7 +18,7 @@ export class TableOfContentsLogic {
   /**
    * 目次に変換
    */
-  execute() {
+  execute(): TableOfContentsLogicResponse {
     // @ts-ignore
     const $ = cheerio.load(this.blogBody, { _useHtmlParser2: true })
 

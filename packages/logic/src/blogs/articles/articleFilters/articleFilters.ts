@@ -9,11 +9,11 @@ export class ArticleFiltersLogic {
     this.tagId = this.args.tagId
   }
 
-  execute() {
+  execute(): string {
     return this.getFiltersString()
   }
 
-  private getFiltersString() {
+  private getFiltersString(): string {
     switch (true) {
       case !this.categoryId && !this.tagId:
         return ''

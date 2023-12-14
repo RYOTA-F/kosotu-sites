@@ -14,7 +14,7 @@ export class DateFormatLogic {
   /**
    * YYYY-MM-DDに変換
    */
-  formatYYYYMMDD() {
+  formatYYYYMMDD(): string {
     return dayjs(this.date).format('YYYY-MM-DD')
   }
 }

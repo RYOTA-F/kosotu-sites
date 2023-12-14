@@ -1,5 +1,8 @@
 import { PAGE, PAGE_TYPE } from './pagePathsLogic.const'
-import { PagePathsLogicArgs } from './pagePathsLogic.types'
+import {
+  PagePathsLogicArgs,
+  PagePathsLogicResponse,
+} from './pagePathsLogic.types'
 
 export class PagePathsLogic {
   private readonly totalPage: PagePathsLogicArgs['totalPage']
@@ -12,7 +15,7 @@ export class PagePathsLogic {
     this.slug = this.args.slug
   }
 
-  execute() {
+  execute(): PagePathsLogicResponse {
     if (this.totalPage <= 0) return []
 
     const pageCount = this.totalPage - 1
@@ -24,12 +27,11 @@ export class PagePathsLogic {
           id: id.toString(),
         }))
       case PAGE_TYPE.CATEGORY:
+      case PAGE_TYPE.TAG:
         return pageNumbers.map((id) => ({
           id: this.slug,
           pageId: id.toString(),
         }))
-      case PAGE_TYPE.TAG:
-        return pageNumbers.map((id) => `${PAGE.TAG}${this.slug}/${id}`)
       default:
         return []
     }

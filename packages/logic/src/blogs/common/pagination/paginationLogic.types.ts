@@ -6,3 +6,7 @@ export interface PaginationLogicArgs {
   categoryId?: string
   tagId?: string
 }
+
+export interface PaginationLogicResponse {
+  linkUrl: string
+}

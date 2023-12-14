@@ -2,7 +2,10 @@ import cheerio from 'cheerio'
 import hljs from 'highlight.js' // 11.7.0でないと動かない SyntaxError: Invalid regular expression: /(?!-)([!#\$%&*+.\\/<=>?@\\\\^~-]|(?!([(),;\\[\\]\`|{}]|[_:"']))(\\p{S}|\\p{P}))--+|--+(?!-)([!#\$%&*+.\\/<=>?@\\\\^~-]|(?!([(),;\\[\\]\`|{}]|[_:"']))(\\p{S}|\\p{P}))/: Invalid escape
 import { BlogCardData } from 'type/microCMS'
 import { TWITTER, CLASS_NAME, NO_IMAGE_PATH } from './convertBody.const'
-import { PerseArticleBodyLogicArgs } from './convertBody.types'
+import {
+  PerseArticleBodyLogicArgs,
+  PerseArticleBodyLogicResponse,
+} from './convertBody.types'
 
 /**
  * 投稿本文をパースするロジック
@@ -17,7 +20,7 @@ export class PerseArticleBodyLogic {
   /**
    * パースを実行
    */
-  async execute() {
+  async execute(): Promise<PerseArticleBodyLogicResponse> {
     // @ts-ignore
     const $ = cheerio.load(this.articleBody, { _useHtmlParser2: true })
 
@@ -34,7 +37,7 @@ export class PerseArticleBodyLogic {
    * コードブロックをパース
    */
   // @ts-ignore
-  private parseCodeBlock($: cheerio.Root) {
+  private parseCodeBlock($: cheerio.Root): void {
     // @ts-ignore
     $('pre code').each((_, element) => {
       const result = hljs.highlightAuto($(element).text())
@@ -47,7 +50,7 @@ export class PerseArticleBodyLogic {
    * ブログカードにパース
    */
   // @ts-ignore
-  private async parseBlogCard($: cheerio.Root) {
+  private async parseBlogCard($: cheerio.Root): void {
     // ブログカード情報を取得
     const blogCardDatas = await this.getBlogCardDatas()
 
@@ -60,7 +63,7 @@ export class PerseArticleBodyLogic {
   /**
    * ブログカード情報を取得
    */
-  private async getBlogCardDatas() {
+  private async getBlogCardDatas(): Promise<BlogCardData[]> {
     // @ts-ignore
     const $ = cheerio.load(this.articleBody, { _useHtmlParser2: true })
 
@@ -138,7 +141,7 @@ export class PerseArticleBodyLogic {
   /**
    * ブログカードのDomを取得
    */
-  private getBlogCardDom(blogCardData: BlogCardData) {
+  private getBlogCardDom(blogCardData: BlogCardData): string {
     // Twitterリンク
     if (
       blogCardData?.url?.includes(TWITTER.URL) &&
@@ -159,7 +162,7 @@ export class PerseArticleBodyLogic {
   /**
    * TwitterリンクのDomを取得
    */
-  private getBlogCardTwitterDom = (blogCardData: BlogCardData) => {
+  private getBlogCardTwitterDom = (blogCardData: BlogCardData): string => {
     // prettier-ignore
     return `
     <a href="${blogCardData.url}" target="_blank" rel="noopener noreferrer" class="${CLASS_NAME.TWITTER}">
@@ -177,7 +180,7 @@ export class PerseArticleBodyLogic {
   /**
    * データが正常に取得できない場合のDomを取得
    */
-  private getBlogCardNoDataDom(blogCardData: BlogCardData) {
+  private getBlogCardNoDataDom(blogCardData: BlogCardData): string {
     const image =
       blogCardData.image && blogCardData.image.charAt(0) !== '/'
         ? blogCardData.image
@@ -198,7 +201,7 @@ export class PerseArticleBodyLogic {
   /**
    * デフォルトのDomを取得
    */
-  private getBlogCardDefaultDom(blogCardData: BlogCardData) {
+  private getBlogCardDefaultDom(blogCardData: BlogCardData): string {
     const image =
       blogCardData.image && blogCardData.image.charAt(0) !== '/'
         ? blogCardData.image

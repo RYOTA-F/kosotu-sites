@@ -1,4 +1,7 @@
-import { ArticlePathsLogicArgs } from './articlePaths.types'
+import {
+  ArticlePathsLogicArgs,
+  ArticlePathsLogicResponse,
+} from './articlePaths.types'
 
 export class ArticlePathsLogic {
   private readonly blogs: ArticlePathsLogicArgs['blogs']
@@ -7,7 +10,7 @@ export class ArticlePathsLogic {
     this.blogs = this.args.blogs
   }
 
-  execute() {
+  execute(): ArticlePathsLogicResponse {
     return this.blogs.map((blog) => ({ id: blog.id }))
   }
 }

@@ -1,4 +1,4 @@
-import { TagPathsLogicArgs } from './tagPaths.types'
+import { TagPathsLogicArgs, TagPathsLogicResponse } from './tagPaths.types'
 
 export class TagPathsLogic {
   private readonly tags: TagPathsLogicArgs['tags']
@@ -7,7 +7,7 @@ export class TagPathsLogic {
     this.tags = this.args.tags
   }
 
-  execute() {
+  execute(): TagPathsLogicResponse {
     return this.tags.map((tag) => ({ id: tag.id }))
   }
 }

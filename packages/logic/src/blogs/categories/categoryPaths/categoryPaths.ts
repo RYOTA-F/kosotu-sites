@@ -1,4 +1,7 @@
-import { CategoryPathsLogicArgs } from './categoryPaths.types'
+import {
+  CategoryPathsLogicArgs,
+  CategoryPathsLogicResponse,
+} from './categoryPaths.types'
 
 export class CategoryPathsLogic {
   private readonly categories: CategoryPathsLogicArgs['categories']
@@ -7,7 +10,7 @@ export class CategoryPathsLogic {
     this.categories = this.args.categories
   }
 
-  execute() {
+  execute(): CategoryPathsLogicResponse {
     return this.categories.map((category) => ({ id: category.id }))
   }
 }

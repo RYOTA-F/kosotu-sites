@@ -1,4 +1,7 @@
-import { CategoryRelationLogicArgs } from './categoryRelation.types'
+import {
+  CategoryRelationLogicArgs,
+  CategoryRelationLogicResponse,
+} from './categoryRelation.types'
 
 export class CategoryRelationLogic {
   private readonly relation: CategoryRelationLogicArgs['relation']
@@ -7,7 +10,7 @@ export class CategoryRelationLogic {
     this.relation = this.args.relation
   }
 
-  execute() {
+  execute(): CategoryRelationLogicResponse {
     const isParent = this.relation.isParent
     const categoryParent =
       !isParent && this.relation.parent ? this.relation.parent[0] : null

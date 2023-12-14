@@ -14,7 +14,7 @@ export class PaginationLogic {
   /**
    * 総ページ数を取得
    */
-  execute() {
+  execute(): number {
     return Math.ceil(this.articleCount / this.maxPageCount)
   }
 }

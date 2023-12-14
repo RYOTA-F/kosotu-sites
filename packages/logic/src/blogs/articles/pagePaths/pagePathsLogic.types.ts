@@ -7,3 +7,8 @@ export interface PagePathsLogicArgs {
 }
 
 export type PagePathsLogicType = (typeof PAGE_TYPE)[keyof typeof PAGE_TYPE]
+
+export type PagePathsLogicResponse = {
+  id?: string
+  pageId?: string
+}[]
