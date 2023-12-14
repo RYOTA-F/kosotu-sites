@@ -70,6 +70,36 @@ export const useArticles = () => {
   }
 
   /**
+   * タグに紐づくブログ記事一覧を取得
+   */
+  const getArticlesByTagId = async (tagId: string, pageId?: string) => {
+    const offset = new ArticleOffsetCountLogic(
+      pageId,
+      MAX_ARTICEL_COUNT
+    ).execute()
+
+    const { blogs, totalCount } = await new MicroCmsBlogUsecase(
+      process.env.NEXT_PUBLIC_API_KEY || '',
+      process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+      API.BLOG.END_POINT
+    ).getBlogs({
+      limit: true,
+      offset,
+      maxArticleCount: MAX_ARTICEL_COUNT,
+      tagId,
+    })
+
+    const articles = new ArticleCardListLogic(blogs).execute()
+
+    const totalPageCount = new PaginationLogic(
+      totalCount,
+      MAX_ARTICEL_COUNT
+    ).execute()
+
+    return { articles, totalPageCount }
+  }
+
+  /**
    * IDを指定してブログ記事を一件取得
    */
   const getArticleById = async (id: string) => {
@@ -96,5 +126,6 @@ export const useArticles = () => {
     getArticles,
     getArticleById,
     getArticlesByCategoryId,
+    getArticlesByTagId,
   }
 }
