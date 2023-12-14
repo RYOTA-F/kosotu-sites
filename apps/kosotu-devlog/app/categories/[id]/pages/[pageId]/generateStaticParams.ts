@@ -5,21 +5,21 @@ import { PagePathsLogic, PAGE_TYPE } from 'logic/blogs/articles/pagePaths'
 import { PaginationLogic } from 'logic/blogs/articles/pagination'
 
 export async function generateStaticParams() {
-  const { categories } = await new MicroCmsCategoryUsecase(
-    process.env.NEXT_PUBLIC_API_KEY || '',
-    process.env.NEXT_PUBLIC_API_ENDPOINT || '',
-    API.CATEGORY.END_POINT
-  ).getCategories()
+  const { categories } = await new MicroCmsCategoryUsecase({
+    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
+    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    categoryEndpoint: API.CATEGORY.END_POINT,
+  }).getCategories()
 
   // ページパス生成
   const paths = await Promise.all(
     categories.map(async (category) => {
       // カテゴリ毎の記事総数
-      const { totalCount } = await new MicroCmsBlogUsecase(
-        process.env.NEXT_PUBLIC_API_KEY || '',
-        process.env.NEXT_PUBLIC_API_ENDPOINT || '',
-        API.BLOG.END_POINT
-      ).getBlogs({
+      const { totalCount } = await new MicroCmsBlogUsecase({
+        apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
+        baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+        blogEndpoint: API.BLOG.END_POINT,
+      }).getBlogs({
         limit: false,
         offset: 0,
         maxArticleCount: 9999,
@@ -27,17 +27,17 @@ export async function generateStaticParams() {
       })
 
       // カテゴリ毎のページ数
-      const totalPageCount = new PaginationLogic(
-        totalCount,
-        MAX_ARTICEL_COUNT
-      ).execute()
+      const totalPageCount = new PaginationLogic({
+        articleCount: totalCount,
+        maxPageCount: MAX_ARTICEL_COUNT,
+      }).execute()
 
       // カテゴリ×ページ数のパス
-      const pagePaths = new PagePathsLogic(
-        totalPageCount,
-        PAGE_TYPE.CATEGORY,
-        category.id
-      ).execute()
+      const pagePaths = new PagePathsLogic({
+        totalPage: totalPageCount,
+        type: PAGE_TYPE.CATEGORY,
+        slug: category.id,
+      }).execute()
 
       return pagePaths
     })

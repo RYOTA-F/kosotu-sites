@@ -1,7 +1,15 @@
-export class ArticleOffsetCountLogic {
-  constructor(private id: string | undefined, private maxPageCount: number) {}
+import { ArticleOffsetCountLogicArgs } from './articleOffsetCountLogic.types'
 
-  execute() {
+export class ArticleOffsetCountLogic {
+  private readonly id: ArticleOffsetCountLogicArgs['id']
+  private readonly maxPageCount: ArticleOffsetCountLogicArgs['maxPageCount']
+
+  constructor(private readonly args: ArticleOffsetCountLogicArgs) {
+    this.id = this.args.id
+    this.maxPageCount = this.args.maxPageCount
+  }
+
+  execute(): number {
     if (!this.id) return 0
     return parseInt(this.id) * this.maxPageCount - this.maxPageCount
   }

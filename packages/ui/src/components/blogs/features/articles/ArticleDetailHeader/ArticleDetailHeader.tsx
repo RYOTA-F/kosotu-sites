@@ -30,14 +30,22 @@ export function ArticleDetailHeader({
           <time
             dateTime={
               article.oldPublishedAt
-                ? new DateFormatLogic(article.oldPublishedAt).formatYYYYMMDD()
-                : new DateFormatLogic(article.publishedAt).formatYYYYMMDD()
+                ? new DateFormatLogic({
+                    date: article.oldPublishedAt,
+                  }).formatYYYYMMDD()
+                : new DateFormatLogic({
+                    date: article.publishedAt,
+                  }).formatYYYYMMDD()
             }
             className={style.timeItem}
           >
             {article.oldPublishedAt
-              ? new DateFormatLogic(article.oldPublishedAt).formatYYYYMMDD()
-              : new DateFormatLogic(article.publishedAt).formatYYYYMMDD()}
+              ? new DateFormatLogic({
+                  date: article.oldPublishedAt,
+                }).formatYYYYMMDD()
+              : new DateFormatLogic({
+                  date: article.publishedAt,
+                }).formatYYYYMMDD()}
           </time>
         </div>
       </div>

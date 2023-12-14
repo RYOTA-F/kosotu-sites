@@ -1,19 +1,25 @@
 import {
+  MicroCmsBlogUsecaseArgs,
   MicroCmsBlogUsecaseGetBlogsParams,
   MicroCmsBlogUsecaseGetBlogsResponse,
   MicroCmsBlogUsecaseGetBlogByIdParams,
   MicroCmsBlogUsecaseGetBlogByIdResponse,
 } from './blogUsecase.types'
+import { ArticleFiltersLogic } from 'logic/blogs/articles/articleFilters'
 
 /**
  * MicroCMSブログ記事の取得クラス
  */
 export class MicroCmsBlogUsecase {
-  constructor(
-    private apiKey: string,
-    private baseEndpint: string,
-    private blogEndpoint: string
-  ) {}
+  private apiKey: MicroCmsBlogUsecaseArgs['apiKey']
+  private baseEndpint: MicroCmsBlogUsecaseArgs['baseEndpint']
+  private blogEndpoint: MicroCmsBlogUsecaseArgs['blogEndpoint']
+
+  constructor(private readonly args: MicroCmsBlogUsecaseArgs) {
+    this.apiKey = this.args.apiKey
+    this.baseEndpint = this.args.baseEndpint
+    this.blogEndpoint = this.args.blogEndpoint
+  }
 
   /**
    * ブログ記事一覧を取得
@@ -23,16 +29,18 @@ export class MicroCmsBlogUsecase {
     offset,
     maxArticleCount,
     categoryId,
+    tagId,
   }: MicroCmsBlogUsecaseGetBlogsParams): Promise<MicroCmsBlogUsecaseGetBlogsResponse> {
     const checkedLimit = limit ? maxArticleCount : 9999
     const checkedOffset = offset ? offset : 0
 
-    const filters = categoryId
-      ? `filters=categories[contains]${categoryId}`
-      : ''
+    const filters = new ArticleFiltersLogic({
+      categoryId,
+      tagId,
+    }).execute()
 
     const res = await fetch(
-      `${this.baseEndpint}${this.blogEndpoint}?${filters}&limit=${checkedLimit}&offset=${checkedOffset}`,
+      `${this.args.baseEndpint}${this.blogEndpoint}?${filters}&limit=${checkedLimit}&offset=${checkedOffset}`,
       {
         method: 'GET',
         headers: {

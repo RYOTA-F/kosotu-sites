@@ -1,9 +1,16 @@
-import { Category } from 'type/microCMS'
+import {
+  CategoryPathsLogicArgs,
+  CategoryPathsLogicResponse,
+} from './categoryPaths.types'
 
 export class CategoryPathsLogic {
-  constructor(private categories: Category[]) {}
+  private readonly categories: CategoryPathsLogicArgs['categories']
 
-  execute() {
+  constructor(private readonly args: CategoryPathsLogicArgs) {
+    this.categories = this.args.categories
+  }
+
+  execute(): CategoryPathsLogicResponse {
     return this.categories.map((category) => ({ id: category.id }))
   }
 }

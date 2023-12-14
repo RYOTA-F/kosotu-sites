@@ -1,9 +1,16 @@
-import { CategoryRelation } from 'type/microCMS'
+import {
+  CategoryRelationLogicArgs,
+  CategoryRelationLogicResponse,
+} from './categoryRelation.types'
 
 export class CategoryRelationLogic {
-  constructor(private relation: CategoryRelation) {}
+  private readonly relation: CategoryRelationLogicArgs['relation']
 
-  execute() {
+  constructor(private readonly args: CategoryRelationLogicArgs) {
+    this.relation = this.args.relation
+  }
+
+  execute(): CategoryRelationLogicResponse {
     const isParent = this.relation.isParent
     const categoryParent =
       !isParent && this.relation.parent ? this.relation.parent[0] : null

@@ -5,7 +5,13 @@ import { PaginationItem, ARIA_LABEL } from '.'
 
 describe('PaginationItem', () => {
   beforeEach(() => {
-    render(<PaginationItem pageNumber={2} isCurrentPage={true} pathName="" />)
+    render(
+      <PaginationItem
+        pageNumber={2}
+        isCurrentPage={true}
+        currentPagePattern="/"
+      />
+    )
   })
 
   test('描画される', () => {

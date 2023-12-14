@@ -1,4 +1,5 @@
 import {
+  MicroCmsCategoryUsecaseArgs,
   MicroCmsCategoryUsecaseGetCategoriesResponse,
   MicroCmsCategoryUsecaseGetCategoryByIdParams,
   MicroCmsCategoryUsecaseGetCategoryByIdResponse,
@@ -8,11 +9,15 @@ import {
  * MicroCMSカテゴリの取得クラス
  */
 export class MicroCmsCategoryUsecase {
-  constructor(
-    private apiKey: string,
-    private baseEndpint: string,
-    private categoryEndpoint: string
-  ) {}
+  private readonly apiKey: MicroCmsCategoryUsecaseArgs['apiKey']
+  private readonly baseEndpint: MicroCmsCategoryUsecaseArgs['baseEndpint']
+  private readonly categoryEndpoint: MicroCmsCategoryUsecaseArgs['categoryEndpoint']
+
+  constructor(private readonly args: MicroCmsCategoryUsecaseArgs) {
+    this.apiKey = this.args.apiKey
+    this.baseEndpint = this.args.baseEndpint
+    this.categoryEndpoint = this.args.categoryEndpoint
+  }
 
   /**
    * カテゴリ一覧を取得
