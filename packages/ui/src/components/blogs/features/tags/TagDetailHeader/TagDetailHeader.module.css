@@ -1,0 +1,20 @@
+.h1 {
+  width: 100%;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.tag {
+  margin-left: 12px;
+  color: #808080;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.hypen {
+  margin: 0 12px;
+}
