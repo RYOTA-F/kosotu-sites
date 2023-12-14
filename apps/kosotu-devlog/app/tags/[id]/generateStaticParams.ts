@@ -1,5 +1,5 @@
 import { API } from 'const/microCms'
-import { MicroCmsTagUsecase } from 'usecase/microCMS/Tag/tagUsecase'
+import { MicroCmsTagUsecase } from 'usecase/microCMS/tag'
 import { TagPathsLogic } from 'logic/blogs/tags/tagPaths'
 
 export async function generateStaticParams() {
