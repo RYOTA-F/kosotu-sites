@@ -1,33 +1,46 @@
 import {
-  MicroCmsUsecaseBlogGetBlogsParams,
-  MicroCmsUsecaseBlogGetBlogsResponse,
-  MicroCmsUsecaseBlogGetBlogByIdParams,
-  MicroCmsUsecaseBlogGetBlogByIdResponse,
+  MicroCmsBlogUsecaseArgs,
+  MicroCmsBlogUsecaseGetBlogsParams,
+  MicroCmsBlogUsecaseGetBlogsResponse,
+  MicroCmsBlogUsecaseGetBlogByIdParams,
+  MicroCmsBlogUsecaseGetBlogByIdResponse,
 } from './blogUsecase.types'
+import { ArticleFiltersLogic } from 'logic/blogs/articles/articleFilters'
 
 /**
  * MicroCMSブログ記事の取得クラス
  */
-export class MicroCmsUsecaseBlog {
-  constructor(
-    private apiKey: string,
-    private baseEndpint: string,
-    private blogEndpoint: string
-  ) {}
+export class MicroCmsBlogUsecase {
+  private apiKey: MicroCmsBlogUsecaseArgs['apiKey']
+  private baseEndpint: MicroCmsBlogUsecaseArgs['baseEndpint']
+  private blogEndpoint: MicroCmsBlogUsecaseArgs['blogEndpoint']
+
+  constructor(private readonly args: MicroCmsBlogUsecaseArgs) {
+    this.apiKey = this.args.apiKey
+    this.baseEndpint = this.args.baseEndpint
+    this.blogEndpoint = this.args.blogEndpoint
+  }
 
   /**
    * ブログ記事一覧を取得
    */
-  getBlogs = async ({
+  async getBlogs({
     limit,
     offset,
     maxArticleCount,
-  }: MicroCmsUsecaseBlogGetBlogsParams): Promise<MicroCmsUsecaseBlogGetBlogsResponse> => {
+    categoryId,
+    tagId,
+  }: MicroCmsBlogUsecaseGetBlogsParams): Promise<MicroCmsBlogUsecaseGetBlogsResponse> {
     const checkedLimit = limit ? maxArticleCount : 9999
     const checkedOffset = offset ? offset : 0
 
+    const filters = new ArticleFiltersLogic({
+      categoryId,
+      tagId,
+    }).execute()
+
     const res = await fetch(
-      `${this.baseEndpint}${this.blogEndpoint}?limit=${checkedLimit}&offset=${checkedOffset}`,
+      `${this.args.baseEndpint}${this.blogEndpoint}?${filters}&limit=${checkedLimit}&offset=${checkedOffset}`,
       {
         method: 'GET',
         headers: {
@@ -47,9 +60,9 @@ export class MicroCmsUsecaseBlog {
   /**
    * IDを指定してブログ記事を一件取得
    */
-  getBlogById = async ({
+  async getBlogById({
     id,
-  }: MicroCmsUsecaseBlogGetBlogByIdParams): Promise<MicroCmsUsecaseBlogGetBlogByIdResponse> => {
+  }: MicroCmsBlogUsecaseGetBlogByIdParams): Promise<MicroCmsBlogUsecaseGetBlogByIdResponse> {
     const res = await fetch(`${this.baseEndpint}${this.blogEndpoint}/${id}`, {
       method: 'GET',
       headers: {

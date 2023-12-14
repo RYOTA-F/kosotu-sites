@@ -1,6 +1,9 @@
+import { PagePattern } from '.'
+
 export interface PaginationProps {
-  currentPage: number
   totalPage: number
-  pathName?: string
-  queryId?: string
+  currentPageNumber: number
+  currentPagePattern: PagePattern
+  cagegoryId?: string
+  tagId?: string
 }

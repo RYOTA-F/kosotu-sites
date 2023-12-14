@@ -1,5 +1,5 @@
-import { ICategory } from 'type/microCMS'
+import { Category } from 'type/microCMS'
 
 export interface CategoryListProps {
-  categories: ICategory[]
+  categories: Category[]
 }

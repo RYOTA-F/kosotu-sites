@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "typescript": "latest",
-    "type": "workspace:*"
+    "type": "workspace:*",
+    "logic": "workspace:*"
   }
 }

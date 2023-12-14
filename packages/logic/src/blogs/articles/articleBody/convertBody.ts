@@ -1,43 +1,69 @@
 import cheerio from 'cheerio'
 import hljs from 'highlight.js' // 11.7.0でないと動かない SyntaxError: Invalid regular expression: /(?!-)([!#\$%&*+.\\/<=>?@\\\\^~-]|(?!([(),;\\[\\]\`|{}]|[_:"']))(\\p{S}|\\p{P}))--+|--+(?!-)([!#\$%&*+.\\/<=>?@\\\\^~-]|(?!([(),;\\[\\]\`|{}]|[_:"']))(\\p{S}|\\p{P}))/: Invalid escape
-import { IBlog, IBlogCardData } from 'type/microCMS'
+import { BlogCardData } from 'type/microCMS'
 import { TWITTER, CLASS_NAME, NO_IMAGE_PATH } from './convertBody.const'
+import {
+  PerseArticleBodyLogicArgs,
+  PerseArticleBodyLogicResponse,
+} from './convertBody.types'
 
 /**
  * 投稿本文をパースするロジック
  */
 export class PerseArticleBodyLogic {
-  constructor(private readonly articleBody: IBlog['body']) {}
+  private readonly articleBody: PerseArticleBodyLogicArgs['articleBody']
+
+  constructor(private readonly args: PerseArticleBodyLogicArgs) {
+    this.articleBody = this.args.articleBody
+  }
 
   /**
    * パースを実行
    */
-  async execute() {
+  async execute(): Promise<PerseArticleBodyLogicResponse> {
     // @ts-ignore
     const $ = cheerio.load(this.articleBody, { _useHtmlParser2: true })
 
     // コードブロックをパース
-    $('pre code').each((_, element) => {
-      const result = hljs.highlightAuto($(element).text())
-      $(element).html(result.value)
-      $(element).addClass('hljs')
-    })
+    this.parseCodeBlock($)
 
-    // TODO: CSS適用
-    // // ブログカード情報を取得
-    // const blogCardDatas = await this.getBlogCardDatas()
-    // // ブログカードにパース
-    // $('a').each((i, element) => {
-    //   $(element).replaceWith(this.getBlogCardDom(blogCardDatas[i]))
-    // })
+    // ブログカードにパース
+    await this.parseBlogCard($)
 
     return { body: $.html() }
   }
 
   /**
+   * コードブロックをパース
+   */
+  // @ts-ignore
+  private parseCodeBlock($: cheerio.Root): void {
+    // @ts-ignore
+    $('pre code').each((_, element) => {
+      const result = hljs.highlightAuto($(element).text())
+      $(element).html(result.value)
+      $(element).addClass('hljs')
+    })
+  }
+
+  /**
+   * ブログカードにパース
+   */
+  // @ts-ignore
+  private async parseBlogCard($: cheerio.Root): void {
+    // ブログカード情報を取得
+    const blogCardDatas = await this.getBlogCardDatas()
+
+    // @ts-ignore
+    $('a').each((i, element) => {
+      $(element).replaceWith(this.getBlogCardDom(blogCardDatas[i]))
+    })
+  }
+
+  /**
    * ブログカード情報を取得
    */
-  private async getBlogCardDatas() {
+  private async getBlogCardDatas(): Promise<BlogCardData[]> {
     // @ts-ignore
     const $ = cheerio.load(this.articleBody, { _useHtmlParser2: true })
 
@@ -63,7 +89,7 @@ export class PerseArticleBodyLogic {
           .then((text) => {
             const $ = cheerio.load(text)
             const metas = $('meta').toArray()
-            const metaData: IBlogCardData = {
+            const metaData: BlogCardData = {
               url: link.url,
               title: '',
               description: '',
@@ -109,13 +135,13 @@ export class PerseArticleBodyLogic {
       })
     )
 
-    return temps.filter((temp) => temp !== undefined) as IBlogCardData[]
+    return temps.filter((temp) => temp !== undefined) as BlogCardData[]
   }
 
   /**
    * ブログカードのDomを取得
    */
-  private getBlogCardDom(blogCardData: IBlogCardData) {
+  private getBlogCardDom(blogCardData: BlogCardData): string {
     // Twitterリンク
     if (
       blogCardData?.url?.includes(TWITTER.URL) &&
@@ -136,7 +162,7 @@ export class PerseArticleBodyLogic {
   /**
    * TwitterリンクのDomを取得
    */
-  private getBlogCardTwitterDom = (blogCardData: IBlogCardData) => {
+  private getBlogCardTwitterDom = (blogCardData: BlogCardData): string => {
     // prettier-ignore
     return `
     <a href="${blogCardData.url}" target="_blank" rel="noopener noreferrer" class="${CLASS_NAME.TWITTER}">
@@ -154,7 +180,7 @@ export class PerseArticleBodyLogic {
   /**
    * データが正常に取得できない場合のDomを取得
    */
-  private getBlogCardNoDataDom(blogCardData: IBlogCardData) {
+  private getBlogCardNoDataDom(blogCardData: BlogCardData): string {
     const image =
       blogCardData.image && blogCardData.image.charAt(0) !== '/'
         ? blogCardData.image
@@ -175,7 +201,7 @@ export class PerseArticleBodyLogic {
   /**
    * デフォルトのDomを取得
    */
-  private getBlogCardDefaultDom(blogCardData: IBlogCardData) {
+  private getBlogCardDefaultDom(blogCardData: BlogCardData): string {
     const image =
       blogCardData.image && blogCardData.image.charAt(0) !== '/'
         ? blogCardData.image

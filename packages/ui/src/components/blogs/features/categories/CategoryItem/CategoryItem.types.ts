@@ -1,10 +1,10 @@
-import { ICategory } from 'type/microCMS'
+import { Category } from 'type/microCMS'
 
 export interface CategoryItemProps {
-  category: ICategory | ICategoryItemParent
+  category: Category | CategoryItemParent
 }
 
-interface ICategoryItemParent {
+interface CategoryItemParent {
   id: string
   name: string
 }

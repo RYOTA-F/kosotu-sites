@@ -1,5 +1,5 @@
-import { IBlog } from 'type/microCMS'
+import { Blog } from 'type/microCMS'
 
 export interface ArticleDetailBodyProps {
-  articleBody: IBlog['body']
+  articleBody: Blog['body']
 }

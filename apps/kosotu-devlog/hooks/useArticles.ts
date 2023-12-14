@@ -4,34 +4,94 @@ import { ArticleCardListLogic } from 'logic/blogs/articles/cardList'
 import { ArticleOffsetCountLogic } from 'logic/blogs/articles/offsetCount'
 import { PerseArticleBodyLogic } from 'logic/blogs/articles/articleBody/convertBody'
 import { TableOfContentsLogic } from 'logic/blogs/articles/tableOfContants/tableOfContentsLogic'
-import { MicroCmsUsecaseBlog } from 'usecase/microCMS/blog'
+import { MicroCmsBlogUsecase } from 'usecase/microCMS/blog'
 
 /**
  * ブログ記事取得用カスタムフック
  */
 export const useArticles = () => {
+  const microCmsBlogUsecase = new MicroCmsBlogUsecase({
+    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
+    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    blogEndpoint: API.BLOG.END_POINT,
+  })
+
   /**
    * ブログ記事一覧を取得
    */
   const getArticles = async (id?: string) => {
-    const offset = new ArticleOffsetCountLogic(id, MAX_ARTICEL_COUNT).execute()
+    const offset = new ArticleOffsetCountLogic({
+      id: id,
+      maxPageCount: MAX_ARTICEL_COUNT,
+    }).execute()
 
-    const { blogs, totalCount } = await new MicroCmsUsecaseBlog(
-      process.env.NEXT_PUBLIC_API_KEY || '',
-      process.env.NEXT_PUBLIC_API_ENDPOINT || '',
-      API.BLOG.END_POINT
-    ).getBlogs({
+    const { blogs, totalCount } = await microCmsBlogUsecase.getBlogs({
       limit: true,
       offset,
       maxArticleCount: MAX_ARTICEL_COUNT,
     })
 
-    const articles = new ArticleCardListLogic(blogs).execute()
+    const articles = new ArticleCardListLogic({ blogs }).execute()
 
-    const totalPageCount = new PaginationLogic(
-      totalCount,
-      MAX_ARTICEL_COUNT
-    ).execute()
+    const totalPageCount = new PaginationLogic({
+      articleCount: totalCount,
+      maxPageCount: MAX_ARTICEL_COUNT,
+    }).execute()
+
+    return { articles, totalPageCount }
+  }
+
+  /**
+   * カテゴリに紐づくブログ記事一覧を取得
+   */
+  const getArticlesByCategoryId = async (
+    categoryId: string,
+    pageId?: string
+  ) => {
+    const offset = new ArticleOffsetCountLogic({
+      id: pageId,
+      maxPageCount: MAX_ARTICEL_COUNT,
+    }).execute()
+
+    const { blogs, totalCount } = await microCmsBlogUsecase.getBlogs({
+      limit: true,
+      offset,
+      maxArticleCount: MAX_ARTICEL_COUNT,
+      categoryId,
+    })
+
+    const articles = new ArticleCardListLogic({ blogs }).execute()
+
+    const totalPageCount = new PaginationLogic({
+      articleCount: totalCount,
+      maxPageCount: MAX_ARTICEL_COUNT,
+    }).execute()
+
+    return { articles, totalPageCount }
+  }
+
+  /**
+   * タグに紐づくブログ記事一覧を取得
+   */
+  const getArticlesByTagId = async (tagId: string, pageId?: string) => {
+    const offset = new ArticleOffsetCountLogic({
+      id: pageId,
+      maxPageCount: MAX_ARTICEL_COUNT,
+    }).execute()
+
+    const { blogs, totalCount } = await microCmsBlogUsecase.getBlogs({
+      limit: true,
+      offset,
+      maxArticleCount: MAX_ARTICEL_COUNT,
+      tagId,
+    })
+
+    const articles = new ArticleCardListLogic({ blogs }).execute()
+
+    const totalPageCount = new PaginationLogic({
+      articleCount: totalCount,
+      maxPageCount: MAX_ARTICEL_COUNT,
+    }).execute()
 
     return { articles, totalPageCount }
   }
@@ -40,15 +100,15 @@ export const useArticles = () => {
    * IDを指定してブログ記事を一件取得
    */
   const getArticleById = async (id: string) => {
-    const { blog } = await new MicroCmsUsecaseBlog(
-      process.env.NEXT_PUBLIC_API_KEY || '',
-      process.env.NEXT_PUBLIC_API_ENDPOINT || '',
-      API.BLOG.END_POINT
-    ).getBlogById({ id })
+    const { blog } = await microCmsBlogUsecase.getBlogById({ id })
 
-    const { body } = await new PerseArticleBodyLogic(blog.body).execute()
+    const { body } = await new PerseArticleBodyLogic({
+      articleBody: blog.body,
+    }).execute()
 
-    const { tableOfContents } = new TableOfContentsLogic(blog.body).execute()
+    const { tableOfContents } = new TableOfContentsLogic({
+      blogBody: blog.body,
+    }).execute()
 
     return {
       article: {
@@ -62,5 +122,7 @@ export const useArticles = () => {
   return {
     getArticles,
     getArticleById,
+    getArticlesByCategoryId,
+    getArticlesByTagId,
   }
 }

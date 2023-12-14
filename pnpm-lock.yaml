@@ -249,6 +249,9 @@ importers:
 
   packages/usecase:
     dependencies:
+      logic:
+        specifier: workspace:*
+        version: link:../logic
       type:
         specifier: workspace:*
         version: link:../type

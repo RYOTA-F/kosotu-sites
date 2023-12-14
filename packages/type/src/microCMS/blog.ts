@@ -1,33 +1,33 @@
-import { ICategory } from './category'
-import { ITag } from './tag'
+import { Category } from './category'
+import { Tag } from './tag'
 
-export interface IBlog {
+export interface Blog {
   id: string
   title: string
   description: string
   body: string
-  image: IBlogImage
+  image: BlogImage
   createdAt: string
   updatedAt: string
   publishedAt: string
   revisedAt: string
-  categories: ICategory[]
-  tags: ITag[]
+  categories: Category[]
+  tags: Tag[]
   oldPublishedAt?: string
 }
 
-export interface IBlogsApiResponse {
-  contents: IBlog[]
+export interface BlogsApiResponse {
+  contents: Blog[]
   totalCount: number
   offset: number
   limit: number
 }
 
-export interface IBlogDetailApiResponse {
-  contents: IBlog[]
+export interface BlogDetailApiResponse {
+  contents: Blog[]
 }
 
-export interface IBlogCardData {
+export interface BlogCardData {
   url: string
   title: string
   description: string
@@ -35,7 +35,7 @@ export interface IBlogCardData {
   site: string
 }
 
-export interface ITableOfContents {
+export interface TableOfContents {
   id: string
   text: string
   type: string
@@ -56,7 +56,7 @@ export interface ISeo {
   image: string
 }
 
-export interface IBlogImage {
+export interface BlogImage {
   url: string
   height: number
   width: number

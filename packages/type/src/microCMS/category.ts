@@ -1,25 +1,25 @@
-import { IBlog } from './blog'
+import { Blog } from './blog'
 
-export interface ICategory {
+export interface Category {
   id: string
   createdAt: string
   updatedAt: string
   publishedAt: string
   revisedAt: string
   name: string
-  relation: ICategoryRelation
-  blogs: IBlog[]
+  relation: CategoryRelation
+  blogs: Blog[]
 }
 
-export interface ICategoryRelation {
+export interface CategoryRelation {
   fieldId: string
   isParent: boolean
-  children: ICategory[]
-  parent: ICategory[]
+  children: Category[]
+  parent: Category[]
 }
 
-export interface ICategoryApiResponse {
-  contents: ICategory[]
+export interface CategoryApiResponse {
+  contents: Category[]
   totalCount: number
   offset: number
   limit: number
