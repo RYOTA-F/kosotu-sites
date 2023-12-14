@@ -1,13 +1,10 @@
-// const
 import { PAGE } from 'const/page'
 import { SITE_NAME, CHATCH_PHRASE, PROFILE_INFO } from 'const/global'
 import { SUB_MENU_LIST, HEADER_MENU } from 'const/menu'
 import { METADATA } from 'const/metadata'
-// components
 import { Header } from 'ui/components/blogs/common/Header'
 import { Footer } from 'ui/components/blogs/common/Footer'
 import { ProfileInfo } from 'ui/components/blogs/common/ProfileInfo'
-// styles
 import 'public/globals.css'
 
 export default function RootLayout({

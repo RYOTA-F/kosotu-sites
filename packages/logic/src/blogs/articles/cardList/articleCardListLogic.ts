@@ -1,10 +1,10 @@
-import { IBlog } from 'type/microCMS'
+import { Blog } from 'type/microCMS'
 
 /**
  * 記事一覧リスト生成ロジック
  */
 export class ArticleCardListLogic {
-  constructor(private blogs: IBlog[]) {}
+  constructor(private blogs: Blog[]) {}
 
   /**
    * 加工された記事一覧を取得

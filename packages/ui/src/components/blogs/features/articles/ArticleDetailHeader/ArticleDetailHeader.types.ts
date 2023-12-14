@@ -1,7 +1,7 @@
-import { IBlog } from 'type/microCMS'
+import { Blog } from 'type/microCMS'
 
 export interface ArticleDetailHeaderProps {
-  article: IBlog
+  article: Blog
   welcomeMessage?: string
   thanksMessage?: string
 }

@@ -1,4 +1,4 @@
-import { PAGE } from './pagePathsLogic.const'
+import { PAGE, PAGE_TYPE } from './pagePathsLogic.const'
 import { PagePathsLogicType } from './pagePathsLogic.types'
 
 export class PagePathsLogic {
@@ -15,11 +15,16 @@ export class PagePathsLogic {
     const pageNumbers = Array.from({ length: pageCount }, (_, i) => i + 2)
 
     switch (this.type) {
-      case 'home':
-        return pageNumbers.map((id) => ({ id: id.toString() }))
-      case 'category':
-        return pageNumbers.map((id) => `${PAGE.CATEGORY}${this.slug}/${id}`)
-      case 'tag':
+      case PAGE_TYPE.HOME:
+        return pageNumbers.map((id) => ({
+          id: id.toString(),
+        }))
+      case PAGE_TYPE.CATEGORY:
+        return pageNumbers.map((id) => ({
+          id: this.slug,
+          pageId: id.toString(),
+        }))
+      case PAGE_TYPE.TAG:
         return pageNumbers.map((id) => `${PAGE.TAG}${this.slug}/${id}`)
       default:
         return []

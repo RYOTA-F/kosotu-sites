@@ -1,7 +1,7 @@
 import { generateStaticParams } from './generateStaticParams'
 import { useArticles } from 'hooks/useArticles'
 import { ArticleCardList } from 'ui/components/blogs/features/articles/ArticleCardList'
-import { Pagination } from 'ui/components/blogs/common/Pagination'
+import { Pagination, PAGE_PATTERN } from 'ui/components/blogs/common/Pagination'
 
 interface PagesPageParams {
   params: {
@@ -16,7 +16,11 @@ export default async function PagesPage({ params: { id } }: PagesPageParams) {
   return (
     <>
       <ArticleCardList articles={articles} />
-      <Pagination currentPage={Number(id)} totalPage={totalPageCount} />
+      <Pagination
+        totalPage={totalPageCount}
+        currentPageNumber={Number(id)}
+        currentPagePattern={PAGE_PATTERN.PAGES}
+      />
     </>
   )
 }

@@ -1,10 +1,10 @@
 import { API, MAX_ARTICEL_COUNT, OFFSET_ZERO } from 'const/microCms'
-import { MicroCmsUsecaseBlog } from 'usecase/microCMS/blog'
+import { MicroCmsBlogUsecase } from 'usecase/microCMS/blog'
 import { PagePathsLogic, PAGE_TYPE } from 'logic/blogs/articles/pagePaths'
 import { PaginationLogic } from 'logic/blogs/articles/pagination'
 
 export async function generateStaticParams() {
-  const { totalCount } = await new MicroCmsUsecaseBlog(
+  const { totalCount } = await new MicroCmsBlogUsecase(
     process.env.NEXT_PUBLIC_API_KEY || '',
     process.env.NEXT_PUBLIC_API_ENDPOINT || '',
     API.BLOG.END_POINT

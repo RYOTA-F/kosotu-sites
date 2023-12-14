@@ -5,3 +5,9 @@ export const PAGE = {
   CATEGORY: '/categories/',
   TAG: '/tags/',
 } as const
+
+export const PAGE_TYPE = {
+  HOME: 'home',
+  CATEGORY: 'category',
+  TAG: 'tag',
+} as const

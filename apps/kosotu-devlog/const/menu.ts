@@ -4,7 +4,7 @@ import { PAGE } from 'const/page'
 export const HEADER_MENU = [
   {
     label: 'フロントエンド',
-    url: '/categories/frontend',
+    url: '/categories/front-end',
     children: [
       {
         label: 'TypeScript',
@@ -18,7 +18,7 @@ export const HEADER_MENU = [
   },
   {
     label: 'バックエンド',
-    url: '/categories/backend',
+    url: '/categories/back-end',
     children: [
       {
         label: 'Node.js(TS)',
@@ -54,7 +54,7 @@ export const HEADER_MENU = [
   },
   {
     label: 'AI',
-    url: '/categories/ai',
+    url: '/categories/artificial-intelligence',
     children: [
       {
         label: 'ChatGPT',

@@ -1,5 +1,5 @@
-import { ITag } from 'type/microCMS'
+import { Tag } from 'type/microCMS'
 
 export interface TagListProps {
-  tags: ITag[]
+  tags: Tag[]
 }
