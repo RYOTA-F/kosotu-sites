@@ -1,0 +1,27 @@
+.heading {
+  margin: 48px auto;
+  padding: 16px 24px;
+  color: white;
+  background-color: #709dd8;
+  position: relative;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.topBorder {
+  position: absolute;
+  width: 100%;
+  top: -4px;
+  left: 0;
+  border-top: 2px solid #709dd8;
+  content: '';
+}
+
+.bottomBorder {
+  position: absolute;
+  width: 100%;
+  bottom: -4px;
+  left: 0;
+  border-top: 2px solid #709dd8;
+  content: '';
+}
