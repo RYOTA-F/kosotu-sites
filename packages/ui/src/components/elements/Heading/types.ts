@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
 
-export interface IHeadingDefault {
+export interface HeadingProps {
   children: ReactNode
 }

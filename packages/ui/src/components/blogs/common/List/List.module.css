@@ -1,0 +1,22 @@
+.list {
+  padding: 16px;
+  color: #000;
+  background-color: #fbf9ee;
+}
+
+.listItem {
+  position: relative;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  padding-left: 28px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed hsla(0, 0%, 78%, 0.5);
+}
+
+.listItemDot {
+  position: absolute;
+  bottom: 14px;
+  left: 4px;
+  font-size: 14px;
+  color: #87dd7c;
+}
