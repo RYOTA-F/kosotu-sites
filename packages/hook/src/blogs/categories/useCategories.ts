@@ -1,14 +1,18 @@
-import { API } from 'const/microCms'
 import { MicroCmsCategoryUsecase } from 'usecase/microCMS/category/categoryUsecase'
+import { UseCategories } from './useCategories.types'
 
 /**
  * カテゴリ取得用カスタムフック
  */
-export const useCategories = () => {
+export const useCategories: UseCategories = ({
+  apiKey,
+  baseEndpint,
+  categoryEndpoint,
+}) => {
   const microCmsCategoryUsecase = new MicroCmsCategoryUsecase({
-    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
-    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
-    categoryEndpoint: API.CATEGORY.END_POINT,
+    apiKey,
+    baseEndpint,
+    categoryEndpoint,
   })
 
   /**
