@@ -11,7 +11,7 @@
   display: block;
   padding: 8px 32px;
   font-weight: bold;
-  color: 5e6c77;
+  color: #4a5567;
   font-size: 18px;
 }
 
@@ -47,7 +47,7 @@
 
 .children a,
 .blog a {
-  color: 5e6c77;
+  color: #4a5567;
 }
 
 .parent a,
