@@ -1,0 +1,74 @@
+.top {
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.top:hover {
+  opacity: 0.6;
+}
+
+.top a {
+  display: block;
+  padding: 8px 32px;
+  font-weight: bold;
+  color: 5e6c77;
+  font-size: 18px;
+}
+
+.topBar {
+  position: absolute;
+  content: '';
+  width: 300px;
+  bottom: -10px;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(to right, #709dd8, #fff);
+}
+
+.parent,
+.children,
+.blog {
+  display: inline-block;
+}
+
+.parent a {
+  color: #fff;
+}
+
+.parent,
+.children {
+  border-left: 8px solid #709dd8;
+  background-color: #a4cafe;
+}
+
+.children {
+  background-color: #f7f7f7;
+}
+
+.children a,
+.blog a {
+  color: #5e6c77;
+}
+
+.parent a,
+.children a,
+.blog a {
+  display: block;
+  padding: 8px 40px 8px 16px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.blog {
+  border-bottom: 2px solid #a4cafe;
+}
+
+.blog a {
+  font-size: 14px;
+}
+
+.parent:hover,
+.children:hover,
+.blog:hover {
+  opacity: 0.6;
+}
