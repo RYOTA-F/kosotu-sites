@@ -1,5 +1,6 @@
+import { API, MAX_ARTICEL_COUNT } from 'const/microCms'
+import { useArticles } from 'hook/blogs/articles/useArticles'
 import { generateStaticParams } from './generateStaticParams'
-import { useArticles } from 'hooks/useArticles'
 import { ArticleDetailHeader } from 'ui/components/blogs/features/articles/ArticleDetailHeader/ArticleDetailHeader'
 import { ArticleDetailBody } from 'ui/components/blogs/features/articles/ArticleDetailBody/ArticleDetailBody'
 import { TableOfContents } from 'ui/components/blogs/common/TableOfContents'
@@ -14,7 +15,12 @@ interface ArticlePageParams {
 export default async function ArticlePage({
   params: { id },
 }: ArticlePageParams) {
-  const { getArticleById } = useArticles()
+  const { getArticleById } = useArticles({
+    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
+    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    blogEndpoint: API.BLOG.END_POINT,
+    maxPageArticleCount: MAX_ARTICEL_COUNT,
+  })
   const { article, tableOfContents } = await getArticleById(id)
 
   return (

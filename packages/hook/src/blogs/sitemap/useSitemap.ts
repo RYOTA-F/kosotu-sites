@@ -1,22 +1,27 @@
-import { API } from 'const/microCms'
 import { MicroCmsBlogUsecase } from 'usecase/microCMS/blog/blogUsecase'
 import { MicroCmsCategoryUsecase } from 'usecase/microCMS/category/categoryUsecase'
 import { CreateSitemapDataLogic } from 'logic/blogs/sitemaps/sitemapData/createSitemapData'
+import { UseSitemapProps } from './useSitemap.types'
 
 /**
  * サイトマップ取得用カスタムフック
  */
-export const useSitemap = () => {
+export const useSitemap = ({
+  apiKey,
+  baseEndpint,
+  blogEndpoint,
+  categoryEndpoint,
+}: UseSitemapProps) => {
   const microCmsBlogUsecase = new MicroCmsBlogUsecase({
-    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
-    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
-    blogEndpoint: API.BLOG.END_POINT,
+    apiKey,
+    baseEndpint,
+    blogEndpoint,
   })
 
   const microCmsCategoryUsecase = new MicroCmsCategoryUsecase({
-    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
-    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
-    categoryEndpoint: API.CATEGORY.END_POINT,
+    apiKey,
+    baseEndpint,
+    categoryEndpoint,
   })
 
   /**

@@ -1,10 +1,16 @@
+import { API } from 'const/microCms'
 import { H1 } from 'ui/components/elements/Heading'
 import { SitemapList } from 'ui/components/blogs/features/sitemaps/SitemapList/SitemapList'
-import { useSitemap } from 'hooks/useSitemap'
+import { useSitemap } from 'hook/blogs/sitemap/useSitemap'
 import { SITEMAP } from './sitemap.const'
 
 export default async function SitemapPage() {
-  const { getSitemaps } = useSitemap()
+  const { getSitemaps } = useSitemap({
+    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
+    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    blogEndpoint: API.BLOG.END_POINT,
+    categoryEndpoint: API.CATEGORY.END_POINT,
+  })
   const { sitemaps } = await getSitemaps()
 
   return (
