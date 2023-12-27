@@ -1,7 +1,8 @@
-import { generateStaticParams } from './generateStaticParams'
-import { useArticles } from 'hooks/useArticles'
+import { API, MAX_ARTICEL_COUNT } from 'const/microCms'
+import { useArticles } from 'hook/blogs/articles/useArticles'
 import { ArticleCardList } from 'ui/components/blogs/features/articles/ArticleCardList'
 import { Pagination, PAGE_PATTERN } from 'ui/components/blogs/common/Pagination'
+import { generateStaticParams } from './generateStaticParams'
 
 interface PagesPageParams {
   params: {
@@ -10,7 +11,12 @@ interface PagesPageParams {
 }
 
 export default async function PagesPage({ params: { id } }: PagesPageParams) {
-  const { getArticles } = useArticles()
+  const { getArticles } = useArticles({
+    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
+    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    blogEndpoint: API.BLOG.END_POINT,
+    maxPageArticleCount: MAX_ARTICEL_COUNT,
+  })
   const { articles, totalPageCount } = await getArticles(id)
 
   return (

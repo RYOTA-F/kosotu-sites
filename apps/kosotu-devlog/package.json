@@ -17,7 +17,8 @@
     "react-dom": "latest",
     "type": "workspace:*",
     "ui": "workspace:*",
-    "usecase": "workspace:*"
+    "usecase": "workspace:*",
+    "hook": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",

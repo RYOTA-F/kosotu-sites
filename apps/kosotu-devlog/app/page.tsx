@@ -1,4 +1,5 @@
-import { useArticles } from 'hooks/useArticles'
+import { API, MAX_ARTICEL_COUNT } from 'const/microCms'
+import { useArticles } from 'hook/blogs/articles/useArticles'
 import { ArticleCardList } from 'ui/components/blogs/features/articles/ArticleCardList'
 import {
   Pagination,
@@ -7,7 +8,12 @@ import {
 } from 'ui/components/blogs/common/Pagination'
 
 export default async function HomePage() {
-  const { getArticles } = useArticles()
+  const { getArticles } = useArticles({
+    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
+    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    blogEndpoint: API.BLOG.END_POINT,
+    maxPageArticleCount: MAX_ARTICEL_COUNT,
+  })
   const { articles, totalPageCount } = await getArticles()
 
   return (

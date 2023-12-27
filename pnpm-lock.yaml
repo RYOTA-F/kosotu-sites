@@ -63,6 +63,9 @@ importers:
 
   apps/kosotu-devlog:
     dependencies:
+      hook:
+        specifier: workspace:*
+        version: link:../../packages/hook
       logic:
         specifier: workspace:*
         version: link:../../packages/logic
@@ -109,6 +112,21 @@ importers:
       typescript:
         specifier: 4.8.4
         version: 4.8.4
+
+  packages/hook:
+    dependencies:
+      logic:
+        specifier: workspace:*
+        version: link:../logic
+      type:
+        specifier: workspace:*
+        version: link:../type
+      typescript:
+        specifier: latest
+        version: 5.3.3
+      usecase:
+        specifier: workspace:*
+        version: link:../usecase
 
   packages/logic:
     dependencies:
@@ -7848,7 +7866,7 @@ packages:
       postcss: 8.4.31
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      styled-jsx: 5.1.1(react@18.2.0)
+      styled-jsx: 5.1.1(@babel/core@7.22.20)(react@18.2.0)
       watchpack: 2.4.0
     optionalDependencies:
       '@next/swc-darwin-arm64': 14.0.5-canary.1
@@ -9329,23 +9347,6 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.22.20
-      client-only: 0.0.1
-      react: 18.2.0
-    dev: false
-
-  /styled-jsx@5.1.1(react@18.2.0):
-    resolution: {integrity: sha512-pW7uC1l4mBZ8ugbiZrcIsiIvVx1UmTfw7UkC3Um2tmfUq9Bhk8IiyEIPl6F8agHgjzku6j0xQEZbfA5uSgSaCw==}
-    engines: {node: '>= 12.0.0'}
-    peerDependencies:
-      '@babel/core': '*'
-      babel-plugin-macros: '*'
-      react: '>= 16.8.0 || 17.x.x || ^18.0.0-0'
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      babel-plugin-macros:
-        optional: true
-    dependencies:
       client-only: 0.0.1
       react: 18.2.0
     dev: false
