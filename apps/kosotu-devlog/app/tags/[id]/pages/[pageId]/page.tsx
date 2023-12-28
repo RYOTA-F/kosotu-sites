@@ -1,4 +1,4 @@
-import { API, MAX_ARTICEL_COUNT } from 'const'
+import { API, MAX_ARTICEL_COUNT, API_KEY, BASE_ENDPOINT } from 'const'
 import { useArticles } from 'hook/blogs/articles/useArticles'
 import { useTags } from 'hook/blogs/tags/useTags'
 import { TagDetailHeader } from 'ui/components/blogs/features/tags/TagDetailHeader'
@@ -17,14 +17,14 @@ export default async function TagPagesPage({
   params: { id, pageId },
 }: TagPagesPageParams) {
   const { getArticlesByTagId } = useArticles({
-    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
-    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    apiKey: API_KEY,
+    baseEndpint: BASE_ENDPOINT,
     blogEndpoint: API.BLOG.END_POINT,
     maxPageArticleCount: MAX_ARTICEL_COUNT,
   })
   const { getTagById } = useTags({
-    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
-    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    apiKey: API_KEY,
+    baseEndpint: BASE_ENDPOINT,
     tagEndpoint: API.TAG.END_POINT,
   })
   const { tag } = await getTagById(id)

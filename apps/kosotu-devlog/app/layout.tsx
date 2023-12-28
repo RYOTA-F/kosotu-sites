@@ -7,6 +7,8 @@ import {
   SUB_MENU_LIST,
   TWITTER,
   METADATA,
+  API_KEY,
+  BASE_ENDPOINT,
 } from 'const'
 import { Header } from 'ui/components/blogs/common/Header'
 import { Footer } from 'ui/components/blogs/common/Footer'
@@ -20,8 +22,8 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   const { getGlobalMenu } = useMenu({
-    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
-    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    apiKey: API_KEY,
+    baseEndpint: BASE_ENDPOINT,
     categoryEndpoint: API.CATEGORY.END_POINT,
   })
   const { globalMenu } = await getGlobalMenu()

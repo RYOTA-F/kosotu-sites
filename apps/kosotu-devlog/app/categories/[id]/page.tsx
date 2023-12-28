@@ -1,4 +1,4 @@
-import { API, MAX_ARTICEL_COUNT } from 'const/microCms'
+import { API, MAX_ARTICEL_COUNT, API_KEY, BASE_ENDPOINT } from 'const'
 import { useArticles } from 'hook/blogs/articles/useArticles'
 import { useCategories } from 'hook/blogs/categories/useCategories'
 import { CategoryDetailHeader } from 'ui/components/blogs/features/categories/CategoryDetailHeader/CategoryDetailHeader'
@@ -20,14 +20,14 @@ export default async function CategoryPage({
   params: { id },
 }: CategoryPageParams) {
   const { getArticlesByCategoryId } = useArticles({
-    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
-    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    apiKey: API_KEY,
+    baseEndpint: BASE_ENDPOINT,
     blogEndpoint: API.BLOG.END_POINT,
     maxPageArticleCount: MAX_ARTICEL_COUNT,
   })
   const { getCategoryById } = useCategories({
-    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
-    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    apiKey: API_KEY,
+    baseEndpint: BASE_ENDPOINT,
     categoryEndpoint: API.CATEGORY.END_POINT,
   })
   const { category } = await getCategoryById(id)

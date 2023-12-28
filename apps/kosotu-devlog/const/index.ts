@@ -1,5 +1,6 @@
 export * from './article'
 export * from './contact'
+export * from './env'
 export * from './global'
 export * from './menu'
 export * from './metadata'
