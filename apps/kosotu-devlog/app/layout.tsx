@@ -1,6 +1,8 @@
+import { API } from 'const/microCms'
 import { PAGE } from 'const/page'
 import { SITE_NAME, CHATCH_PHRASE, PROFILE_INFO } from 'const/global'
-import { SUB_MENU_LIST, HEADER_MENU } from 'const/menu'
+import { SUB_MENU_LIST } from 'const/menu'
+import { TWITTER } from 'const/twitter'
 import { METADATA } from 'const/metadata'
 import { Header } from 'ui/components/blogs/common/Header'
 import { Footer } from 'ui/components/blogs/common/Footer'
@@ -18,7 +20,10 @@ export default function RootLayout({
         <Header
           siteName={SITE_NAME}
           catchPhrase={CHATCH_PHRASE}
-          globalMenu={HEADER_MENU}
+          apiKey={process.env.NEXT_PUBLIC_API_KEY || ''}
+          baseEndpint={process.env.NEXT_PUBLIC_API_ENDPOINT || ''}
+          categoryEndpoint={API.CATEGORY.END_POINT}
+          twitterUrl={TWITTER.URL}
         />
         <main className="max-w-full overflow-x-hidden">
           <div className="flex justify-between py-[60px] tb:pt-5 px-[5%] tb:block sp:block">

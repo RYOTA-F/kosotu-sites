@@ -2,7 +2,9 @@ export interface HeaderProps {
   siteName: string
   catchPhrase: string
   twitterUrl?: string
-  globalMenu: GlobalMenu[]
+  apiKey: string
+  baseEndpint: string
+  categoryEndpoint: string
 }
 
 export interface GlobalMenu {
