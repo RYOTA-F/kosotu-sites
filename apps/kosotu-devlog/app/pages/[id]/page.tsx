@@ -1,4 +1,4 @@
-import { API, MAX_ARTICEL_COUNT, API_KEY, BASE_ENDPOINT } from 'const'
+import { API, MAX_ARTICEL_COUNT, API_KEY, API_BASE_ENDPOINT } from 'const'
 import { useArticles } from 'hook/blogs/articles/useArticles'
 import { ArticleCardList } from 'ui/components/blogs/features/articles/ArticleCardList'
 import { Pagination, PAGE_PATTERN } from 'ui/components/blogs/common/Pagination'
@@ -13,7 +13,7 @@ interface PagesPageParams {
 export default async function PagesPage({ params: { id } }: PagesPageParams) {
   const { getArticles } = useArticles({
     apiKey: API_KEY,
-    baseEndpint: BASE_ENDPOINT,
+    baseEndpint: API_BASE_ENDPOINT,
     blogEndpoint: API.BLOG.END_POINT,
     maxPageArticleCount: MAX_ARTICEL_COUNT,
   })

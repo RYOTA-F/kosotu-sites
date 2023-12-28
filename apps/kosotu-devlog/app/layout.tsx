@@ -8,7 +8,7 @@ import {
   TWITTER,
   METADATA,
   API_KEY,
-  BASE_ENDPOINT,
+  API_BASE_ENDPOINT,
 } from 'const'
 import { Header } from 'ui/components/blogs/common/Header'
 import { Footer } from 'ui/components/blogs/common/Footer'
@@ -23,7 +23,7 @@ export default async function RootLayout({
 }) {
   const { getGlobalMenu } = useMenu({
     apiKey: API_KEY,
-    baseEndpint: BASE_ENDPOINT,
+    baseEndpint: API_BASE_ENDPOINT,
     categoryEndpoint: API.CATEGORY.END_POINT,
   })
   const { globalMenu } = await getGlobalMenu()

@@ -1,4 +1,10 @@
-import { API, MAX_ARTICEL_COUNT, ARTICLE_DETAIL_HEADER, API_KEY, BASE_ENDPOINT } from 'const'
+import {
+  API,
+  MAX_ARTICEL_COUNT,
+  ARTICLE_DETAIL_HEADER,
+  API_KEY,
+  API_BASE_ENDPOINT,
+} from 'const'
 import { useArticles } from 'hook/blogs/articles/useArticles'
 import { ArticleDetailHeader } from 'ui/components/blogs/features/articles/ArticleDetailHeader/ArticleDetailHeader'
 import { ArticleDetailBody } from 'ui/components/blogs/features/articles/ArticleDetailBody/ArticleDetailBody'
@@ -16,7 +22,7 @@ export default async function ArticlePage({
 }: ArticlePageParams) {
   const { getArticleById } = useArticles({
     apiKey: API_KEY,
-    baseEndpint: BASE_ENDPOINT,
+    baseEndpint: API_BASE_ENDPOINT,
     blogEndpoint: API.BLOG.END_POINT,
     maxPageArticleCount: MAX_ARTICEL_COUNT,
   })

@@ -1,4 +1,4 @@
-import { API, MAX_ARTICEL_COUNT, API_KEY, BASE_ENDPOINT } from 'const'
+import { API, MAX_ARTICEL_COUNT, API_KEY, API_BASE_ENDPOINT } from 'const'
 import { useArticles } from 'hook/blogs/articles/useArticles'
 import { ArticleCardList } from 'ui/components/blogs/features/articles/ArticleCardList'
 import {
@@ -10,7 +10,7 @@ import {
 export default async function HomePage() {
   const { getArticles } = useArticles({
     apiKey: API_KEY,
-    baseEndpint: BASE_ENDPOINT,
+    baseEndpint: API_BASE_ENDPOINT,
     blogEndpoint: API.BLOG.END_POINT,
     maxPageArticleCount: MAX_ARTICEL_COUNT,
   })

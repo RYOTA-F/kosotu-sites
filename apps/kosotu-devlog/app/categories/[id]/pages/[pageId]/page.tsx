@@ -1,4 +1,4 @@
-import { API, MAX_ARTICEL_COUNT, API_KEY, BASE_ENDPOINT } from 'const'
+import { API, MAX_ARTICEL_COUNT, API_KEY, API_BASE_ENDPOINT } from 'const'
 import { useArticles } from 'hook/blogs/articles/useArticles'
 import { useCategories } from 'hook/blogs/categories/useCategories'
 import { CategoryDetailHeader } from 'ui/components/blogs/features/categories/CategoryDetailHeader/CategoryDetailHeader'
@@ -18,13 +18,13 @@ export default async function CategoryPagesPage({
 }: CategoryPagesPageParams) {
   const { getArticlesByCategoryId } = useArticles({
     apiKey: API_KEY,
-    baseEndpint: BASE_ENDPOINT,
+    baseEndpint: API_BASE_ENDPOINT,
     blogEndpoint: API.BLOG.END_POINT,
     maxPageArticleCount: MAX_ARTICEL_COUNT,
   })
   const { getCategoryById } = useCategories({
     apiKey: API_KEY,
-    baseEndpint: BASE_ENDPOINT,
+    baseEndpint: API_BASE_ENDPOINT,
     categoryEndpoint: API.CATEGORY.END_POINT,
   })
   const { category } = await getCategoryById(id)

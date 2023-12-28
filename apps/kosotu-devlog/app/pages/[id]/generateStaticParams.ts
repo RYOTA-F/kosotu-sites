@@ -3,7 +3,7 @@ import {
   MAX_ARTICEL_COUNT,
   OFFSET_ZERO,
   API_KEY,
-  BASE_ENDPOINT,
+  API_BASE_ENDPOINT,
 } from 'const'
 import { PagePathsLogic, PAGE_TYPE } from 'logic/blogs/articles/pagePaths'
 import { PaginationLogic } from 'logic/blogs/articles/pagination'
@@ -12,7 +12,7 @@ import { MicroCmsBlogUsecase } from 'usecase/microCMS/blog'
 export async function generateStaticParams() {
   const { totalCount } = await new MicroCmsBlogUsecase({
     apiKey: API_KEY,
-    baseEndpint: BASE_ENDPOINT,
+    baseEndpint: API_BASE_ENDPOINT,
     blogEndpoint: API.BLOG.END_POINT,
   }).getBlogs({
     limit: true,
