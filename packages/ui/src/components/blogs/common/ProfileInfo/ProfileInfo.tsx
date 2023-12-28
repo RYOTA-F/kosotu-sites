@@ -15,6 +15,7 @@ export function ProfileInfo({
     <div className={style.profileInfo} aria-label={ARIA_LABEL.PROFILE_INFO}>
       <div className={style.imageContainer}>
         <a href={profilePath}>
+          {/* eslint-disable-next-line */}
           <img src={image.path} alt={image.alt} className={style.image} />
         </a>
       </div>

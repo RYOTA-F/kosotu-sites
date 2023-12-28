@@ -7,6 +7,7 @@ export function ArticleCard({ id, title, image }: ArticleCardProps) {
     <div className={style.articleCard} aria-label={ARIA_LABEL.ARTICLE_CARD}>
       <a href={`${ROOT_PATH}${id}`}>
         <div className={style.imageContainer}>
+          {/* eslint-disable-next-line */}
           <img
             src={image.url}
             alt={title}
