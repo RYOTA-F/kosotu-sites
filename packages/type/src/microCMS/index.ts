@@ -1,4 +1,5 @@
 export * from './blog'
+export * from './breadCrumb'
 export * from './category'
 export * from './menu'
 export * from './tag'

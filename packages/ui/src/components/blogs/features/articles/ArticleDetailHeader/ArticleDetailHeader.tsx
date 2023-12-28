@@ -51,6 +51,7 @@ export function ArticleDetailHeader({
       </div>
 
       <figure className={style.figure}>
+        {/* eslint-disable-next-line */}
         <img
           src={article.image.url}
           alt={IMAGE.ALT}
