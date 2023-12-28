@@ -1,0 +1,35 @@
+.breadCrumb {
+  display: flex;
+  align-items: center;
+  padding: 8px 7%;
+  background-color: #f7f7f7;
+  box-shadow: inherit;
+  font-size: 12px;
+  color: #808080;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+
+.text {
+  margin-left: 4px;
+}
+
+.breadCrumbItem {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.breadCrumbArrow {
+  margin-right: 8px;
+}
+
+.breadCrumbLink {
+  display: flex;
+  align-items: center;
+}
+
+.breadCrumbLink:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
