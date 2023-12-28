@@ -1,11 +1,11 @@
-import { API } from 'const/microCms'
-import { MicroCmsTagUsecase } from 'usecase/microCMS/tag'
+import { API, API_KEY, API_BASE_ENDPOINT } from 'const'
 import { TagPathsLogic } from 'logic/blogs/tags/tagPaths'
+import { MicroCmsTagUsecase } from 'usecase/microCMS/tag'
 
 export async function generateStaticParams() {
   const { tags } = await new MicroCmsTagUsecase({
-    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
-    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    apiKey: API_KEY,
+    baseEndpint: API_BASE_ENDPOINT,
     tagEndpoint: API.TAG.END_POINT,
   }).getTags()
 

@@ -1,25 +1,54 @@
-import { PAGE } from 'const/page'
-import { SITE_NAME, CHATCH_PHRASE, PROFILE_INFO } from 'const/global'
-import { SUB_MENU_LIST, HEADER_MENU } from 'const/menu'
-import { METADATA } from 'const/metadata'
+import {
+  API,
+  PAGE,
+  SITE_NAME,
+  CHATCH_PHRASE,
+  PROFILE_INFO,
+  SUB_MENU_LIST,
+  TWITTER,
+  METADATA,
+  API_KEY,
+  API_BASE_ENDPOINT,
+} from 'const'
 import { Header } from 'ui/components/blogs/common/Header'
+import { BreadCrumb } from 'ui/components/blogs/common/BreadCrumb'
 import { Footer } from 'ui/components/blogs/common/Footer'
 import { ProfileInfo } from 'ui/components/blogs/common/ProfileInfo'
+import { useBreadCrumb } from 'hook/blogs/breadCrumb/useBreadCrumb'
+import { useMenu } from 'hook/blogs/menus/useMenu'
 import 'public/globals.css'
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const { getBreadCrumbMasterData } = useBreadCrumb()
+  const { getGlobalMenu } = useMenu({
+    apiKey: API_KEY,
+    baseEndpint: API_BASE_ENDPOINT,
+    categoryEndpoint: API.CATEGORY.END_POINT,
+  })
+
+  const { blogs, categories, tags } = await getBreadCrumbMasterData({
+    apiKey: API_KEY,
+    baseEndpint: API_BASE_ENDPOINT,
+    blogEndpoint: API.BLOG.END_POINT,
+    categoryEndpoint: API.CATEGORY.END_POINT,
+    tagEndpoint: API.TAG.END_POINT,
+  })
+  const { globalMenu } = await getGlobalMenu()
+
   return (
     <html lang="ja">
       <body>
         <Header
           siteName={SITE_NAME}
           catchPhrase={CHATCH_PHRASE}
-          globalMenu={HEADER_MENU}
+          twitterUrl={TWITTER.URL}
+          globalMenu={globalMenu}
         />
+        <BreadCrumb articles={blogs} categories={categories} tags={tags} />
         <main className="max-w-full overflow-x-hidden">
           <div className="flex justify-between py-[60px] tb:pt-5 px-[5%] tb:block sp:block">
             <div className="min-w-[75%] mr-8 tb:mr-0">{children}</div>

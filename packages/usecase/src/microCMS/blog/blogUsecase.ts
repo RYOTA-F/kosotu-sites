@@ -8,7 +8,7 @@ import {
 import { ArticleFiltersLogic } from 'logic/blogs/articles/articleFilters'
 
 /**
- * MicroCMSブログ記事の取得クラス
+ * MicroCMSブログ記事の取得 Usecase
  */
 export class MicroCmsBlogUsecase {
   private apiKey: MicroCmsBlogUsecaseArgs['apiKey']

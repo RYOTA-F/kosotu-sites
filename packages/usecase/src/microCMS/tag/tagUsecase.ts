@@ -6,7 +6,7 @@ import {
 } from './tagUsecase.types'
 
 /**
- * MicroCMSタグの取得クラス
+ * MicroCMSタグの取得 Usecase
  */
 export class MicroCmsTagUsecase {
   private readonly apiKey: MicroCmsTagUsecaseArgs['apiKey']

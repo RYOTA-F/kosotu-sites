@@ -6,7 +6,7 @@ import {
 } from './tableOfContentsLogic.types'
 
 /**
- * 目次用ロジック
+ * 目次に変換する Logic
  */
 export class TableOfContentsLogic {
   private readonly blogBody: TableOfContentsLogicArgs['blogBody']
@@ -16,7 +16,7 @@ export class TableOfContentsLogic {
   }
 
   /**
-   * 目次に変換
+   * 目次変換を実行
    */
   execute(): TableOfContentsLogicResponse {
     // @ts-ignore

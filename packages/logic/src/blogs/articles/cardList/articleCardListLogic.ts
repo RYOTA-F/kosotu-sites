@@ -4,7 +4,7 @@ import {
 } from './articleCardListLogic.types'
 
 /**
- * 記事一覧リスト生成ロジック
+ * 記事一覧リスト生成 Logic
  */
 export class ArticleCardListLogic {
   private readonly blogs: ArticleCardListLogicArgs['blogs']

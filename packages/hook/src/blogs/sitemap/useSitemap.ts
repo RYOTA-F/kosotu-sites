@@ -1,10 +1,10 @@
+import { CreateSitemapDataLogic } from 'logic/blogs/sitemaps/sitemapData/createSitemapData'
 import { MicroCmsBlogUsecase } from 'usecase/microCMS/blog/blogUsecase'
 import { MicroCmsCategoryUsecase } from 'usecase/microCMS/category/categoryUsecase'
-import { CreateSitemapDataLogic } from 'logic/blogs/sitemaps/sitemapData/createSitemapData'
 import { UseSitemapProps } from './useSitemap.types'
 
 /**
- * サイトマップ取得用カスタムフック
+ * サイトマップ取得用 Custom Hooks
  */
 export const useSitemap = ({
   apiKey,

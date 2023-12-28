@@ -2,7 +2,7 @@ import { MicroCmsTagUsecase } from 'usecase/microCMS/tag'
 import { UseTags } from './useTags.types'
 
 /**
- * タグ取得用カスタムフック
+ * タグ取得用 Custom Hooks
  */
 export const useTags: UseTags = ({ apiKey, baseEndpint, tagEndpoint }) => {
   /**

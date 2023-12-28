@@ -1,11 +1,17 @@
-import { API, FULL_ARTICEL_COUNT, OFFSET_ZERO } from 'const/microCms'
-import { MicroCmsBlogUsecase } from 'usecase/microCMS/blog'
+import {
+  API,
+  FULL_ARTICEL_COUNT,
+  OFFSET_ZERO,
+  API_KEY,
+  API_BASE_ENDPOINT,
+} from 'const'
 import { ArticlePathsLogic } from 'logic/blogs/articles/articlePaths/articlePaths'
+import { MicroCmsBlogUsecase } from 'usecase/microCMS/blog'
 
 export async function generateStaticParams() {
   const { blogs } = await new MicroCmsBlogUsecase({
-    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
-    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    apiKey: API_KEY,
+    baseEndpint: API_BASE_ENDPOINT,
     blogEndpoint: API.BLOG.END_POINT,
   }).getBlogs({
     limit: false,

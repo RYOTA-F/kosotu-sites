@@ -4,6 +4,9 @@ import {
   PagePathsLogicResponse,
 } from './pagePathsLogic.types'
 
+/**
+ * ページのパスを生成する Logic
+ */
 export class PagePathsLogic {
   private readonly totalPage: PagePathsLogicArgs['totalPage']
   private readonly type: PagePathsLogicArgs['type']
@@ -15,6 +18,9 @@ export class PagePathsLogic {
     this.slug = this.args.slug
   }
 
+  /**
+   * パス生成を実行
+   */
   execute(): PagePathsLogicResponse {
     if (this.totalPage <= 0) return []
 

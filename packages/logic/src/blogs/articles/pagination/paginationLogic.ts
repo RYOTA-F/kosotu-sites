@@ -1,6 +1,6 @@
 import { PaginationLogicArgs } from './paginationLogic.types'
 /**
- * ページネーション用ロジック
+ * ページネーション  Logic
  */
 export class PaginationLogic {
   private readonly articleCount: PaginationLogicArgs['articleCount']
@@ -12,7 +12,7 @@ export class PaginationLogic {
   }
 
   /**
-   * 総ページ数を取得
+   * 総ページ数取得を実行
    */
   execute(): number {
     return Math.ceil(this.articleCount / this.maxPageCount)

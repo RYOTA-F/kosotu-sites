@@ -6,7 +6,7 @@ import {
 } from './categoryUsecase.types'
 
 /**
- * MicroCMSカテゴリの取得クラス
+ * MicroCMSカテゴリの取得 Usecase
  */
 export class MicroCmsCategoryUsecase {
   private readonly apiKey: MicroCmsCategoryUsecaseArgs['apiKey']
