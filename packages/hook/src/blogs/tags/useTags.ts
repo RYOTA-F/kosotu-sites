@@ -1,14 +1,24 @@
 import { MicroCmsTagUsecase } from 'usecase/microCMS/tag'
-import { UseTags } from './useTags.types'
+import {
+  UseTagsParams,
+  GetTagByIdParams,
+  GetTagByIdResponse,
+} from './useTags.types'
 
 /**
  * タグ取得用 Custom Hooks
  */
-export const useTags: UseTags = ({ apiKey, baseEndpint, tagEndpoint }) => {
+export const useTags = ({
+  apiKey,
+  baseEndpint,
+  tagEndpoint,
+}: UseTagsParams) => {
   /**
    * IDを指定してタグを一件取得
    */
-  const getTagById = async (id: string) => {
+  const getTagById = async ({
+    id,
+  }: GetTagByIdParams): Promise<GetTagByIdResponse> => {
     const { tag } = await new MicroCmsTagUsecase({
       apiKey,
       baseEndpint,
