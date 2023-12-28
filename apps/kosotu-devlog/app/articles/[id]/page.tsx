@@ -1,10 +1,9 @@
-import { API, MAX_ARTICEL_COUNT } from 'const/microCms'
+import { API, MAX_ARTICEL_COUNT, ARTICLE_DETAIL_HEADER } from 'const'
 import { useArticles } from 'hook/blogs/articles/useArticles'
-import { generateStaticParams } from './generateStaticParams'
 import { ArticleDetailHeader } from 'ui/components/blogs/features/articles/ArticleDetailHeader/ArticleDetailHeader'
 import { ArticleDetailBody } from 'ui/components/blogs/features/articles/ArticleDetailBody/ArticleDetailBody'
 import { TableOfContents } from 'ui/components/blogs/common/TableOfContents'
-import { ARTICLE_DETAIL_HEADER } from 'const/article/contents'
+import { generateStaticParams } from './generateStaticParams'
 
 interface ArticlePageParams {
   params: {

@@ -1,4 +1,4 @@
-import { API, MAX_ARTICEL_COUNT } from 'const/microCms'
+import { API, MAX_ARTICEL_COUNT } from 'const'
 import { useArticles } from 'hook/blogs/articles/useArticles'
 import { ArticleCardList } from 'ui/components/blogs/features/articles/ArticleCardList'
 import { Pagination, PAGE_PATTERN } from 'ui/components/blogs/common/Pagination'

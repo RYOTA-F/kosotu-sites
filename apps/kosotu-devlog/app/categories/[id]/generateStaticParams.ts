@@ -1,6 +1,6 @@
-import { API } from 'const/microCms'
-import { MicroCmsCategoryUsecase } from 'usecase/microCMS/category/categoryUsecase'
+import { API } from 'const'
 import { CategoryPathsLogic } from 'logic/blogs/categories/categoryPaths'
+import { MicroCmsCategoryUsecase } from 'usecase/microCMS/category/categoryUsecase'
 
 export async function generateStaticParams() {
   const { categories } = await new MicroCmsCategoryUsecase({

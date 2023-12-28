@@ -1,4 +1,4 @@
-import { API, MAX_ARTICEL_COUNT } from 'const/microCms'
+import { API, MAX_ARTICEL_COUNT } from 'const'
 import { useArticles } from 'hook/blogs/articles/useArticles'
 import { useCategories } from 'hook/blogs/categories/useCategories'
 import { CategoryDetailHeader } from 'ui/components/blogs/features/categories/CategoryDetailHeader/CategoryDetailHeader'

@@ -1,7 +1,7 @@
-import { API } from 'const/microCms'
+import { API } from 'const'
+import { useSitemap } from 'hook/blogs/sitemap/useSitemap'
 import { H1 } from 'ui/components/elements/Heading'
 import { SitemapList } from 'ui/components/blogs/features/sitemaps/SitemapList/SitemapList'
-import { useSitemap } from 'hook/blogs/sitemap/useSitemap'
 import { SITEMAP } from './sitemap.const'
 
 export default async function SitemapPage() {

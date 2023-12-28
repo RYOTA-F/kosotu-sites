@@ -1,7 +1,6 @@
 import { API, MAX_ARTICEL_COUNT } from 'const/microCms'
 import { useArticles } from 'hook/blogs/articles/useArticles'
 import { useCategories } from 'hook/blogs/categories/useCategories'
-import { generateStaticParams } from './generateStaticParams'
 import { CategoryDetailHeader } from 'ui/components/blogs/features/categories/CategoryDetailHeader/CategoryDetailHeader'
 import { ArticleCardList } from 'ui/components/blogs/features/articles/ArticleCardList'
 import {
@@ -9,6 +8,7 @@ import {
   PAGE_PATTERN,
   TOP_PAGE_NUM,
 } from 'ui/components/blogs/common/Pagination'
+import { generateStaticParams } from './generateStaticParams'
 
 interface CategoryPageParams {
   params: {

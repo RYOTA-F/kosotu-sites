@@ -1,8 +1,8 @@
-import { API, MAX_ARTICEL_COUNT } from 'const/microCms'
-import { MicroCmsBlogUsecase } from 'usecase/microCMS/blog/blogUsecase'
-import { MicroCmsTagUsecase } from 'usecase/microCMS/tag/tagUsecase'
+import { API, MAX_ARTICEL_COUNT } from 'const'
 import { PagePathsLogic, PAGE_TYPE } from 'logic/blogs/articles/pagePaths'
 import { PaginationLogic } from 'logic/blogs/articles/pagination'
+import { MicroCmsBlogUsecase } from 'usecase/microCMS/blog/blogUsecase'
+import { MicroCmsTagUsecase } from 'usecase/microCMS/tag/tagUsecase'
 
 export async function generateStaticParams() {
   const { tags } = await new MicroCmsTagUsecase({
