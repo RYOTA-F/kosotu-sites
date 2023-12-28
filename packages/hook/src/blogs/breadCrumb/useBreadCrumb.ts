@@ -1,13 +1,18 @@
 import { MicroCmsBlogUsecase } from 'usecase/microCMS/blog'
 import { MicroCmsCategoryUsecase } from 'usecase/microCMS/category'
 import { MicroCmsTagUsecase } from 'usecase/microCMS/tag'
-import { CreateBreadCrumbDataLogic } from 'logic/blogs/breadCrumb/breadCrumbData/createBreadCrumbData'
+import {
+  CreateBreadCrumbDataLogic,
+  PAGE_TYPE,
+} from 'logic/blogs/breadCrumb/breadCrumbData/createBreadCrumbData'
 import {
   UseBreadCrumb,
   GetBreadCrumbMasterDataProps,
   GetBreadCrumbMasterDataResponse,
   GetBreadCrumbProps,
   GetBreadCrumbResponse,
+  GetIsShowBreadCrumbProps,
+  GetIsShowBreadCrumbResponse,
 } from './useBreadCrumb.types'
 
 /**
@@ -70,8 +75,27 @@ export const useBreadCrumb: UseBreadCrumb = () => {
     }).execute()
   }
 
+  /**
+   * パンクズの表示条件を取得
+   */
+  const getIsShowBreadCrumb = ({
+    path,
+  }: GetIsShowBreadCrumbProps): GetIsShowBreadCrumbResponse => {
+    const isRoot = path === PAGE_TYPE.ROOT
+    const isPages = path.includes(PAGE_TYPE.PAGES)
+    const isCategory = path.includes(PAGE_TYPE.CATEGORY)
+    const isTag = path.includes(PAGE_TYPE.TAG)
+
+    const isShowBreadCrumb = !(isRoot || isPages) || isCategory || isTag
+
+    return {
+      isShowBreadCrumb,
+    }
+  }
+
   return {
     getBreadCrumbMasterData,
     getBreadCrumb,
+    getIsShowBreadCrumb,
   }
 }

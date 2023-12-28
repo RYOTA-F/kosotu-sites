@@ -230,3 +230,5 @@ export class CreateBreadCrumbDataLogic {
     }
   }
 }
+
+export { PAGE_TYPE }

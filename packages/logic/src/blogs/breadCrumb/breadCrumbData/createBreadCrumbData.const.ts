@@ -1,5 +1,6 @@
 export const PAGE_TYPE = {
   ROOT: '/',
+  PAGES: '/pages/',
   ARTICLE: '/articles/',
   CATEGORY: '/categories/',
   TAG: '/tags/',
