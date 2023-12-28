@@ -7,23 +7,29 @@ import { METADATA } from 'const/metadata'
 import { Header } from 'ui/components/blogs/common/Header'
 import { Footer } from 'ui/components/blogs/common/Footer'
 import { ProfileInfo } from 'ui/components/blogs/common/ProfileInfo'
+import { useMenu } from 'hook/blogs/menus/useMenu'
 import 'public/globals.css'
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const { getGlobalMenu } = useMenu({
+    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
+    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    categoryEndpoint: API.CATEGORY.END_POINT,
+  })
+  const { globalMenu } = await getGlobalMenu()
+
   return (
     <html lang="ja">
       <body>
         <Header
           siteName={SITE_NAME}
           catchPhrase={CHATCH_PHRASE}
-          apiKey={process.env.NEXT_PUBLIC_API_KEY || ''}
-          baseEndpint={process.env.NEXT_PUBLIC_API_ENDPOINT || ''}
-          categoryEndpoint={API.CATEGORY.END_POINT}
           twitterUrl={TWITTER.URL}
+          globalMenu={globalMenu}
         />
         <main className="max-w-full overflow-x-hidden">
           <div className="flex justify-between py-[60px] tb:pt-5 px-[5%] tb:block sp:block">

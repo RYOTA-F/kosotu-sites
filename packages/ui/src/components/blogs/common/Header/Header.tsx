@@ -3,23 +3,13 @@ import { HeaderProps } from './Header.types'
 import style from './Header.module.css'
 import { AccordionMenu } from '../AccordionMenu'
 import { TwitterSvg } from '../../../elements/Svg'
-import { useMenu } from 'hook/blogs/menus/useMenu'
 
-export async function Header({
+export function Header({
   siteName,
   catchPhrase,
   twitterUrl,
-  apiKey,
-  baseEndpint,
-  categoryEndpoint,
+  globalMenu,
 }: HeaderProps) {
-  const { getGlobalMenu } = useMenu({
-    apiKey,
-    baseEndpint,
-    categoryEndpoint,
-  })
-  const { globalMenu } = await getGlobalMenu()
-
   return (
     <>
       <div className={style.container}>
