@@ -4,6 +4,7 @@ import {
   MicroCmsTagUsecaseGetTagByIdParams,
   MicroCmsTagUsecaseGetTagByIdResponse,
 } from './tagUsecase.types'
+import { METHOD_GET, X_API_KEY, FULL_ARTICEL_COUNT } from '../const'
 
 /**
  * MicroCMSタグの取得 Usecase
@@ -23,14 +24,12 @@ export class MicroCmsTagUsecase {
    * タグ一覧を取得
    */
   async getTags(): Promise<MicroCmsTagUsecaseGetTagsResponse> {
-    const limit = 9999
-
     const res = await fetch(
-      `${this.baseEndpint}${this.tagEndpoint}?limit=${limit}`,
+      `${this.baseEndpint}${this.tagEndpoint}?limit=${FULL_ARTICEL_COUNT}`,
       {
-        method: 'GET',
+        method: METHOD_GET,
         headers: {
-          'X-API-KEY': this.apiKey,
+          [X_API_KEY]: this.apiKey,
         },
       }
     )
@@ -49,9 +48,9 @@ export class MicroCmsTagUsecase {
     id,
   }: MicroCmsTagUsecaseGetTagByIdParams): Promise<MicroCmsTagUsecaseGetTagByIdResponse> {
     const res = await fetch(`${this.baseEndpint}${this.tagEndpoint}/${id}`, {
-      method: 'GET',
+      method: METHOD_GET,
       headers: {
-        'X-API-KEY': this.apiKey,
+        [X_API_KEY]: this.apiKey,
       },
     })
 

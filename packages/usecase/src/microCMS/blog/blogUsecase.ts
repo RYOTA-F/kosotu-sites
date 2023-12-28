@@ -1,3 +1,4 @@
+import { ArticleFiltersLogic } from 'logic/blogs/articles/articleFilters'
 import {
   MicroCmsBlogUsecaseArgs,
   MicroCmsBlogUsecaseGetBlogsParams,
@@ -5,7 +6,7 @@ import {
   MicroCmsBlogUsecaseGetBlogByIdParams,
   MicroCmsBlogUsecaseGetBlogByIdResponse,
 } from './blogUsecase.types'
-import { ArticleFiltersLogic } from 'logic/blogs/articles/articleFilters'
+import { METHOD_GET, X_API_KEY, FULL_ARTICEL_COUNT } from '../const'
 
 /**
  * MicroCMSブログ記事の取得 Usecase
@@ -31,7 +32,7 @@ export class MicroCmsBlogUsecase {
     categoryId,
     tagId,
   }: MicroCmsBlogUsecaseGetBlogsParams): Promise<MicroCmsBlogUsecaseGetBlogsResponse> {
-    const checkedLimit = limit ? maxArticleCount : 9999
+    const checkedLimit = limit ? maxArticleCount : FULL_ARTICEL_COUNT
     const checkedOffset = offset ? offset : 0
 
     const filters = new ArticleFiltersLogic({
@@ -42,9 +43,9 @@ export class MicroCmsBlogUsecase {
     const res = await fetch(
       `${this.args.baseEndpint}${this.blogEndpoint}?${filters}&limit=${checkedLimit}&offset=${checkedOffset}`,
       {
-        method: 'GET',
+        method: METHOD_GET,
         headers: {
-          'X-API-KEY': this.apiKey,
+          [X_API_KEY]: this.apiKey,
         },
       }
     )
@@ -64,9 +65,9 @@ export class MicroCmsBlogUsecase {
     id,
   }: MicroCmsBlogUsecaseGetBlogByIdParams): Promise<MicroCmsBlogUsecaseGetBlogByIdResponse> {
     const res = await fetch(`${this.baseEndpint}${this.blogEndpoint}/${id}`, {
-      method: 'GET',
+      method: METHOD_GET,
       headers: {
-        'X-API-KEY': this.apiKey,
+        [X_API_KEY]: this.apiKey,
       },
     })
 

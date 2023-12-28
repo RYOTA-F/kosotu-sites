@@ -4,6 +4,7 @@ import {
   MicroCmsCategoryUsecaseGetCategoryByIdParams,
   MicroCmsCategoryUsecaseGetCategoryByIdResponse,
 } from './categoryUsecase.types'
+import { METHOD_GET, X_API_KEY, FULL_ARTICEL_COUNT } from '../const'
 
 /**
  * MicroCMSカテゴリの取得 Usecase
@@ -23,14 +24,12 @@ export class MicroCmsCategoryUsecase {
    * カテゴリ一覧を取得
    */
   async getCategories(): Promise<MicroCmsCategoryUsecaseGetCategoriesResponse> {
-    const limit = 9999
-
     const res = await fetch(
-      `${this.baseEndpint}${this.categoryEndpoint}?limit=${limit}`,
+      `${this.baseEndpint}${this.categoryEndpoint}?limit=${FULL_ARTICEL_COUNT}`,
       {
-        method: 'GET',
+        method: METHOD_GET,
         headers: {
-          'X-API-KEY': this.apiKey,
+          [X_API_KEY]: this.apiKey,
         },
       }
     )
@@ -51,9 +50,9 @@ export class MicroCmsCategoryUsecase {
     const res = await fetch(
       `${this.baseEndpint}${this.categoryEndpoint}/${id}`,
       {
-        method: 'GET',
+        method: METHOD_GET,
         headers: {
-          'X-API-KEY': this.apiKey,
+          [X_API_KEY]: this.apiKey,
         },
       }
     )
