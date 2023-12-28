@@ -116,7 +116,7 @@ export class CreateBreadCrumbDataLogic {
     const relation = childCategory?.relation
     // 親カテゴリ
     const parentCategory = this.categories.find(
-      (category) => category.id === relation?.parent[0].id
+      (category) => category.id === relation?.parent[0]?.id
     )
 
     // 記事タイトル
