@@ -1,11 +1,11 @@
-import { API } from 'const/microCms'
-import { MicroCmsCategoryUsecase } from 'usecase/microCMS/category/categoryUsecase'
+import { API, API_KEY, API_BASE_ENDPOINT } from 'const'
 import { CategoryPathsLogic } from 'logic/blogs/categories/categoryPaths'
+import { MicroCmsCategoryUsecase } from 'usecase/microCMS/category/categoryUsecase'
 
 export async function generateStaticParams() {
   const { categories } = await new MicroCmsCategoryUsecase({
-    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
-    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    apiKey: API_KEY,
+    baseEndpint: API_BASE_ENDPOINT,
     categoryEndpoint: API.CATEGORY.END_POINT,
   }).getCategories()
 

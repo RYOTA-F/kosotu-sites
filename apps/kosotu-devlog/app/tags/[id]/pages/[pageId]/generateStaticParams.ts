@@ -1,13 +1,13 @@
-import { API, MAX_ARTICEL_COUNT } from 'const/microCms'
-import { MicroCmsBlogUsecase } from 'usecase/microCMS/blog/blogUsecase'
-import { MicroCmsTagUsecase } from 'usecase/microCMS/tag/tagUsecase'
+import { API, MAX_ARTICEL_COUNT, API_KEY, API_BASE_ENDPOINT } from 'const'
 import { PagePathsLogic, PAGE_TYPE } from 'logic/blogs/articles/pagePaths'
 import { PaginationLogic } from 'logic/blogs/articles/pagination'
+import { MicroCmsBlogUsecase } from 'usecase/microCMS/blog/blogUsecase'
+import { MicroCmsTagUsecase } from 'usecase/microCMS/tag/tagUsecase'
 
 export async function generateStaticParams() {
   const { tags } = await new MicroCmsTagUsecase({
-    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
-    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    apiKey: API_KEY,
+    baseEndpint: API_BASE_ENDPOINT,
     tagEndpoint: API.CATEGORY.END_POINT,
   }).getTags()
 
@@ -16,8 +16,8 @@ export async function generateStaticParams() {
     tags.map(async (tag) => {
       // カテゴリ毎の記事総数
       const { totalCount } = await new MicroCmsBlogUsecase({
-        apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
-        baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+        apiKey: API_KEY,
+        baseEndpint: API_BASE_ENDPOINT,
         blogEndpoint: API.BLOG.END_POINT,
       }).getBlogs({
         limit: false,

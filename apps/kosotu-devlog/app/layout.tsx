@@ -1,24 +1,41 @@
-import { PAGE } from 'const/page'
-import { SITE_NAME, CHATCH_PHRASE, PROFILE_INFO } from 'const/global'
-import { SUB_MENU_LIST, HEADER_MENU } from 'const/menu'
-import { METADATA } from 'const/metadata'
+import {
+  API,
+  PAGE,
+  SITE_NAME,
+  CHATCH_PHRASE,
+  PROFILE_INFO,
+  SUB_MENU_LIST,
+  TWITTER,
+  METADATA,
+  API_KEY,
+  API_BASE_ENDPOINT,
+} from 'const'
 import { Header } from 'ui/components/blogs/common/Header'
 import { Footer } from 'ui/components/blogs/common/Footer'
 import { ProfileInfo } from 'ui/components/blogs/common/ProfileInfo'
+import { useMenu } from 'hook/blogs/menus/useMenu'
 import 'public/globals.css'
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const { getGlobalMenu } = useMenu({
+    apiKey: API_KEY,
+    baseEndpint: API_BASE_ENDPOINT,
+    categoryEndpoint: API.CATEGORY.END_POINT,
+  })
+  const { globalMenu } = await getGlobalMenu()
+
   return (
     <html lang="ja">
       <body>
         <Header
           siteName={SITE_NAME}
           catchPhrase={CHATCH_PHRASE}
-          globalMenu={HEADER_MENU}
+          twitterUrl={TWITTER.URL}
+          globalMenu={globalMenu}
         />
         <main className="max-w-full overflow-x-hidden">
           <div className="flex justify-between py-[60px] tb:pt-5 px-[5%] tb:block sp:block">

@@ -170,6 +170,9 @@ importers:
       highlight.js:
         specifier: 11.7.0
         version: 11.7.0
+      hook:
+        specifier: workspace:*
+        version: link:../hook
       logic:
         specifier: workspace:*
         version: link:../logic

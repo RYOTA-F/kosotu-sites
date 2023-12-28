@@ -43,7 +43,8 @@
     "clsx": "^1.1.1",
     "highlight.js": "11.7.0",
     "logic": "workspace:*",
-    "type": "workspace:*"
+    "type": "workspace:*",
+    "hook": "workspace:*"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.4.4",

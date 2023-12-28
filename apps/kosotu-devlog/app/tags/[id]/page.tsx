@@ -1,7 +1,6 @@
-import { API, MAX_ARTICEL_COUNT } from 'const/microCms'
+import { API, MAX_ARTICEL_COUNT, API_KEY, API_BASE_ENDPOINT } from 'const'
 import { useArticles } from 'hook/blogs/articles/useArticles'
 import { useTags } from 'hook/blogs/tags/useTags'
-import { generateStaticParams } from './generateStaticParams'
 import { TagDetailHeader } from 'ui/components/blogs/features/tags/TagDetailHeader'
 import { ArticleCardList } from 'ui/components/blogs/features/articles/ArticleCardList'
 import {
@@ -9,6 +8,7 @@ import {
   PAGE_PATTERN,
   TOP_PAGE_NUM,
 } from 'ui/components/blogs/common/Pagination'
+import { generateStaticParams } from './generateStaticParams'
 
 interface TagPageParams {
   params: {
@@ -18,14 +18,14 @@ interface TagPageParams {
 
 export default async function TagPage({ params: { id } }: TagPageParams) {
   const { getArticlesByTagId } = useArticles({
-    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
-    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    apiKey: API_KEY,
+    baseEndpint: API_BASE_ENDPOINT,
     blogEndpoint: API.BLOG.END_POINT,
     maxPageArticleCount: MAX_ARTICEL_COUNT,
   })
   const { getTagById } = useTags({
-    apiKey: process.env.NEXT_PUBLIC_API_KEY || '',
-    baseEndpint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
+    apiKey: API_KEY,
+    baseEndpint: API_BASE_ENDPOINT,
     tagEndpoint: API.TAG.END_POINT,
   })
   const { tag } = await getTagById(id)
