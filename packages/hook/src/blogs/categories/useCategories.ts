@@ -2,7 +2,7 @@ import { MicroCmsCategoryUsecase } from 'usecase/microCMS/category/categoryUseca
 import { UseCategories } from './useCategories.types'
 
 /**
- * カテゴリ取得用カスタムフック
+ * カテゴリ取得用 Custom Hooks
  */
 export const useCategories: UseCategories = ({
   apiKey,

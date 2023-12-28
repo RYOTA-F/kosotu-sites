@@ -2,7 +2,7 @@ import dayjs from 'dayjs'
 import { DateFormatLogicArgs } from './formatDateLogic.types'
 
 /**
- * 日付フォーマット変換ロジック
+ * 日付フォーマット変換 Logic
  */
 export class DateFormatLogic {
   private readonly date: DateFormatLogicArgs['date']
@@ -12,7 +12,7 @@ export class DateFormatLogic {
   }
 
   /**
-   * YYYY-MM-DDに変換
+   * YYYY-MM-DD変換を実行
    */
   formatYYYYMMDD(): string {
     return dayjs(this.date).format('YYYY-MM-DD')

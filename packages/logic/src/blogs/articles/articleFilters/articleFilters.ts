@@ -1,5 +1,8 @@
 import { ArticleFiltersLogicArgs } from './articleFilters.types'
 
+/**
+ * 投稿取得のフィルターを生成する Logic
+ */
 export class ArticleFiltersLogic {
   private readonly categoryId: ArticleFiltersLogicArgs['categoryId']
   private readonly tagId: ArticleFiltersLogicArgs['tagId']
@@ -9,6 +12,9 @@ export class ArticleFiltersLogic {
     this.tagId = this.args.tagId
   }
 
+  /**
+   * フィルター生成を実行
+   */
   execute(): string {
     return this.getFiltersString()
   }

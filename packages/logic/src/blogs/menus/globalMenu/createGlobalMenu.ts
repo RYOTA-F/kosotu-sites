@@ -6,7 +6,7 @@ import {
 } from './createGlobalMenu.types'
 
 /**
- * グローバルメニューを作成するロジック
+ * グローバルメニューを作成する Logic
  */
 export class CreateGlobalMenuLogic {
   private readonly categories: CreateGlobalMenuLogicArgs['categories']
@@ -16,7 +16,7 @@ export class CreateGlobalMenuLogic {
   }
 
   /**
-   * グローバルメニューを作成
+   * グローバルメニュー作成を実行
    */
   execute(): CreateGlobalMenuLogicResponse {
     return {

@@ -4,6 +4,9 @@ import {
   PaginationLogicResponse,
 } from './paginationLogic.types'
 
+/**
+ * ページネーション用 Logic
+ */
 export class PaginationLogic {
   private readonly pageNumber: PaginationLogicArgs['pageNumber']
   private readonly currentPagePattern: PaginationLogicArgs['currentPagePattern']
@@ -17,6 +20,9 @@ export class PaginationLogic {
     this.tagId = this.args.tagId
   }
 
+  /**
+   * ページネーションリンク取得を実行
+   */
   execute(): PaginationLogicResponse {
     return {
       linkUrl: this.getPaginationLink(),

@@ -3,6 +3,9 @@ import {
   CategoryRelationLogicResponse,
 } from './categoryRelation.types'
 
+/**
+ * カテゴリの親子関係を生成する Logic
+ */
 export class CategoryRelationLogic {
   private readonly relation: CategoryRelationLogicArgs['relation']
 
@@ -10,6 +13,9 @@ export class CategoryRelationLogic {
     this.relation = this.args.relation
   }
 
+  /**
+   * 親子関係生成を実行
+   */
   execute(): CategoryRelationLogicResponse {
     const isParent = this.relation.isParent
     const categoryParent =

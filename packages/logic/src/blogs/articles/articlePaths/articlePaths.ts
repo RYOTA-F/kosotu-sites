@@ -3,6 +3,9 @@ import {
   ArticlePathsLogicResponse,
 } from './articlePaths.types'
 
+/**
+ * 投稿のパスを生成する Logic
+ */
 export class ArticlePathsLogic {
   private readonly blogs: ArticlePathsLogicArgs['blogs']
 
@@ -10,6 +13,9 @@ export class ArticlePathsLogic {
     this.blogs = this.args.blogs
   }
 
+  /**
+   * パス生成を実行
+   */
   execute(): ArticlePathsLogicResponse {
     return this.blogs.map((blog) => ({ id: blog.id }))
   }

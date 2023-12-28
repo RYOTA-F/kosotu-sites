@@ -1,9 +1,9 @@
-import { MicroCmsCategoryUsecase } from 'usecase/microCMS/category'
 import { CreateGlobalMenuLogic } from 'logic/blogs/menus/globalMenu/createGlobalMenu'
+import { MicroCmsCategoryUsecase } from 'usecase/microCMS/category'
 import { UseMenu } from './useMenu.types'
 
 /**
- * メニュー取得用カスタムフック
+ * メニュー取得用 Custom Hooks
  */
 export const useMenu: UseMenu = ({ apiKey, baseEndpint, categoryEndpoint }) => {
   const microCmsCategoryUsecase = new MicroCmsCategoryUsecase({

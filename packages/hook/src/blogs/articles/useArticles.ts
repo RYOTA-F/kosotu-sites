@@ -7,7 +7,7 @@ import { MicroCmsBlogUsecase } from 'usecase/microCMS/blog'
 import { UseArticles } from './useArticles.types'
 
 /**
- * ブログ記事取得用カスタムフック
+ * ブログ記事取得用 Custom Hooks
  */
 export const useArticles: UseArticles = ({
   apiKey,

@@ -8,7 +8,7 @@ import {
 } from './convertBody.types'
 
 /**
- * 投稿本文をパースするロジック
+ * 投稿本文をパースする Logic
  */
 export class PerseArticleBodyLogic {
   private readonly articleBody: PerseArticleBodyLogicArgs['articleBody']

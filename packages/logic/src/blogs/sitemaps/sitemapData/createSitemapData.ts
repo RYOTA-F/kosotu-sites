@@ -6,13 +6,13 @@ import {
 } from './createSitemapData.types'
 
 /**
- * サイトマップ情報を作成するロジック
+ * サイトマップ情報を作成する Logic
  */
 export class CreateSitemapDataLogic {
   constructor(private args: CreateSitemapDataLogicArgs) {}
 
   /**
-   * サイトマップ情報を作成
+   * サイトマップ情報作成を実行
    */
   execute(): CreateSitemapDataLogicResponse {
     const convertedBlogs = this.convertBlogsData(this.args.blogs)
