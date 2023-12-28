@@ -1,14 +1,10 @@
 import {
-  METHOD_GET,
-  X_API_KEY,
-  FULL_ARTICEL_COUNT,
-} from 'usecase/microCms/const'
-import {
   MicroCmsTagUsecaseArgs,
   MicroCmsTagUsecaseGetTagsResponse,
   MicroCmsTagUsecaseGetTagByIdParams,
   MicroCmsTagUsecaseGetTagByIdResponse,
 } from './tagUsecase.types'
+import { METHOD_GET, X_API_KEY, FULL_ARTICEL_COUNT } from '../const'
 
 /**
  * MicroCMSタグの取得 Usecase
