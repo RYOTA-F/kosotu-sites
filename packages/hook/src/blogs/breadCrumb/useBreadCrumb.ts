@@ -6,19 +6,18 @@ import {
   PAGE_TYPE,
 } from 'logic/blogs/breadCrumb/breadCrumbData/createBreadCrumbData'
 import {
-  UseBreadCrumb,
-  GetBreadCrumbMasterDataProps,
+  GetBreadCrumbMasterDataParams,
   GetBreadCrumbMasterDataResponse,
-  GetBreadCrumbProps,
+  GetBreadCrumbParams,
   GetBreadCrumbResponse,
-  GetIsShowBreadCrumbProps,
+  GetIsShowBreadCrumbParams,
   GetIsShowBreadCrumbResponse,
 } from './useBreadCrumb.types'
 
 /**
  * パンクズ取得用 Custom Hooks
  */
-export const useBreadCrumb: UseBreadCrumb = () => {
+export const useBreadCrumb = () => {
   /**
    * パンクズに必要なマスターデータを取得
    */
@@ -28,7 +27,7 @@ export const useBreadCrumb: UseBreadCrumb = () => {
     blogEndpoint,
     categoryEndpoint,
     tagEndpoint,
-  }: GetBreadCrumbMasterDataProps): Promise<GetBreadCrumbMasterDataResponse> => {
+  }: GetBreadCrumbMasterDataParams): Promise<GetBreadCrumbMasterDataResponse> => {
     const { blogs } = await new MicroCmsBlogUsecase({
       apiKey,
       baseEndpint,
@@ -66,7 +65,7 @@ export const useBreadCrumb: UseBreadCrumb = () => {
     articles,
     categories,
     tags,
-  }: GetBreadCrumbProps): GetBreadCrumbResponse => {
+  }: GetBreadCrumbParams): GetBreadCrumbResponse => {
     return new CreateBreadCrumbDataLogic({
       path,
       articles,
@@ -80,7 +79,7 @@ export const useBreadCrumb: UseBreadCrumb = () => {
    */
   const getIsShowBreadCrumb = ({
     path,
-  }: GetIsShowBreadCrumbProps): GetIsShowBreadCrumbResponse => {
+  }: GetIsShowBreadCrumbParams): GetIsShowBreadCrumbResponse => {
     const isRoot = path === PAGE_TYPE.ROOT
     const isPages = path.includes(PAGE_TYPE.PAGES)
     const isCategory = path.includes(PAGE_TYPE.CATEGORY)
