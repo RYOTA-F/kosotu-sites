@@ -28,7 +28,10 @@ export default async function TagPagesPage({
     tagEndpoint: API.TAG.END_POINT,
   })
   const { tag } = await getTagById(id)
-  const { articles, totalPageCount } = await getArticlesByTagId(id, pageId)
+  const { articles, totalPageCount } = await getArticlesByTagId({
+    tagId: id,
+    pageId,
+  })
 
   return (
     <>

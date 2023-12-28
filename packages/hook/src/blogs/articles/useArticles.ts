@@ -4,17 +4,27 @@ import { ArticleOffsetCountLogic } from 'logic/blogs/articles/offsetCount'
 import { PerseArticleBodyLogic } from 'logic/blogs/articles/articleBody/convertBody'
 import { TableOfContentsLogic } from 'logic/blogs/articles/tableOfContants/tableOfContentsLogic'
 import { MicroCmsBlogUsecase } from 'usecase/microCMS/blog'
-import { UseArticles } from './useArticles.types'
+import {
+  UseArticlesParams,
+  GetArticlesParams,
+  GetArticlesResponse,
+  GetArticleByIdParams,
+  GetArticleByIdResponse,
+  GetArticlesByCategoryIdParams,
+  GetArticlesByCategoryIdResponse,
+  GetArticlesByTagIdParams,
+  GetArticlesByTagIdResponse,
+} from './useArticles.types'
 
 /**
  * ブログ記事取得用 Custom Hooks
  */
-export const useArticles: UseArticles = ({
+export const useArticles = ({
   apiKey,
   baseEndpint,
   blogEndpoint,
   maxPageArticleCount,
-}) => {
+}: UseArticlesParams) => {
   const microCmsBlogUsecase = new MicroCmsBlogUsecase({
     apiKey,
     baseEndpint,
@@ -24,7 +34,9 @@ export const useArticles: UseArticles = ({
   /**
    * ブログ記事一覧を取得
    */
-  const getArticles = async (id?: string) => {
+  const getArticles = async ({
+    id,
+  }: GetArticlesParams): Promise<GetArticlesResponse> => {
     const offset = new ArticleOffsetCountLogic({
       id: id,
       maxPageCount: maxPageArticleCount,
@@ -49,7 +61,9 @@ export const useArticles: UseArticles = ({
   /**
    * IDを指定してブログ記事を一件取得
    */
-  const getArticleById = async (id: string) => {
+  const getArticleById = async ({
+    id,
+  }: GetArticleByIdParams): Promise<GetArticleByIdResponse> => {
     const { blog } = await microCmsBlogUsecase.getBlogById({ id })
 
     const { body } = await new PerseArticleBodyLogic({
@@ -72,10 +86,10 @@ export const useArticles: UseArticles = ({
   /**
    * カテゴリに紐づくブログ記事一覧を取得
    */
-  const getArticlesByCategoryId = async (
-    categoryId: string,
-    pageId?: string
-  ) => {
+  const getArticlesByCategoryId = async ({
+    categoryId,
+    pageId,
+  }: GetArticlesByCategoryIdParams): Promise<GetArticlesByCategoryIdResponse> => {
     const offset = new ArticleOffsetCountLogic({
       id: pageId,
       maxPageCount: maxPageArticleCount,
@@ -101,7 +115,10 @@ export const useArticles: UseArticles = ({
   /**
    * タグに紐づくブログ記事一覧を取得
    */
-  const getArticlesByTagId = async (tagId: string, pageId?: string) => {
+  const getArticlesByTagId = async ({
+    tagId,
+    pageId,
+  }: GetArticlesByTagIdParams): Promise<GetArticlesByTagIdResponse> => {
     const offset = new ArticleOffsetCountLogic({
       id: pageId,
       maxPageCount: maxPageArticleCount,

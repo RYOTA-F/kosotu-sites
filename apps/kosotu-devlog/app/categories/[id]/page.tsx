@@ -31,7 +31,9 @@ export default async function CategoryPage({
     categoryEndpoint: API.CATEGORY.END_POINT,
   })
   const { category } = await getCategoryById(id)
-  const { articles, totalPageCount } = await getArticlesByCategoryId(id)
+  const { articles, totalPageCount } = await getArticlesByCategoryId({
+    categoryId: id,
+  })
 
   return (
     <>
