@@ -1,10 +1,14 @@
 import {
+  METHOD_GET,
+  X_API_KEY,
+  FULL_ARTICEL_COUNT,
+} from 'usecase/microCms/const'
+import {
   MicroCmsCategoryUsecaseArgs,
   MicroCmsCategoryUsecaseGetCategoriesResponse,
   MicroCmsCategoryUsecaseGetCategoryByIdParams,
   MicroCmsCategoryUsecaseGetCategoryByIdResponse,
 } from './categoryUsecase.types'
-import { METHOD_GET, X_API_KEY, FULL_ARTICEL_COUNT } from '../const'
 
 /**
  * MicroCMSカテゴリの取得 Usecase

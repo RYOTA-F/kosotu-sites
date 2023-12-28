@@ -1,12 +1,16 @@
 import { ArticleFiltersLogic } from 'logic/blogs/articles/articleFilters'
 import {
+  METHOD_GET,
+  X_API_KEY,
+  FULL_ARTICEL_COUNT,
+} from 'usecase/microCms/const'
+import {
   MicroCmsBlogUsecaseArgs,
   MicroCmsBlogUsecaseGetBlogsParams,
   MicroCmsBlogUsecaseGetBlogsResponse,
   MicroCmsBlogUsecaseGetBlogByIdParams,
   MicroCmsBlogUsecaseGetBlogByIdResponse,
 } from './blogUsecase.types'
-import { METHOD_GET, X_API_KEY, FULL_ARTICEL_COUNT } from '../const'
 
 /**
  * MicroCMSブログ記事の取得 Usecase
