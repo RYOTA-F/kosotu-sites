@@ -1,14 +1,15 @@
 import { Category } from 'type/microCMS'
 
-export interface UseCategoriesProps {
+export interface UseCategoriesParams {
   apiKey: string
   baseEndpint: string
   categoryEndpoint: string
 }
 
-export type UseCategories = (props: UseCategoriesProps) => {
-  /**
-   * IDを指定してカテゴリを一件取得
-   */
-  getCategoryById: (id: string) => Promise<{ category: Category }>
+export interface GetCategoryByIdParams {
+  id: string
+}
+
+export interface GetCategoryByIdResponse {
+  category: Category
 }
