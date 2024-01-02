@@ -1,14 +1,18 @@
 import { MicroCmsCategoryUsecase } from 'usecase/microCMS/category/categoryUsecase'
-import { UseCategories } from './useCategories.types'
+import {
+  UseCategoriesParams,
+  GetCategoryByIdParams,
+  GetCategoryByIdResponse,
+} from './useCategories.types'
 
 /**
  * カテゴリ取得用 Custom Hooks
  */
-export const useCategories: UseCategories = ({
+export const useCategories = ({
   apiKey,
   baseEndpint,
   categoryEndpoint,
-}) => {
+}: UseCategoriesParams) => {
   const microCmsCategoryUsecase = new MicroCmsCategoryUsecase({
     apiKey,
     baseEndpint,
@@ -18,7 +22,9 @@ export const useCategories: UseCategories = ({
   /**
    * IDを指定してカテゴリを一件取得
    */
-  const getCategoryById = async (id: string) => {
+  const getCategoryById = async ({
+    id,
+  }: GetCategoryByIdParams): Promise<GetCategoryByIdResponse> => {
     const { category } = await microCmsCategoryUsecase.getCategoryById({ id })
 
     return {

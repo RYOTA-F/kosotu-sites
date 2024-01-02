@@ -1,7 +1,7 @@
 import { CreateSitemapDataLogic } from 'logic/blogs/sitemaps/sitemapData/createSitemapData'
 import { MicroCmsBlogUsecase } from 'usecase/microCMS/blog/blogUsecase'
 import { MicroCmsCategoryUsecase } from 'usecase/microCMS/category/categoryUsecase'
-import { UseSitemapProps } from './useSitemap.types'
+import { UseSitemapParams, GetSitemapsResponse } from './useSitemap.types'
 
 /**
  * サイトマップ取得用 Custom Hooks
@@ -11,7 +11,7 @@ export const useSitemap = ({
   baseEndpint,
   blogEndpoint,
   categoryEndpoint,
-}: UseSitemapProps) => {
+}: UseSitemapParams) => {
   const microCmsBlogUsecase = new MicroCmsBlogUsecase({
     apiKey,
     baseEndpint,
@@ -27,7 +27,7 @@ export const useSitemap = ({
   /**
    * サイトマップを取得
    */
-  const getSitemaps = async () => {
+  const getSitemaps = async (): Promise<GetSitemapsResponse> => {
     // 全投稿を取得
     const { blogs } = await microCmsBlogUsecase.getBlogs({
       limit: false,

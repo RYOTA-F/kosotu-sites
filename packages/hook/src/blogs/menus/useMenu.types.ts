@@ -1,14 +1,11 @@
 import { GlobalMenu } from 'type/microCMS'
 
-export interface UseMenuProps {
+export interface UseMenuParams {
   apiKey: string
   baseEndpint: string
   categoryEndpoint: string
 }
 
-export type UseMenu = (props: UseMenuProps) => {
-  /**
-   * ヘッダーメニューを取得
-   */
-  getGlobalMenu: () => Promise<{ globalMenu: GlobalMenu[] }>
+export interface GetGlobalMenuResponse {
+  globalMenu: GlobalMenu[]
 }

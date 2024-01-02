@@ -17,7 +17,7 @@ export default async function PagesPage({ params: { id } }: PagesPageParams) {
     blogEndpoint: API.BLOG.END_POINT,
     maxPageArticleCount: MAX_ARTICEL_COUNT,
   })
-  const { articles, totalPageCount } = await getArticles(id)
+  const { articles, totalPageCount } = await getArticles({ id })
 
   return (
     <>

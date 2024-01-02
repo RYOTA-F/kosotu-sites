@@ -21,46 +21,6 @@ importers:
         specifier: ^1.8.3
         version: 1.10.14
 
-  apps/kosotu-carrerlog:
-    dependencies:
-      next:
-        specifier: canary
-        version: 14.0.5-canary.1(react-dom@18.2.0)(react@18.2.0)
-      react:
-        specifier: latest
-        version: 18.2.0
-      react-dom:
-        specifier: latest
-        version: 18.2.0(react@18.2.0)
-      ui:
-        specifier: workspace:*
-        version: link:../../packages/ui
-    devDependencies:
-      '@types/node':
-        specifier: ^18.0.0
-        version: 18.17.18
-      '@types/react':
-        specifier: latest
-        version: 18.2.42
-      autoprefixer:
-        specifier: ^10.4.16
-        version: 10.4.16(postcss@8.4.30)
-      eslint:
-        specifier: ^8.11.0
-        version: 8.50.0
-      eslint-config-next:
-        specifier: canary
-        version: 14.0.5-canary.1(eslint@8.50.0)(typescript@4.8.4)
-      postcss:
-        specifier: ^8.4.30
-        version: 8.4.30
-      tailwindcss:
-        specifier: ^3.3.3
-        version: 3.3.3
-      typescript:
-        specifier: 4.8.4
-        version: 4.8.4
-
   apps/kosotu-devlog:
     dependencies:
       hook:
