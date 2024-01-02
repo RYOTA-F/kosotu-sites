@@ -14,7 +14,7 @@ export default async function HomePage() {
     blogEndpoint: API.BLOG.END_POINT,
     maxPageArticleCount: MAX_ARTICEL_COUNT,
   })
-  const { articles, totalPageCount } = await getArticles()
+  const { articles, totalPageCount } = await getArticles({})
 
   return (
     <>

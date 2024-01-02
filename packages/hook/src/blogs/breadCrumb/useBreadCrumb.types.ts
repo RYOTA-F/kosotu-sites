@@ -1,27 +1,6 @@
 import { Blog, Category, Tag, BreadCrumb } from 'type/microCMS'
 
-export type UseBreadCrumb = () => {
-  /**
-   * パンクズに必要なマスターデータを取得
-   */
-  getBreadCrumbMasterData: (
-    props: GetBreadCrumbMasterDataProps
-  ) => Promise<GetBreadCrumbMasterDataResponse>
-
-  /**
-   * パンクズ情報を取得
-   */
-  getBreadCrumb: (props: GetBreadCrumbProps) => GetBreadCrumbResponse
-
-  /**
-   * パンクズの表示条件を取得
-   */
-  getIsShowBreadCrumb: (
-    props: GetIsShowBreadCrumbProps
-  ) => GetIsShowBreadCrumbResponse
-}
-
-export interface GetBreadCrumbMasterDataProps {
+export interface GetBreadCrumbMasterDataParams {
   apiKey: string
   baseEndpint: string
   blogEndpoint: string
@@ -35,7 +14,7 @@ export interface GetBreadCrumbMasterDataResponse {
   tags: Tag[]
 }
 
-export interface GetBreadCrumbProps {
+export interface GetBreadCrumbParams {
   path: string
   articles: Blog[]
   categories: Category[]
@@ -46,7 +25,7 @@ export interface GetBreadCrumbResponse {
   breadCrumb: BreadCrumb
 }
 
-export interface GetIsShowBreadCrumbProps {
+export interface GetIsShowBreadCrumbParams {
   path: string
 }
 

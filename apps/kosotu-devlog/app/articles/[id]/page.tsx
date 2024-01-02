@@ -26,7 +26,7 @@ export default async function ArticlePage({
     blogEndpoint: API.BLOG.END_POINT,
     maxPageArticleCount: MAX_ARTICEL_COUNT,
   })
-  const { article, tableOfContents } = await getArticleById(id)
+  const { article, tableOfContents } = await getArticleById({ id })
 
   return (
     <>
