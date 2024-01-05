@@ -1,14 +1,17 @@
 import { Header } from 'ui/components/blogs/common/Header'
 import { BreadCrumb } from 'ui/components/blogs/common/BreadCrumb'
 import { Footer } from 'ui/components/blogs/common/Footer'
+import { ProfileInfo } from 'ui/components/blogs/common/ProfileInfo'
 import { useBreadCrumb } from 'hook/blogs/breadCrumb/useBreadCrumb'
 import { useMenu } from 'hook/blogs/menus/useMenu'
 import {
   API_KEY,
   API_BASE_ENDPOINT,
   API,
-  SITE_NAME,
   CHATCH_PHRASE,
+  PAGE,
+  PROFILE_INFO,
+  SITE_NAME,
   SUB_MENU_LIST,
   TWITTER,
 } from 'const'
@@ -53,13 +56,13 @@ export default async function RootLayout({
           <div className="flex justify-between py-[60px] tb:pt-5 px-[5%] tb:block sp:block">
             <div className="min-w-[75%] mr-8 tb:mr-0">{children}</div>
             <aside className="min-w-[25%] tb:w-[80%] tb:mx-auto tb:mt-10">
-              {/* <ProfileInfo
+              <ProfileInfo
                 profilePath={PAGE.PROFILE}
                 image={PROFILE_INFO.IMAGE}
                 author={PROFILE_INFO.AUTHOR}
                 descriptions={PROFILE_INFO.DESCRIPTION}
                 twitter={PROFILE_INFO.TWITTER}
-              /> */}
+              />
             </aside>
           </div>
         </main>
