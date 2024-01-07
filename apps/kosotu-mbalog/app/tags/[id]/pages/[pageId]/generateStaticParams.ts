@@ -8,7 +8,7 @@ export async function generateStaticParams() {
   const { tags } = await new MicroCmsTagUsecase({
     apiKey: API_KEY,
     baseEndpint: API_BASE_ENDPOINT,
-    tagEndpoint: API.CATEGORY.END_POINT,
+    tagEndpoint: API.TAG.END_POINT,
   }).getTags()
 
   // ページパス生成
@@ -35,7 +35,7 @@ export async function generateStaticParams() {
       // カテゴリ×ページ数のパス
       const pagePaths = new PagePathsLogic({
         totalPage: totalPageCount,
-        type: PAGE_TYPE.CATEGORY,
+        type: PAGE_TYPE.TAG,
         slug: tag.id,
       }).execute()
 
