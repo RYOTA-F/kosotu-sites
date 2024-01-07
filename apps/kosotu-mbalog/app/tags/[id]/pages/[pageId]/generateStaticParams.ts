@@ -35,7 +35,7 @@ export async function generateStaticParams() {
       // カテゴリ×ページ数のパス
       const pagePaths = new PagePathsLogic({
         totalPage: totalPageCount,
-        type: PAGE_TYPE.CATEGORY,
+        type: PAGE_TYPE.TAG,
         slug: tag.id,
       }).execute()
 

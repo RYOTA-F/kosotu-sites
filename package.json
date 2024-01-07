@@ -9,8 +9,8 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "dev:carrerlog": "turbo run dev --scope=kosotu-carrerlog",
     "dev:devlog": "turbo run dev --scope=kosotu-devlog",
+    "dev:mbalog": "turbo run dev --scope=kosotu-mbalog",
     "start": "turbo run start",
     "sb:ui": "cd packages/ui && pnpm run storybook",
     "lint": "turbo run lint",
