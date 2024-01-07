@@ -23,15 +23,7 @@ export const PROFILE_INFO_DESCRIPTION = [
   },
   {
     label: 'スキル',
-    items: [
-      'TypeScript',
-      'React',
-      'Next.js',
-      'Vue.js',
-      'Node.js',
-      'Ruby',
-      'AWS',
-    ],
+    items: ['Node.js', 'TypeScript', 'React', 'Next.js', 'AWS'],
   },
   {
     label: '資格',
@@ -39,7 +31,7 @@ export const PROFILE_INFO_DESCRIPTION = [
   },
   {
     label: 'その他',
-    items: ['TSLab 運営', 'Developers Guild 運営', '高卒Devlog運営'],
+    items: ['MBAプログラム受講中', 'エンジニアコミュニティ主催', 'ブログ運営'],
   },
 ]
 
