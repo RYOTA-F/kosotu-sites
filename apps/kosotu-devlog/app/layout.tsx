@@ -2,7 +2,7 @@ import {
   API,
   PAGE,
   SITE_NAME,
-  CHATCH_PHRASE,
+  SITE_DESCRIPTION,
   PROFILE_INFO,
   SUB_MENU_LIST,
   TWITTER,
@@ -44,7 +44,7 @@ export default async function RootLayout({
       <body>
         <Header
           siteName={SITE_NAME}
-          catchPhrase={CHATCH_PHRASE}
+          catchPhrase={SITE_DESCRIPTION}
           twitterUrl={TWITTER.URL}
           globalMenu={globalMenu}
         />

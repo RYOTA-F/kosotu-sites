@@ -1,9 +1,11 @@
 import { TWITTER } from './twitter'
 
 export const SITE_NAME = '高卒Devlog' as const
-
-export const CHATCH_PHRASE =
+export const SITE_DESCRIPTION =
   'Web開発ログ | エンジニアに役立つ情報 | 開発の中での気づきを発信' as const
+export const SITE_URL = 'https://kosotudev.com/' as const
+export const SITE_IMAGE =
+  'https://images.microcms-assets.io/assets/968175a6ae1f429a923f393a5fa133a4/32a958c9628e4ebdafba1471d6b9c617/ryota.webp' as const
 
 export const PROFILE_INFO_IMAGE = {
   path: '/images/ryota.webp',
