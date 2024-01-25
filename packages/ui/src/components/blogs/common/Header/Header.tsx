@@ -2,6 +2,7 @@ import { ARIA_LABEL, ICON } from './Header.const'
 import { HeaderProps } from './Header.types'
 import style from './Header.module.css'
 import { AccordionMenu } from '../AccordionMenu'
+import { SpMenu } from '../SpMenu'
 import { TwitterSvg } from '../../../elements/Svg'
 
 export function Header({
@@ -50,6 +51,10 @@ export function Header({
           </ul>
         )}
       </header>
+
+      <div className={style.spMenu}>
+        <SpMenu globalMenu={globalMenu} />
+      </div>
     </>
   )
 }

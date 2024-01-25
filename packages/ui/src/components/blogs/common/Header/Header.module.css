@@ -53,3 +53,22 @@
   line-height: 72px;
   color: white;
 }
+
+@media (max-width: 960px) {
+  .container {
+    display: none;
+  }
+  .header {
+    height: 48px;
+    justify-content: center;
+  }
+  .menu {
+    display: none;
+  }
+}
+
+@media (min-width: 960px) {
+  .spMenu {
+    display: none;
+  }
+}
