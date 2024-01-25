@@ -23,3 +23,17 @@
 .listItemMobileNotFirst {
   margin-top: 4%;
 }
+
+@media (max-width: 539px) {
+  .article {
+    display: block;
+  }
+
+  .listItem {
+    width: 100%;
+  }
+
+  .listItem:not(:first-child) {
+    margin-top: 8px;
+  }
+}

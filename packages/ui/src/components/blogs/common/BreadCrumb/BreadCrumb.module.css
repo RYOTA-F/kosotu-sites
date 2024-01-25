@@ -33,3 +33,10 @@
   opacity: 0.7;
   text-decoration: underline;
 }
+
+@media screen and (max-width: 539px) {
+  .breadCrumb {
+    overflow-x: scroll;
+    padding-left: 16px;
+  }
+}
