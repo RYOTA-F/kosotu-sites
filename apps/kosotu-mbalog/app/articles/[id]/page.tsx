@@ -35,7 +35,7 @@ export default async function ArticlePage({
         welcomeMessage={ARTICLE_DETAIL_HEADER.WELCOME_MESSAGE}
         thanksMessage={ARTICLE_DETAIL_HEADER.THANKS_MESSAGE}
       />
-      <div className="mt-8 mx-[10%]">
+      <div className="mt-8 mx-[10%] sp:mx-auto">
         <TableOfContents tableOfContents={tableOfContents} />
       </div>
       <div className="mt-10">

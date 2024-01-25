@@ -65,3 +65,9 @@
 .description {
   line-height: 2;
 }
+
+@media (max-width: 960px) {
+  .section {
+    padding: 0 0;
+  }
+}
