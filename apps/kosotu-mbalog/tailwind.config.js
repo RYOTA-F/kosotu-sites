@@ -4,6 +4,11 @@ module.exports = {
   content: [],
   theme: {
     extend: {
+      screens: {
+        sp: { max: '540px' },
+        tb: { max: '960px' },
+        pc: '960px',
+      },
       colors: {
         gray: {
           text: {
