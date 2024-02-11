@@ -41,6 +41,12 @@ export default async function RootLayout({
 
   return (
     <html lang="ja">
+      <head>
+        <meta property="og:image" content="<generated>" />
+        <meta property="og:image:type" content="<generated>" />
+        <meta property="og:image:width" content="<generated>" />
+        <meta property="og:image:height" content="<generated>" />
+      </head>
       <body>
         <Header
           siteName={SITE_NAME}
